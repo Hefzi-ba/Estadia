@@ -5,10 +5,12 @@
     height: 60%;
     position: relative;
     overflow: hidden;
-    margin: auto;
+    margin:auto;
+    margin-top: 20%;
+    margin-bottom: 20%;
 }
 .mislider{
-    display: none;
+    display: flex;
     transition: 2s;
     max-height: 60vh;
 

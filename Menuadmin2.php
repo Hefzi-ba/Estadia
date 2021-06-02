@@ -27,11 +27,11 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a  class="brand-link">
-      <img src="./Imagenes/LOGOPAAT.png"
+      <img src="./imagenes/logoDCpng.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Menu administrador</span>
+      <span class="brand-text font-weight-light">Menú administrador</span>
     </a>
 
     <!-- Sidebar -->
@@ -39,10 +39,10 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./Imagenes/LOGOPAAT.png" class="img-circle elevation-2" alt="User Image">
+          <img src="./imagenes/logoDCpng.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Julio Silveira </a>
         </div>
       </div>
 
@@ -58,18 +58,47 @@
               <p>
                 Productos
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                
               </p>
             </a>
+            
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="RegistroProducto.php" class="nav-link">
+                <a href="Agregarproducto.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar  productos </p>
+                  <p>Agregar  </p>
                 </a>
                 <a href="./phpconexion/editar.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editar  productos </p>
+                  <p>Editar   </p>
+                </a>
+              </li>
+            
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="Verproducto.php" class="nav-link">
+              <i class="nav-icon fas fa-ghost"></i>
+              <p>
+                Figuras
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+            
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="RegistroProducto.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ver figuras</p>
+                </a>
+                <a href="RegistroProducto.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Agregar   </p>
+                </a>
+                <a href="./phpconexion/editar.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Editar   </p>
                 </a>
               </li>
             
@@ -77,101 +106,76 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
-                categoria
+                Bolsos 
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="RegistroCategorias.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar  categoria </p>
+                  <p>Agregar  </p>
                 </a>
                 <a href="./phpconexion/editarcategorias.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editar  categoria </p>
+                  <p>Editar </p>
                 </a>
               </li>
-              <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Tallas
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar y editar productos </p>
-                </a>
-              </li>
-              
-            
-            </ul>
           </li>
-          
-            
             </ul>
           </li>
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-user-friends"></i>
               <p>
-                Tallas
+              Nosotros 
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="RegistroTallas.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar talla</p>
-                </a>
-              </li>
             
-            </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="Vertallas.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editar talla</p>
+                  <p>Editar </p>
                 </a>
               </li>
             
             </ul>
             <li class="nav-item has-treeview">
-            <a href="RegistroNosotros.php" class="nav-link">
-              <i class="nav-icon fas far fa-building"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-hat-wizard"></i>
               <p>
-                Nosotros
+              Novedad de inicio
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="Vernosotros.php" class="nav-link">
+                <a href="Vertallas.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editar Nosotros</p>
+                  <p>Agregar </p>
+                </a>
+                <a href="./phpconexion/editarcategorias.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Editar </p>
                 </a>
               </li>
             
             </ul>
-           
-          </li>
+            
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fas fa-user-circle"></i>
               <p>
                 Usuarios
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                
               </p>
             </a>
             <ul class="nav nav-treeview">

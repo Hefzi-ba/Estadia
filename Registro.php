@@ -13,34 +13,38 @@
    
         <title>DarkCube</title>
     </head>
-    <body class="body">
+    <body class="fondologin">
        
-
+    <a href="index.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
     
-        <form action="/action_page.php" class=" container form">
+        <form action="/action_page.php" class=" container form" style="margin-bottom: 20%;">
+        <div>
             
+        <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">
             <div class="form-group">
             
-                <label for="uname" class="mar">Usuario:</label>
+                <label for="uname" class="letraslogin">Usuario:</label>
                 <input type="text" class="form-control" id="uname" placeholder="Introduzca un usuario de registro" name="uname" required>
                 
             </div>
             <div class="form-group">
             
-            <label for="uname" class="mar">Correo:</label>
+            <label for="uname" class="letraslogin">Correo:</label>
             <input type="text" class="form-control" id="uname" placeholder="nombre@*****.com" name="uname" required>
             
             </div>
             <div class="form-group">
-                <label for="pwd" class="mar">Contraseña:</label>
+                <label for="pwd" class="letraslogin">Contraseña:</label>
                 <input type="password" class="form-control" id="pwd" placeholder="Contraseña que sea  facil de recordar " name="pswd" required>
                 
             </div>
            <br>
-            <button type="submit" class="w-100 btnx btn btn-outline-danger">Registrarse</button>
+            <button  type="submit" class="w-100 btnx btn btn btn-outline-light">Registrarse</button>
+            
         </form>
         
         
     </body>
 </html>
+
      

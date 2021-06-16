@@ -13,27 +13,28 @@
    
         <title>DarkCube</title>
     </head>
-    <body class="body">
+    <body class="fondologin">
        
-
+    <a href="index.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
     
-        <form action="/action_page.php" class="was-validated container form">
+        <form action="/action_page.php" class="was-validated container form  "style="margin-bottom: 20%;">
+        <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">
             
             <div class="form-group">
             
-                <label for="uname" class="mar">Usuario:</label>
+                <label for="uname" class="letraslogin">Usuario:</label>
                 <input type="text" class="form-control" id="uname" placeholder="Introduzca su usuario" name="uname" required>
                 <div class="valid-feedback">Valido.</div>
                 <div class="invalid-feedback">Vacio es invalido</div>
             </div>
             <div class="form-group">
-                <label for="pwd" class="mar">Contraseña:</label>
+                <label for="pwd" class="letraslogin">Contraseña:</label>
                 <input type="password" class="form-control" id="pwd" placeholder="*******" name="pswd" required>
                 <div class="valid-feedback">Valido.</div>
                 <div class="invalid-feedback">Vacio es invalido</div>
             </div>
            <br>
-            <button type="submit" class="w-100 btnx btn btn-outline-danger">Iniciar sesión</button>
+            <button type="submit" class="w-100 btnx btn btn btn-outline-light">Iniciar sesión</button>
         </form>
         
         

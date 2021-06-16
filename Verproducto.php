@@ -1,5 +1,7 @@
 <?php 
 include("Menuadmin2.php");
+include("conexion/Conexion.php");
+$sql=mysqli_query($conexion,"select * from productos");
 ?>
 <html>
   <head>
@@ -14,6 +16,8 @@ include("Menuadmin2.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+
+
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -23,47 +27,33 @@ include("Menuadmin2.php");
           <table class="table ">
               <thead class="table-dark">
               <th scope="col">Codigo </th>
+              <th scope="col">Imagen</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Talla </th>
+              <th scope="col">Descripción </th>
               <th scope="col">Precio</th>
+              <th scope="col">Existencia pz</th>
               
               </thead>
-              <tbody>
+              
+                <?php 
+              include("conexion/Conexion.php");
+            $consulta="select * from ropa";
+            $respuesta=mysqli_query($conexion,$consulta);
+            while($arreglo=mysqli_fetch_array($respuesta)){
+              echo '
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">'.$arreglo['codigo'].'</th>
                   
-                  <td>Playera</td>
-                  <td>Algodon y estampado en  vinil </td>
-                  <td>S </td>
-                  <td>$200</td>
+                  <td ><img class="tableimg"  src="imagenes/Productos/'.$arreglo['imagen'].'"></td>
+                  <td>'.$arreglo['nombre'].'</td>
+                  <td>'.$arreglo['descripcion'].'</td>
+                  <td>'.$arreglo['precio'].'</td>
+                  <td>'.$arreglo['existencia'].'</td>
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  
-                  <td>Playera</td>
-                  <td>Algodon y estampado en  vinil </td>
-                  <td>S </td>
-                  <td>$200</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  
-                  <td>Playera</td>
-                  <td>Algodon y estampado en  vinil </td>
-                  <td>S </td>
-                  <td>$200</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  
-                  <td>Playera</td>
-                  <td>Algodon y estampado en  vinil </td>
-                  <td>S </td>
-                  <td>$200</td>
-                </tr>
-               
-              </tbody>
+              ';
+            }
+            ?>
+              
           </table>
           </div>
         </div>

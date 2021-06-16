@@ -1,36 +1,28 @@
 
- 
- 
 <?php 
 include("Menuadmin2.php");
 include ("conexion/Conexion.php");
-if(isset($_POST['nombre'])){
-    $nombre =  $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
-    $precio = $_POST['precio'];
-    $existencia = $_POST['existencia'];
-    $codigo =$_POST['codigo'];
+if(isset($_POST['nombrefigura'])){
+    $nombrefigura =  $_POST['nombrefigura'];
+    $descripcionfigura = $_POST['descripcionfigura'];
+    $preciofigura = $_POST['preciofigura'];
+    $codigofigura =$_POST['codigofigura'];
    
-    $tallas = $_POST['tallas'];
+    
      $formatos=array('.png','.jpg', '.gif', '.jpeg');
-      $ubicacion="imagenes/Productos";
-      $imagen=$_FILES['imagen']['name'];
-      $nombre_temporal=$_FILES['imagen']['tmp_name'];
-      if(move_uploaded_file($nombre_temporal,"$ubicacion/$imagen")){
+      $ubicacion="imagenes/Figuras";
+      $imagenfigura=$_FILES['imagenfigura']['name'];
+      $nombre_temporal=$_FILES['imagenfigura']['tmp_name'];
+      if(move_uploaded_file($nombre_temporal,"$ubicacion/$imagenfigura")){
         echo 'se movio';
       }else{
         echo 'no se movio';
       }
-    $sql = "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia) values
-     ( '".$codigo."','".$nombre."','".$imagen."','".$descripcion."', ".$precio.", ".$existencia.")";
+    $sql = "insert into figuras (nombrefigura, imagenfigura, descripcionfigura, preciofigura) values
+     ( '".$nombrefigura."','".$imagenfigura."','".$descripcionfigura."', ".$preciofigura.")";
      mysqli_query($conexion,$sql);
       $ultimoid=mysqli_insert_id($conexion);
-      foreach($_POST['tallas'] as $talla){
-        $sql3="insert into tallas (nombretalla, codigoropa)values 
-        ('".$talla."',".$ultimoid.")";
-         mysqli_query($conexion,$sql3);
-      }
-    
+      
    }
 ?>
 <!DOCTYPE html>
@@ -57,56 +49,36 @@ if(isset($_POST['nombre'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="Agregarproducto.php"  method="POST" enctype="multipart/form-data" class=" container form">
+            <form action="Agregarfigura.php"  method="POST" enctype="multipart/form-data" class=" container form">
                 
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>
-                    <input type="text" class="form-control"   name="codigo" required>
+                    <input type="text" class="form-control" name="codigofigura" required>
                     
                 </div>
                 <div class="form-group">
                     <label  class="ptext">Fotografía:</label>
-                    <input type="file" class="form-control"   name="imagen" required>
+                    <input type="file" class="form-control"   name="imagenfigura" required>
                     
                 </div>
                 <div class="form-group">
                     <label  class="ptext">Nombre:</label>
-                    <input type="text" class="form-control"   name="nombre" required>
+                    <input type="text" class="form-control"   name="nombrefigura" required>
                     
                 </div>
                 <div class="form-group">
                     <label  class="ptext">Descripción:</label>
-                    <input type="text" class="form-control"  name="descripcion" required>
+                    <input type="text" class="form-control"   name="descripcionfigura" required>
                     
                 </div>
-                <label class="ptext">Marque las tallas existentes:</label>
-                    <br>
-                    <?php
-                    $consulta="select * from tabladetallas";
-                    $resultado=mysqli_query($conexion,$consulta);
-                    while($arreglo2=mysqli_fetch_array($resultado)){
-                        echo'
-                        <br><div class="form-check form-switch ">
-                        <input name="tallas[]" class="form-check-input " type="checkbox"  value="'.$arreglo2['nombretalla'].'"> '.$arreglo2['nombretalla'].'
-                        </div>
-                        
-                    
-                        ';
-                    }
-                    ?>
                 <div class="form-group">
                     <label  class="ptext">Precio:</label>
-                    <input type="text" class="form-control"  name="precio" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label  class="ptext">Cantidad de piezas existentes:</label>
-                    <input type="text" class="form-control"  name="existencia" required>
+                    <input type="text" class="form-control"   name="preciofigura" required>
                     
                 </div>
             <br>
-                <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Agregar Producto">
+                <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Agregar figura"> 
                 
             </form>
             <br>
@@ -125,4 +97,3 @@ if(isset($_POST['nombre'])){
 
     </body>
 </html>
-     

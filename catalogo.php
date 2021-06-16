@@ -18,106 +18,52 @@
     include("Menu.html");
     ?>
     <body class="body">
-      <div class="containercard">
-        <div class="row row-cols-1 row-cols-md-3 g-4 cardspace ">
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/fondoneon.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/marvel.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-            
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-            
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-            
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-            
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-        <?php 
-        include("footer.html");
-        ?>
-    </body>
       
+    <div class="containercard">
+        <div class="row row-cols-1 row-cols-md-3 g-4 cardspace">
+            <?php
+            
+            include("conexion/Conexion.php");
+            $consulta="select * from ropa";
+            $respuesta=mysqli_query($conexion,$consulta);
+            while($arreglo2=mysqli_fetch_array($respuesta)){
+              echo '
+              
+                    <div class="col">
+                      <div class="card box">
+                        <img src="imagenes/Productos/'.$arreglo2['imagen'].'" class="card-img-top imgcard model" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title mar">'.$arreglo2['nombre'].'</h5>
+                          <p class="card-text details">'.$arreglo2['descripcion'].'</p>
+                          <p class="card-text details">$'.$arreglo2['precio'].'</p>
+                          <select>';
+                          $consulta2="select * from tallas where codigo=".$arreglo2['codigo']."";
+                          $respuesta2=mysqli_query($conexion, $consulta2);
+                          while($arreglo3=mysqli_fetch_array($respuesta2)){
+                            echo '
+                            
+                            <option> '.$arreglo3['nombretalla'].'</option>
+                          ';
+                          
+                        }
+                        echo '
+                        </select>
+                        <br> 
+                        <br>  
+                          <a type="button" class="btn btn-outline-danger">Comprar</a>
+                        </div>
+                      </div>
+                
+                
+                ';
+              }
+              ?>
+              
+      </div>
+  </div>
+  </body>
+   
+ </html>   
+
+
+

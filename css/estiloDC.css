@@ -210,7 +210,7 @@
     font-weight: bold;
     letter-spacing: 2px;
     font-family: fantasy;
-    font-size: 45px;
+    font-size: 20px;
 
 }
 
@@ -255,4 +255,25 @@
         color: #32323e;
         font-family: fantasy;
         font-size: 18px;
+}
+.tableimg{
+    height: 100px;
+    width: 100px;
+}
+.fondologin{
+    background-image: url("../imagenes/n.jpeg") ;
+    background-size: cover;
+    
+}
+.fondoform{
+    background-color: rgb(63, 59, 59);
+}
+.letraslogin{
+    
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: fantasy;
+    font-size: 40px;
+    color: #ffffff;
+
 }

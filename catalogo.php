@@ -35,9 +35,10 @@
                         <div class="card-body">
                           <h5 class="card-title mar">'.$arreglo2['nombre'].'</h5>
                           <p class="card-text details">'.$arreglo2['descripcion'].'</p>
-                          <p class="card-text details">$'.$arreglo2['precio'].'</p>
-                          <select>';
-                          $consulta2="select * from tallas where codigo=".$arreglo2['codigo']."";
+                          <p class="card-title details">$'.$arreglo2['precio'].'</p>
+                          <select class="form-select">';
+                          $consulta2="select * from tallas where codigoropa='".$arreglo2['codigo']."'";
+                          echo $consulta2;
                           $respuesta2=mysqli_query($conexion, $consulta2);
                           while($arreglo3=mysqli_fetch_array($respuesta2)){
                             echo '
@@ -50,9 +51,11 @@
                         </select>
                         <br> 
                         <br>  
-                          <a type="button" class="btn btn-outline-danger">Comprar</a>
+                          <a type="button" class="btn btn-outline-danger w-100">Comprar</a>
                         </div>
                       </div>
+                      </div>
+
                 
                 
                 ';

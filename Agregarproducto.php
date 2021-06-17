@@ -24,10 +24,10 @@ if(isset($_POST['nombre'])){
     $sql = "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia) values
      ( '".$codigo."','".$nombre."','".$imagen."','".$descripcion."', ".$precio.", ".$existencia.")";
      mysqli_query($conexion,$sql);
-      $ultimoid=mysqli_insert_id($conexion);
+     
       foreach($_POST['tallas'] as $talla){
-        $sql3="insert into tallas (nombretalla, codigoropa)values 
-        ('".$talla."',".$ultimoid.")";
+        $sql3="insert into tallas(nombretalla, codigoropa) values 
+        ('".$talla."','".$codigo."')";
          mysqli_query($conexion,$sql3);
       }
     

@@ -17,107 +17,40 @@
     <?php 
     include("Menu.html");
     ?>
-    <body class="body">
-      <div class="containercard">
-        <div class="row row-cols-1 row-cols-md-3 g-4 cardspace ">
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/fondoneon.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/marvel.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
+    <div class="containercard">
+        <div class="row row-cols-1 row-cols-md-3 g-4 cardspace">
+            <?php
             
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-            
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-            
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card box">
-            
-              <img src="./imagenes/dc-02.jpg" class="card-img-top imgcard model" alt="...">
-              <div class="card-body">
-                <h5 class="card-title mar">Card title</h5>
-                <p class="card-text details">Descripción</p>
-                <a type="button" class="btn btn-outline-danger">Comprar</a>
-              </div>
-            </div>
-          </div>
+            include("conexion/Conexion.php");
+            $consulta="select * from bolsos";
+            $respuesta=mysqli_query($conexion,$consulta);
+            while($arreglo2=mysqli_fetch_array($respuesta)){
+              echo '
+              
+                    <div class="col">
+                      <div class="card box">
+                        <img src="imagenes/Productos/'.$arreglo2['imagenbolso'].'" class="card-img-top imgcard model" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title mar">'.$arreglo2['nombrebolso'].'</h5>
+                          <p class="card-text details">'.$arreglo2['descripcionbolso'].'</p>
+                          <p class="card-title details">$'.$arreglo2['preciobolso'].'</p>
+                          <select class="form-select">
+                        <br> 
+                        <br>  
+                          <a type="button" class="btn btn-outline-danger w-100">Comprar</a>
+                        </div>
+                      </div>
+                      </div>
+
+                
+                
+                ';
+              }
+              ?>
+              
       </div>
-    </div>
-        <?php 
+  </div>
+  <?php 
         include("footer.html");
         ?>
-    </body>
-       
+  </body>

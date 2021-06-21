@@ -1,6 +1,6 @@
 <?php
 include("Conexion.php");
-$sql=("delete from ropa where codigo=".$_GET['id']."");
+$sql=("delete from ropa where id=".$_GET['id']."");
 mysqli_query($conexion,$sql);
 ?>
 <script>

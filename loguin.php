@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+session_destroy();
+?>
     <head>
         <meta charset="UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -17,19 +21,19 @@
        
     <a href="index.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
     
-        <form action="/action_page.php" class="was-validated container form  "style="margin-bottom: 20%;">
+        <form method="POST" action="conexion/validar.php" class="was-validated container form  "style="margin-bottom: 20%;">
         <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">
             
             <div class="form-group">
             
-                <label for="uname" class="letraslogin">Usuario:</label>
-                <input type="text" class="form-control" id="uname" placeholder="Introduzca su usuario" name="uname" required>
+                <label  class="letraslogin">Usuario:</label>
+                <input type="text" class="form-control"  placeholder="Introduzca su usuario" name="usuario" required>
                 <div class="valid-feedback">Valido.</div>
                 <div class="invalid-feedback">Vacio es invalido</div>
             </div>
             <div class="form-group">
-                <label for="pwd" class="letraslogin">Contraseña:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="*******" name="pswd" required>
+                <label  class="letraslogin">Contraseña:</label>
+                <input type="password" class="form-control"  placeholder="*******" name="contrasena" required>
                 <div class="valid-feedback">Valido.</div>
                 <div class="invalid-feedback">Vacio es invalido</div>
             </div>
@@ -40,4 +44,4 @@
         
     </body>
 </html>
-     
+      

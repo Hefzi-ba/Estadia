@@ -11,6 +11,9 @@ if($filas>0){
     $_SESSION['usuario']=$usuario;
     header("location:../Verproducto.php");
 
+}else{
+    echo "<script>alert('Usuario o contraseña incorrectos.')</script>";
+    header("location:../loguin.php");
 }
 $sql2="select * from usuarios where nombreusuario='".$usuario."' and contrasena= '".$contra."' and tipodeusuario='cliente'";
 $respuesta2=mysqli_query($conexion,$sql2);
@@ -19,6 +22,7 @@ if($filas2>0){
     $_SESSION['usuario']=$usuario;
     header("location:../catalogo.php");
 }else{
+    echo "<script>alert('Usuario o contraseña incorrectos.')</script>";
     header("location:../loguin.php");
 }
 ?>

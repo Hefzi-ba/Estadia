@@ -8,7 +8,12 @@
 
     }
     $fecha=date('Y-m-d h:m:s');
-    $sql="insert into ventas(idusuario,fecha,totalpagar)values(5,'".$fecha."',".$total.")";
+    $usuario="SELECT  `nombreusuario`  FROM `usuarios`";
+    $idusuario="SELECT  `id`  FROM `usuarios`";
+    
+    
+    
+    $sql="insert into carrito (idusuario,fecha,totalpagar, usuario) values (".$idusuario.",'".$fecha."',".$total.",'".$usuario."',)";
     mysqli_query($conexion,$sql);
     include("conexion/vaciarcarrito.php");
     include("Menu.html");
@@ -17,6 +22,6 @@
     <head>
     </head>
     <body>
-        <h1>tu pedido se realizo exitosamente</h1>
+        <h1>Tu pedido se realizo exitosamente</h1>
     </body>
 </html>

@@ -6,7 +6,7 @@ if(!isset($usuario)){
     header("location:./loguin.php");
 }else{
 
-    include("Menu.html");
+    include("Menuadmin2.php");
     include("conexion/Conexion.php");
 if(isset($_SESSION['carrito'])){
     //existe
@@ -15,7 +15,7 @@ if(isset($_SESSION['carrito'])){
         $existe=false;
         $numero=0;
         for($i=0;$i<count($arreglo);$i++){
-            if($arreglo[$i]['Id']==$_GET['id']){
+            if($arreglo[$i]['id']==$_GET['id']){
                 $existe=true;
                 $numero=$i;
             }
@@ -30,11 +30,11 @@ if(isset($_SESSION['carrito'])){
             $sql="select * from ropa where id=".$_GET['id']."";
             $resultado=mysqli_query($conexion,$sql);
             $fila=mysqli_fetch_row($resultado);
-            $nombre=$fila[1];
-            $precio=$fila[4];
-            $imagen=$fila[5];
+            $nombre=$fila[3];
+            $precio=$fila[5];
+            $imagen=$fila[2];
             $arregloNuevo=array(
-                'Id'=>$_GET['id'],
+                'id'=>$_GET['id'],
                 'nombre'=>$nombre,
                 'precio'=>$precio,
                 'imagen'=>$imagen,
@@ -54,11 +54,11 @@ if(isset($_SESSION['carrito'])){
       $sql="select * from ropa where id=".$_GET['id']."";
       $resultado=mysqli_query($conexion,$sql);
       $fila=mysqli_fetch_row($resultado);
-      $nombre=$fila[1];
-      $precio=$fila[4];
-      $imagen=$fila[5];
+      $nombre=$fila[3];
+      $precio=$fila[5];
+      $imagen=$fila[2];
       $arreglo[]=array(
-          'Id'=>$_GET['id'],
+          'id'=>$_GET['id'],
           'nombre'=>$nombre,
           'precio'=>$precio,
           'imagen'=>$imagen,
@@ -73,6 +73,12 @@ if(isset($_SESSION['carrito'])){
 <head>
 </head>
 <body>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
 <table class=" table table-striped">
     <tr>
         <th>Imagen</th>
@@ -93,7 +99,7 @@ if(isset($_SESSION['carrito'])){
     ?> 
     <tr>
     <td>
-    <img src="imagenes/Productos/<?php  echo $arreglocarrito[$i]['imagen']?>" class="img-tumbnail">
+    <img class="tableimg" src="imagenes/Productos/<?php  echo $arreglocarrito[$i]['imagen']?>" class="img-tumbnail">
     </td>
     <td><?php  echo $arreglocarrito[$i]['nombre']?> </td>
     <td><?php  echo $arreglocarrito[$i]['precio']?></td>
@@ -102,21 +108,21 @@ if(isset($_SESSION['carrito'])){
     <div class="input-group mb-3" style="width: 25%;">
         <button class="btn btn-outline-secondary btnIncrementar" type="button">&minus;</button>
         <input type="text" class="form-control textCantidad" value="<?php  echo $arreglocarrito[$i]['cantidad']?>"  
-        data-id="<?php  echo $arreglocarrito[$i]['Id']?>"  
+        data-id="<?php  echo $arreglocarrito[$i]['id']?>"  
         data-precio="<?php  echo $arreglocarrito[$i]['precio']?>"
-         placeholder="" aria-label="Example text with two button addons">
+          aria-label="Example text with two button addons">
         <button class="btn btn-outline-secondary" type="button">&plus;</button>
        
     </div>
     </td>
     <td>
-    <a  type="button"href="" class="btn btn-danger BotonEliminar" data-codigo="<?php echo $arreglocarrito[$i]['Id'] ?>">
+    <a  type="button"href="" class="btn btn-danger BotonEliminar" data-codigo="<?php echo $arreglocarrito[$i]['id'] ?>">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
     </svg>
     </a>
     </td>
-    <td class="canti<?php  echo $arreglocarrito[$i]['Id']?>">
+    <td class="canti<?php  echo $arreglocarrito[$i]['id']?>">
     <?php 
     echo $arreglocarrito[$i]['cantidad']* $arreglocarrito[$i]['precio']
     ?>
@@ -132,7 +138,12 @@ if(isset($_SESSION['carrito'])){
     </tr>
 
 </table>
-<a type="button" href="orden.php"  class="btn btn-succes"> realizar pedido</a>
+</div>
+        </div>
+        
+      </div>
+    </section>
+<a type="button" href="orden.php"  class=" btnx btn btn btn-outline-dark" style="margin-left: 40%;"> Realizar pedido</a>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">

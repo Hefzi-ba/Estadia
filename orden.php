@@ -8,11 +8,11 @@ $arreglo=$_SESSION['carrito'];
     <head>
     </head>
     <body>
-        <table class="table table-striped">
+        <table class="table table-striped responsive">
          <tr>
-           <th> del producto:</th> 
-           <th>cantidad:</th> 
-           <th>subtotal</th> 
+           <th> Nombre del producto:</th> 
+           <th>Cantidad:</th> 
+           <th>Subtotal</th> 
          </tr>
          <?php 
          $total=0;
@@ -23,18 +23,18 @@ $arreglo=$_SESSION['carrito'];
          ?>
          <tr>
             <td><?php  echo $arreglo[$i]['nombre'];?></td>
-            <td><?php  echo $arreglo[$i]['precio'];?></td>
+            <td><?php  echo $arreglo[$i]['cantidad'];?></td>
             <td><?php  echo $arreglo[$i]['precio']* $arreglo[$i]['cantidad'];?></td>
          </tr>
          <?php 
          }
          ?>
          <tr>
-         <td>total a pagar:</td>
+         <td>Total a pagar:</td>
          <td colspan="2"><?php  echo  number_format($total, 2, '.', '');?></td>
          </tr>
         </table>
-        <a href="gracias.php" class="btn btn-success">comprar</a>
+        <a href="gracias.php" class="btnx btn btn btn-outline-light">comprar</a>
     </body>
 </html>
 <?php

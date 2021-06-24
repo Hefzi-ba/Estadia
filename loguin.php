@@ -20,8 +20,8 @@ session_destroy();
     <body class="fondologin">
        
     <a href="index.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
-    
-        <form method="POST" action="conexion/validar.php" class="was-validated container form  "style="margin-bottom: 20%;">
+    <main class="form-signin">
+        <form method="POST" action="conexion/validar.php" class="was-validated " >
         <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">
             
             <div class="form-group">
@@ -40,7 +40,21 @@ session_destroy();
            <br>
             <button type="submit" class="w-100 btnx btn btn btn-outline-light">Iniciar sesión</button>
         </form>
-        
+        </main>
+
+
+
+        <main class="form-signin">
+         <form  method="POST" action="phpconexion/validar.php">
+         <img class="mb-4" src="./Imagenes/LOGOPAAT.png" alt="" width="72" height="57" style="margin-left: 40%;">
+
+            <input type="text" class="form-control" name="usuario" placeholder="Ingrese su usuario" required>
+            
+            <input type="text" class="form-control" name="contraseña" placeholder="******" require>
+            
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar</button>
+        </form>
+    </main>  
         
     </body>
 </html>

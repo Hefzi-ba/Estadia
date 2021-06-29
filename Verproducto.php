@@ -28,6 +28,15 @@ $sql=mysqli_query($conexion,"select * from ropa");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
+          
+            <nav class="navbar navbar-light bg-light">
+              <div class="container-fluid">
+                <form class="d-flex" action="Verproducto.php" method="POST">
+                  <input class="form-control me-2" type="text" name="buscar" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-dark" type="submit">Buscar</button>
+                </form>
+              </div>
+            </nav>
           <table class="table table-responsive">
               <thead class="table-dark">
               <th scope="col">Codigo </th>
@@ -42,8 +51,13 @@ $sql=mysqli_query($conexion,"select * from ropa");
               </thead>
               
                 <?php 
+
               include("conexion/Conexion.php");
-            $consulta="select * from ropa";
+              $buscar='';
+              if(isset($_POST['buscar'])){
+                $buscar=$_POST['buscar'];
+              }
+            $consulta="select * from ropa  where nombre like '%".$buscar."%' ";
             $respuesta=mysqli_query($conexion,$consulta);
             while($arreglo=mysqli_fetch_array($respuesta)){
               echo '

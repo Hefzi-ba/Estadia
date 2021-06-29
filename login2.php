@@ -1,34 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <?php
-session_start();
-session_destroy();
+
 ?>
     <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.80.0">
-    <title>Iniciar sesion</title>
-
-    
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-
-    <link href="./css/personalizado.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">    
-</head>
-    <body class="fondologuin">
-    <main class="form-signin">
-         <form  method="POST" action="phpconexion/validar.php">
-         <img class="mb-4" src="./Imagenes/LOGOPAAT.png" alt="" width="72" height="57" style="margin-left: 40%;">
-
-            <input type="text" class="form-control" name="usuario" placeholder="Ingrese su usuario" required>
-            
-            <input type="text" class="form-control" name="contraseña" placeholder="******" require>
-            
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar</button>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link href="./css/bootstrap.css" rel="stylesheet">
+        
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="./css/login.css" rel="stylesheet">
+        <link href="./css/estiloDC.css" rel="stylesheet">
+   
+        <title>DarkCube</title>
+    </head>
+    <body class="">
+        <form method="POST" action="conexion/validar.php" class="was-validated container">
+            <div class="body" >
+		        <div class="grad"></div>
+		             <div class="header">
+			            <div class="letraslogin"><span class="letraslogin">DarkCube</span></div>
+		             </div>
+		                <br>
+		            <div class="login"  >
+				        <input type="text" placeholder="Usuario" name="user"><br>
+				
+                        <input type="password" class="form-control"  placeholder="*******" name="contrasena" required>
+                        <br>
+				        <button type="submit" class=" btnx btn btn btn-outline-light">Iniciar sesión!!</button><br>
+                    </div>
+                </div>   
+		    </div>
         </form>
-    </main>
-       
     </body>
 </html>

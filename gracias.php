@@ -15,7 +15,10 @@
     
     $sql="insert into carrito (idusuario,fecha,totalpagar, usuario) values (".$idusuario.",'".$fecha."',".$total.",'".$usuario."',)";
     mysqli_query($conexion,$sql);
-    include("conexion/vaciarcarrito.php");
+    
+    
+    
+    include("conexio/vaciarcarrito.php");
     include("Menu.html");
 ?>
 <html>

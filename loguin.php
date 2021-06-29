@@ -18,10 +18,11 @@ session_destroy();
         <title>DarkCube</title>
     </head>
     <body class="fondologin">
+        
        
     <a href="index.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
-    <main class="form-signin">
-        <form method="POST" action="conexion/validar.php" class="was-validated " >
+    
+        <form method="POST" action="conexion/validar.php" class="was-validated container" >
         <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">
             
             <div class="form-group">
@@ -40,7 +41,7 @@ session_destroy();
            <br>
             <button type="submit" class="w-100 btnx btn btn btn-outline-light">Iniciar sesión</button>
         </form>
-        </main>
+        
 
 
 

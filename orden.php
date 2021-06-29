@@ -1,6 +1,6 @@
 <?php
-include('Menu.html');
 session_start();
+include('Menu.html');
 $arreglo=$_SESSION['carrito'];
 
 ?>

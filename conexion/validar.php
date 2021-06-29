@@ -12,7 +12,7 @@ if($filas>0){
     header("location:../Verproducto.php");
 
 }else{
-    echo "<script>alert('Usuario o contraseña incorrectos.')</script>";
+    
     header("location:../loguin.php");
 }
 $sql2="select * from usuarios where nombreusuario='".$usuario."' and contrasena= '".$contra."' and tipodeusuario='cliente'";
@@ -22,7 +22,7 @@ if($filas2>0){
     $_SESSION['usuario']=$usuario;
     header("location:../catalogo.php");
 }else{
-    echo "<script>alert('Usuario o contraseña incorrectos.')</script>";
+    
     header("location:../loguin.php");
 }
 ?>

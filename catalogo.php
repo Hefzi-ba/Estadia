@@ -26,7 +26,7 @@
             <?php
             
             include("conexion/Conexion.php");
-            $record_per_page =5;
+            $record_per_page =9;
               $pagina='';
               if(isset($_GET["pagina"])){
                 $pagina=$_GET["pagina"];
@@ -107,7 +107,12 @@
               }
               ?>
   </nav> 
+  
   </div>
+  <br>
+  <?php
+  include('footer.html');
+  ?>
   </body>
    
  </html>   

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
 
+<?php
+session_start();
+session_destroy();
 ?>
     <head>
         <meta charset="UTF-8">
@@ -19,7 +21,7 @@
     </head>
     <body class="">
         <form method="POST" action="conexion/validar.php" class="was-validated container">
-            <div class="body" >
+            <div class="body" ></div>
 		        <div class="grad"></div>
 		             <div class="header">
 			            <div class="letraslogin"><span class="letraslogin">DarkCube</span></div>

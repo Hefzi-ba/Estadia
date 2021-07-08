@@ -14,39 +14,28 @@ session_destroy();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="./css/estiloDC.css" rel="stylesheet">
+        <link href="./css/login.css" rel="stylesheet">
    
         <title>DarkCube</title>
     </head>
-    <body class="fondologin">
-        
-       
-    <a href="index.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
-    
+    <body class=""> 
         <form method="POST" action="conexion/validar.php" class="was-validated container" >
-        <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">
-            
-            <div class="form-group">
-            
-                <label  class="letraslogin">Usuario:</label>
-                <input type="text" class="form-control"  placeholder="Introduzca su usuario" name="usuario" required>
-                <div class="valid-feedback">Valido.</div>
-                <div class="invalid-feedback">Vacio es invalido</div>
+            <div class="body"></div>
+                <div class="grad"></div>
+                 <div class="header">
+                    <div class="letraslogin"><span class="letraslogin">DarkCube</span></div>
+                 </div>
+                 <br>
+            <div class="login"> 
+                <input type="text"   placeholder=" Usuario" name="usuario"><br>
+                <input type="password" class="form-control"  placeholder="*******" name="contrasena" required><br>
+                <button type="submit" class=" btnx btn btn btn-outline-light">Iniciar sesión!!</button><br><br>
+
+                <a type="button" href="Registro.php" class=" btnx btn btn btn-outline-light">   Registrarse!!  </a><br>
+                <br><a href="index.php"  type="button" class="btn-close btn-close-white" aria-label="Close"> </a><br>    
             </div>
-            <div class="form-group">
-                <label  class="letraslogin">Contraseña:</label>
-                <input type="password" class="form-control"  placeholder="*******" name="contrasena" required>
-                <div class="valid-feedback">Valido.</div>
-                <div class="invalid-feedback">Vacio es invalido</div>
-            </div>
-           <br>
-            <button type="submit" class="w-100 btnx btn btn btn-outline-light">Iniciar sesión</button>
-        </form>
-        
-
-
-
-       
-        
+           <br>     
+        </form>   
     </body>
 </html>
       

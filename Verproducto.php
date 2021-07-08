@@ -2,10 +2,10 @@
 include("Menuadmin2.php");
 include("conexion/Conexion.php");
 if(isset($_GET['eliminar'])){
-  $sql="delete from ropa where id=".$_GET['eliminar']."";
+  $sql="delete from ropa where categoria= 'Ropa' and id=".$_GET['eliminar']."";
   mysqli_query($conexion,$sql);
 }
-$sql=mysqli_query($conexion,"select * from ropa");
+$sql=mysqli_query($conexion,"select * from ropa where categoria= 'Ropa'");
 ?>
 <html>
   <head>
@@ -44,6 +44,7 @@ $sql=mysqli_query($conexion,"select * from ropa");
               <th scope="col">Nombre</th>
               <th scope="col">Descripción </th>
               <th scope="col">Precio</th>
+              
               <th scope="col">Existencia pz</th>
               <th scope="col">Editar</th>
               <th scope="col">eliminar</th>
@@ -57,7 +58,7 @@ $sql=mysqli_query($conexion,"select * from ropa");
               if(isset($_POST['buscar'])){
                 $buscar=$_POST['buscar'];
               }
-            $consulta="select * from ropa  where nombre like '%".$buscar."%' ";
+            $consulta="select * from ropa where categoria= 'Ropa' and nombre like '%".$buscar."%' ";
             $respuesta=mysqli_query($conexion,$consulta);
             while($arreglo=mysqli_fetch_array($respuesta)){
               echo '
@@ -69,6 +70,7 @@ $sql=mysqli_query($conexion,"select * from ropa");
                   <td><input type="text" name="descripcion" value="'.$arreglo['descripcion'].'"></td>
                   
                   <td><input type="text" name="precio" value="'.$arreglo['precio'].'"></td>
+                  
                   <td>'.$arreglo['existencia'].'</td>
                   <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificar.php?id='.$arreglo['id'].'"><i class="fas fa-edit"></i></a></td>
                   <td><a href="#"  onclick="eliminar('.$arreglo['id'].')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>

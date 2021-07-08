@@ -34,7 +34,8 @@ $arreglo=$_SESSION['carrito'];
          <td colspan="2"><?php  echo  number_format($total, 2, '.', '');?></td>
          </tr>
         </table>
-        <a href="gracias.php" class="btnx btn btn btn-outline-light">comprar</a>
+        <a href="gracias.php" class="btnx btn btn btn-outline-light">comprar y recoger</a>
+        <a href="pedirdatos.php" class="btnx btn btn btn-outline-light">comprar y enviar a domicilio</a>
     </body>
 </html>
 <?php

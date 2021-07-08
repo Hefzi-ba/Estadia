@@ -1,3 +1,12 @@
+
+<?
+session_start();
+include("phpconexion/Conexion.php");
+  $usuario=$_SESSION['usuario'];
+  if(!isset($usuario)){
+    header(("location:./loguin.php"));
+  }else{
+    ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,22 +36,17 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a  class="brand-link">
-      <img src="./imagenes/logoDCpng.png"
-           alt="AdminLTE Logo"
-           class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Menú administrador</span>
+      
+      <span class="brand-text font-weight-light letrasmenu">Menú administrador</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="./imagenes/logoDCpng.png" class="img-circle elevation-2" alt="User Image">
-        </div>
+        
         <div class="info">
-          <a href="#" class="d-block">Julio Silveira </a>
+          <a href="#" class="d-block letrasmenu">Julio Silveira </a>
         </div>
       </div>
 
@@ -51,11 +55,34 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <li class="nav-item has-treeview">
+               <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-hat-wizard"></i>
+              <p class="letrasmenu">
+              Novedad de inicio
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="agregarinicio.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Agregar novedad </p>
+                </a>
+                <a href="./phpconexion/editarinicio.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Ver novedades </p>
+                </a>
+              </li>
+            
+            </ul>
+          </li>
           
           <li class="nav-item has-treeview">
             <a href="Verproducto.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
-              <p>
+              <p class="letrasmenu">
                 Productos
                 <i class="fas fa-angle-left right"></i>
                 
@@ -65,12 +92,12 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="Agregarproducto.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar  </p>
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu"> Agregar  </p>
                 </a>
-                <a href="./phpconexion/editar.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar   </p>
+                <a href="./Verproducto.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">ver productos </p>
                 </a>
               </li>
             
@@ -78,8 +105,32 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="Verproducto.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p class="letrasmenu">
+                Categorías
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+            
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="Agregarcategoria.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu"> Agregar  </p>
+                </a>
+                <a href="./Vercategoria.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Ver categorías </p>
+                </a>
+              </li>
+            
+            </ul>
+          </li> 
+          <li class="nav-item has-treeview">
+            <a href="Verproducto.php" class="nav-link">
               <i class="nav-icon fas fa-ghost"></i>
-              <p>
+              <p class="letrasmenu">
                 Figuras
                 <i class="fas fa-angle-left right"></i>
                 
@@ -88,18 +139,15 @@
             
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="RegistroProducto.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ver figuras</p>
+              <a href="./Agregarfigura.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Agregar</p>
                 </a>
-                <a href="RegistroProducto.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar   </p>
+                <a href="./Verfiguras.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu"> Ver figuras </p>
                 </a>
-                <a href="./phpconexion/editar.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar   </p>
-                </a>
+               
               </li>
             
             </ul>
@@ -107,7 +155,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i>
-              <p>
+              <p class="letrasmenu">
                 Bolsos 
                 <i class="fas fa-angle-left right"></i>
                 
@@ -115,13 +163,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="RegistroCategorias.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar  </p>
+                <a href="Agregarbolso.php" class="nav-link">
+                  <i class="far nav-icon"></i>
+                  <p class="letrasmenu"> Agregar  </p>
                 </a>
-                <a href="./phpconexion/editarcategorias.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar </p>
+                <a href="./Verbolso.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Ver bolsos</p>
                 </a>
               </li>
           </li>
@@ -131,7 +179,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-friends"></i>
-              <p>
+              <p class="letrasmenu">
               Nosotros 
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -139,40 +187,19 @@
             
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="Vertallas.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar </p>
+                <a href="Vernosotros.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Editar nosotros </p>
                 </a>
               </li>
             
             </ul>
-            <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-hat-wizard"></i>
-              <p>
-              Novedad de inicio
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
             
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="Vertallas.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar </p>
-                </a>
-                <a href="./phpconexion/editarcategorias.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar </p>
-                </a>
-              </li>
-            
-            </ul>
             
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fas fa-user-circle"></i>
-              <p>
+              <p class="letrasmenu">
                 Usuarios
                 <i class="fas fa-angle-left right"></i>
                 
@@ -180,12 +207,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="RegistroUsuarios.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar usuario </p>
+                <a href="Agregarusuarioadmin.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Agregar usuario </p>
+                </a>
+                
+                
+              </li>
+              <li class="nav-item">
+              <a href="Verusuarios.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Administradores</p>
                 </a>
               </li>
         </ul>
+        
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -203,5 +239,9 @@
 <script src="./dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="./dist/js/demo.js"></script>
+
 </body>
+<?
+  }
+?>
 </html>

@@ -1,16 +1,21 @@
 <?PHP 
    
+
+   
     include("conexion.php");
-    $sql="select * from ropa where id=".$_GET['id']." and categoria='Ropa'";
+    
+    $sql="select * from ropa where id=".$_GET['id']." and categoria='Bolsos";
     $resultado2=mysqli_query($conexion,$sql);
     $fila=mysqli_fetch_array($resultado2);
     if(isset($_POST['nombre'])){
-        $sql="update ropa set codigo='".$_POST['codigo']."',  nombre='".$_POST['nombre']."', descripcion='".$_POST['descripcion']."', precio='".$_POST['precio']."', existencia='".$_POST['existencia']."', oferta='".$_POST['oferta']."', preciooferta='".$_POST['preciooferta']."' where id=".$_POST['id']." and categpria='Ropa'";
-        
+        $sql="update ropa set  codigo='".$_POST['codigo']."',nombre='".$_POST['nombre']."',  descripcion='".$_POST['descripcion']."', precio='".$_POST['precio']."', existencia='".$_POST['existencia']."' where id=".$_POST['id']." and categoria='Bolsos'";
         mysqli_query($conexion,$sql);
         echo $sql;
-        //header('location: ../Verproducto.php');
+        header('location: ../Verbolso.php');
     }
+
+  
+
 
     if(isset($_FILES['imagen'])){
         $formatos=array('.png','.jpg', '.gif', '.jpeg');
@@ -19,9 +24,10 @@
         $nombre_temporal=$_FILES['imagen']['tmp_name'];
         if(move_uploaded_file($nombre_temporal,"$ubicacion/$imagen")){
           echo 'se movio';
-          $sqlimagen="update ropa set imagen='".$imagen."' where id=".$_POST['idImagen']." and categoria='Ropa'";
+          $sqlimagen="update ropa set imagen='".$imagen."' where id=".$_POST['idImagen']." and categoria='Bolsos'";
           mysqli_query($conexion,$sqlimagen);
-        };
+        }
+        header('location: ../Verbolso.php');
     }
 ?>
 <!DOCTYPE html>
@@ -48,11 +54,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="modificar.php"  method="POST"  class=" container form">
+            <form action="modificarbolsos.php"  method="POST"  class=" container form">
             <p class="banderin" style="background-color:  rgb(63, 59, 59);
              color:white;
               font-family:fantasy;
-               letter-spacing: 2px;">Edición de producto en ropa.</p> 
+               letter-spacing: 2px;">Edición de producto en bolsos.</p> 
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>
@@ -70,21 +76,9 @@
                     <input type="text" class="form-control"  name="descripcion" value='<?php echo $fila['descripcion'] ?>'>
                     
                 </div>
-                <label class="ptext">Marque las tallas existentes:</label>
-                    <br>
-                    <?php
-                    $consulta="select * from tabladetallas";
-                    $resultado=mysqli_query($conexion,$consulta);
-                    while($arreglo2=mysqli_fetch_array($resultado)){
-                        echo'
-                        <br><div class="form-check form-switch ">
-                        <input name="tallas[]" class="form-check-input " type="checkbox"  value="'.$arreglo2['nombretalla'].'"> '.$arreglo2['nombretalla'].'
-                        </div>
-                        
+                
+                   
                     
-                        ';
-                    }
-                    ?>
                 <div class="form-group">
                     <label  class="ptext">Precio:</label>
                     <input type="text" class="form-control"  name="precio" value='<?php echo $fila['precio'] ?>'>
@@ -93,17 +87,6 @@
                 <div class="form-group">
                     <label  class="ptext">Cantidad de piezas existentes:</label>
                     <input type="text" class="form-control"  name="existencia" value='<?php echo $fila['existencia'] ?>' >
-                    
-                </div>
-                <div class="form-check" >
-                    <input class="form-check-input" type="checkbox" value="1" name="oferta" id="flexCheckIndeterminate">
-                    <label class="form-check-label" for="flexCheckIndeterminate">
-                        Marcar oferta
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label  class="ptext">precio de oferta:</label>
-                    <input type="text" class="form-control"  name="preciooferta" value='<?php echo $fila['preciooferta'] ?>' >
                     
                 </div>
             <br>
@@ -122,7 +105,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="modificar.php" method="post" enctype="multipart/form-data">
+            <form action="modificarbolsos.php" method="post" enctype="multipart/form-data">
 
                 
                     <label  class="ptext">Fotografía:</label>

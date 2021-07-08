@@ -36,7 +36,7 @@
                 $pagina= 1;
               }
             $start_from = ($pagina-1)*$record_per_page;
-            $consulta="select * from ropa  ORDER BY  id DESC LIMIT $start_from, $record_per_page";
+            $consulta="select * from ropa  where oferta= '0' and categoria= 'Ropa' ORDER BY  id DESC LIMIT $start_from, $record_per_page";
             $respuesta=mysqli_query($conexion,$consulta);
             while($arreglo2=mysqli_fetch_array($respuesta)){
               echo '
@@ -44,29 +44,29 @@
                     <div class="col">
                       <div class="card box">
                         <img src="imagenes/Productos/'.$arreglo2['imagen'].'" class="card-img-top imgcard model" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title mar">'.$arreglo2['nombre'].'</h5>
-                          <p class="card-text details letrasmenu">'.$arreglo2['descripcion'].'</p>
-                          <p class="card-title details">$'.$arreglo2['precio'].'</p>
-                          <select class="form-select">';
-                          $consulta2="select * from tallas where codigoropa='".$arreglo2['codigo']."'";
-                          echo $consulta2;
-                          $respuesta2=mysqli_query($conexion, $consulta2);
-                          while($arreglo3=mysqli_fetch_array($respuesta2)){
+                          <div class="card-body">
+                              <h5 class="card-title mar">'.$arreglo2['nombre'].'</h5>
+                              <p class="card-text details letrasmenu">'.$arreglo2['descripcion'].'</p>
+                              <p class="card-title details">$'.$arreglo2['precio'].'</p>
+                              <select class="form-select">';
+                              $consulta2="select * from tallas where codigoropa='".$arreglo2['codigo']."'";
+                              echo $consulta2;
+                              $respuesta2=mysqli_query($conexion, $consulta2);
+                              while($arreglo3=mysqli_fetch_array($respuesta2)){
+                                echo '
+                                
+                                <option> '.$arreglo3['nombretalla'].'</option>
+                              ';
+                              
+                            }
                             echo '
-                            
-                            <option> '.$arreglo3['nombretalla'].'</option>
-                          ';
-                          
-                        }
-                        echo '
-                        </select>
-                        <br> 
-                        <br>  
-                          <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btn-outline-danger w-100">Comprar</a>
-                        </div>
+                            </select>
+                            <br> 
+                            <br>  
+                              <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btn-outline-danger w-100">Comprar</a>  
+                          </div>
                       </div>
-                      </div>
+                    </div>
 
                 
                 
@@ -93,7 +93,7 @@
               if($pagina > 1){
                 
                 echo "<a  class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=1'>Primera</a>";
-                echo"<a class ='pagina btn btn-outline-dark' href='ctalogo.php?pagina=".($pagina - 1)."'><<</a>";
+                echo"<a class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=".($pagina - 1)."'><<</a>";
               }
               for($i= $start_loop;$i<=$end_loop+1; $i++){
                 if($i > 0){

@@ -8,17 +8,19 @@
 
     }
     $fecha=date('Y-m-d h:m:s');
-    $usuario="SELECT  `nombreusuario`  FROM `usuarios`";
-    $idusuario="SELECT  `id`  FROM `usuarios`";
     
     
     
-    $sql="insert into carrito (idusuario,fecha,totalpagar, usuario) values (".$idusuario.",'".$fecha."',".$total.",'".$usuario."',)";
+    $sql="insert into carrito (idusuario,fecha,totalpagar, usuario) values ('".$_SESSION['id0usuario']."','".$fecha."',".$total.",'".$_SESSION['usuario']."')";
     mysqli_query($conexion,$sql);
+    echo $sql;
+    unset($_SESSION['carrito']);
+    for($i=0;$i<count($arreglo);$i++){
+        $total=$total+($arreglo[$i]['precio']*$arreglo[$i]['cantidad']);
+    //insert into a la tabla donde almacenara los productos
+    }
     
     
-    
-    include("conexio/vaciarcarrito.php");
     include("Menu.html");
 ?>
 <html>
@@ -27,4 +29,5 @@
     <body>
         <h1>Tu pedido se realizo exitosamente</h1>
     </body>
+   
 </html>

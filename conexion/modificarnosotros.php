@@ -1,29 +1,18 @@
-
-<?php 
-include("Menuadmin2.php");
-include ("conexion/Conexion.php");
-if(isset($_POST['nombrefigura'])){
-    $nombrefigura =  $_POST['nombrefigura'];
-    $descripcionfigura = $_POST['descripcionfigura'];
-    $preciofigura = $_POST['preciofigura'];
-    $codigofigura =$_POST['codigofigura'];
+<?PHP 
    
+    include("conexion.php");
     
-     $formatos=array('.png','.jpg', '.gif', '.jpeg');
-      $ubicacion="imagenes/Figuras";
-      $imagenfigura=$_FILES['imagenfigura']['name'];
-      $nombre_temporal=$_FILES['imagenfigura']['tmp_name'];
-      if(move_uploaded_file($nombre_temporal,"$ubicacion/$imagenfigura")){
-        echo 'se movio';
-      }else{
-        echo 'no se movio';
-      }
-    $sql = "insert into figuras (nombrefigura, imagenfigura, descripcionfigura, preciofigura) values
-     ( '".$nombrefigura."','".$imagenfigura."','".$descripcionfigura."', ".$preciofigura.")";
-     mysqli_query($conexion,$sql);
-      $ultimoid=mysqli_insert_id($conexion);
-      
-   }
+    $sql="select * from nosotros where id=".$_GET['id']."";
+    $resultado2=mysqli_query($conexion,$sql);
+    $fila=mysqli_fetch_array($resultado2);
+    if(isset($_POST['titulo'])){
+        $sql="update nosotros set titulo='".$_POST['titulo']."',  descripcion='".$_POST['descripcion']."', correo='".$_POST['correo']."' where id=".$_POST['id']."";
+        mysqli_query($conexion,$sql);
+        echo $sql;
+        header('location: ../Vernosotros.php');
+    }
+
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,37 +38,33 @@ if(isset($_POST['nombrefigura'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="Agregarfigura.php"  method="POST" enctype="multipart/form-data" class=" container form">
-                
+            <form action="modificarnosotros.php"  method="POST"  class=" container form">
+            <p class="banderin" style="background-color:  rgb(63, 59, 59);
+             color:white;
+              font-family:fantasy;
+               letter-spacing: 2px;">Edición de la sección nosotros.</p> 
                 <div class="form-group">
                 
-                    <label  class="ptext">Codigo:</label>
-                    <input type="text" class="form-control" name="codigofigura" required>
+                    <label  class="ptext">Titular:</label>
+                    <input type="text" class="form-control"   name="titulo" value='<?php echo $fila['titulo'] ?>' >
                     
                 </div>
                 <div class="form-group">
-                    <label  class="ptext">Fotografía:</label>
-                    <input type="file" class="form-control"   name="imagenfigura" required>
+                    <label  class="ptext">Frase de descripción:</label>
+                    <input type="pwd" class="form-control"  name="descripcion" value='<?php echo $fila['descripcion'] ?>'>
                     
                 </div>
                 <div class="form-group">
-                    <label  class="ptext">Nombre:</label>
-                    <input type="text" class="form-control"   name="nombrefigura" required>
+                    <label  class="ptext">Correo:</label>
+                    <input type="text" class="form-control"   name="correo"  value='<?php echo $fila['correo'] ?>'>
                     
                 </div>
-                <div class="form-group">
-                    <label  class="ptext">Descripción:</label>
-                    <input type="text" class="form-control"   name="descripcionfigura" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label  class="ptext">Precio:</label>
-                    <input type="text" class="form-control"   name="preciofigura" required>
-                    
-                </div>
+                
+                
+                
             <br>
-                <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Agregar figura"> 
-                
+                <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Guardar edición">
+                <input type="hidden" name="id" value="<?php echo $fila['id'] ?>">
             </form>
             <br>
             </div>
@@ -87,7 +72,7 @@ if(isset($_POST['nombrefigura'])){
     </div><!-- /.container-fluid -->
 
 
-
+   
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="./js/bootstrap.js"></script>
@@ -97,3 +82,4 @@ if(isset($_POST['nombrefigura'])){
 
     </body>
 </html>
+     

@@ -6,7 +6,7 @@ if(!isset($usuario)){
     header("location:./loguin.php");
 }else{
 
-    include("Menuadmin2.php");
+    include("Menu.html");
     include("conexion/Conexion.php");
 if(isset($_SESSION['carrito'])){
     //existe
@@ -79,7 +79,10 @@ if(isset($_SESSION['carrito'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-<table class=" table table-striped">
+              <?php
+              echo var_dump($_SESSION);
+              ?>
+<table class=" table table-light table-striped">
     <tr>
         <th>Imagen</th>
         <th>Nombre</th>
@@ -143,7 +146,7 @@ if(isset($_SESSION['carrito'])){
         
       </div>
     </section>
-<a type="button" href="orden.php"  class=" btnx btn btn btn-outline-dark" style="margin-left: 40%;"> Realizar pedido</a>
+<a type="button" href="orden.php"  class=" btnx btn btn btn-outline-light" style="margin-left: 40%;"> Realizar pedido</a>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">

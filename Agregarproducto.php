@@ -6,6 +6,7 @@ include("Menuadmin2.php");
 include ("conexion/Conexion.php");
 if(isset($_POST['nombre'])){
     $nombre =  $_POST['nombre'];
+    $categoria =  $_POST['categoria'];
     $descripcion = $_POST['descripcion'];
     $precio = $_POST['precio'];
     $existencia = $_POST['existencia'];
@@ -21,8 +22,8 @@ if(isset($_POST['nombre'])){
       }else{
         echo 'no se movio';
       }
-    $sql = "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia) values
-     ( '".$codigo."','".$nombre."','".$imagen."','".$descripcion."', ".$precio.", ".$existencia.")";
+    $sql = "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia, categoria) values
+     ( '".$codigo."','".$nombre."','".$imagen."','".$descripcion."', ".$precio.", ".$existencia.",'".$categoria."')";
      mysqli_query($conexion,$sql);
      
       foreach($_POST['tallas'] as $talla){
@@ -58,7 +59,7 @@ if(isset($_POST['nombre'])){
         <div class="row mb-2">
           <div class="col-sm-6">
             <form action="Agregarproducto.php"  method="POST" enctype="multipart/form-data" class=" container form">
-                
+            <p class="ptext" >Registro de una nueva prenda.</p> 
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>
@@ -73,6 +74,23 @@ if(isset($_POST['nombre'])){
                 <div class="form-group">
                     <label  class="ptext">Nombre:</label>
                     <input type="text" class="form-control"   name="nombre" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label  class="ptext">Categoria:</label>
+                    <select name="categoria"  class="form-control" class="form-select">
+                        <?php
+                        include("conexion/Conexion.php");
+                        $sql="select * from categoria";
+                        
+                        $respuesta=mysqli_query($conexion,$sql);
+                        while($arreglo=mysqli_fetch_array($respuesta)){
+                            echo'
+                            <option>'.$arreglo['nombrecategoria'].'</option>';
+                        }
+                        ?>
+                        
+                    </select>
                     
                 </div>
                 <div class="form-group">

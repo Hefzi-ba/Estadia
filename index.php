@@ -7,7 +7,7 @@
     ?>
     
      <?php 
-    include ("Oferta.html");
+    include ("inicio.php");
     ?>
     <br>
     <?php 

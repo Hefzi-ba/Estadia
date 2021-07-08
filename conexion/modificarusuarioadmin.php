@@ -1,31 +1,18 @@
-
-<?php 
-include("Menuadmin2.php");
-include ("conexion/Conexion.php");
-if(isset($_POST['nombrebolso'])){
-    $nombrebolso =  $_POST['nombrebolso'];
-    $descripcionbolso = $_POST['descripcionbolso'];
-    $preciobolso = $_POST['preciobolso'];
-    $existenciabolsos = $_POST['existenciabolsos'];
+<?PHP 
    
-   
-   
-     $formatos=array('.png','.jpg', '.gif', '.jpeg');
-      $ubicacion="imagenes/Bolsos";
-      $imagenbolso=$_FILES['imagenbolso']['name'];
-      $nombre_temporal=$_FILES['imagenbolso']['tmp_name'];
-      if(move_uploaded_file($nombre_temporal,"$ubicacion/$imagen")){
-        echo 'se movio';
-      }else{
-        echo 'no se movio';
-      }
-    $sql = "insert into bolsos (   imagenbolso, nombrebolso, descripcionbolso, preciobolso, existenciabolsos) values
-     ( '".$nombre."','".$imagen."','".$descripcion."', ".$precio.", ".$existencia.")";
-     mysqli_query($conexion,$sql);
-     
-      
+    include("conexion.php");
     
-   }
+    $sql="select * from usuarios where id=".$_GET['id']."";
+    $resultado2=mysqli_query($conexion,$sql);
+    $fila=mysqli_fetch_array($resultado2);
+    if(isset($_POST['nombreusuario'])){
+        $sql="update usuarios set nombreusuario='".$_POST['nombreusuario']."',  correousuario='".$_POST['correousuario']."', contrasena='".$_POST['contrasena']."' where id=".$_POST['id']."";
+        mysqli_query($conexion,$sql);
+        echo $sql;
+        header('location: ../Verusuarios.php');
+    }
+
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,44 +32,39 @@ if(isset($_POST['nombrebolso'])){
     <body >
        
 
-
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="Agregarbolso.php"  method="POST" enctype="multipart/form-data" class=" container form">
+            <form action="modificarusuarioadmin.php"  method="POST"  class=" container form">
+            <p class="banderin" style="background-color:  rgb(63, 59, 59);
+             color:white;
+              font-family:fantasy;
+               letter-spacing: 2px;">Edición de usuarios.</p> 
+                <div class="form-group">
+                
+                    <label  class="ptext">Usuario:</label>
+                    <input type="text" class="form-control"   name="nombreusuario" value='<?php echo $fila['nombreusuario'] ?>' >
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label  class="ptext">Correo:</label>
+                    <input type="text" class="form-control"   name="correousuario"  value='<?php echo $fila['correousuario'] ?>'>
+                    
+                </div>
+                <div class="form-group">
+                    <label  class="ptext">contrasena:</label>
+                    <input type="pwd" class="form-control"  name="contrasena" value='<?php echo $fila['contrasena'] ?>'>
+                    
+                </div>
                 
                 
-                <div class="form-group">
-                    <label  class="ptext">Nombre:</label>
-                    <input type="text" class="form-control"  name="nombrebolso" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label  class="ptext">Imagen:</label>
-                    <input type="file" class="form-control"  name="imagenbolso" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label  class="ptext">Descripción:</label>
-                    <input type="text" class="form-control"  name="descripcionbolso" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label  class="ptext">Precio:</label>
-                    <input type="text" class="form-control" name="preciobolso" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label  class="ptext">Existencia:</label>
-                    <input type="text" class="form-control" name="existenciabolsos" required>
-                    
-                </div>
             <br>
-                <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Agregar bolso">
-                
+                <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Guardar edición">
+                <input type="hidden" name="id" value="<?php echo $fila['id'] ?>">
             </form>
             <br>
             </div>
@@ -90,7 +72,7 @@ if(isset($_POST['nombrebolso'])){
     </div><!-- /.container-fluid -->
 
 
-
+   
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="./js/bootstrap.js"></script>
@@ -100,3 +82,4 @@ if(isset($_POST['nombrebolso'])){
 
     </body>
 </html>
+     

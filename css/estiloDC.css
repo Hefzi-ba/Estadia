@@ -288,3 +288,33 @@
     font-family: fantasy;
     letter-spacing: 1px;
 }
+.letradescuento{
+ color: red;
+}
+.nosotros{
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: fantasy;
+    font-size: 18px;
+    color: #7F8C8D ;
+}
+.mmar{
+    color: #32323e;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: fantasy;
+    font-size: 30px;
+
+}
+.box:hover .mmar{
+	color:#c0292b;
+	transition: all ease 0.5s;
+}
+.banderin{
+    
+    color: #c0292b;;
+    font-family: fantasy;
+    letter-spacing: 2px;
+    font-size: 28px;
+    text-align: center;
+}

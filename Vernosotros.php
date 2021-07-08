@@ -2,10 +2,10 @@
 include("Menuadmin2.php");
 include("conexion/Conexion.php");
 if(isset($_GET['eliminar'])){
-  $sql="delete from ropa where categoria='Figuras' and id=".$_GET['eliminar']."";
+  $sql="delete from nosotros where id=".$_GET['eliminar']."";
   mysqli_query($conexion,$sql);
 }
-$sql=mysqli_query($conexion,"select * from ropa where categoria= 'Figuras'");
+$sql=mysqli_query($conexion,"select * from nosotros");
 ?>
 <html>
   <head>
@@ -28,34 +28,45 @@ $sql=mysqli_query($conexion,"select * from ropa where categoria= 'Figuras'");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-          <table class="table ">
+          
+            <nav class="navbar navbar-light bg-light">
+              <div class="container-fluid">
+                <form class="d-flex" action="Verproducto.php" method="POST">
+                  <input class="form-control me-2" type="text" name="buscar" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-dark" type="submit">Buscar</button>
+                </form>
+              </div>
+            </nav>
+          <table class="table table-responsive">
               <thead class="table-dark">
-              <th scope="col">Codigo </th>
-              <th scope="col">Imagen</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Descripción </th>
-              <th scope="col">Precio</th>
-              <th scope="col">Existencia pz</th>
+              <th scope="col">Titular: </th>
+              <th scope="col">Frase de descripción:</th>
+              <th scope="col">Correo:</th>
               <th scope="col">Editar</th>
               <th scope="col">eliminar</th>
               
               </thead>
               
                 <?php 
+
               include("conexion/Conexion.php");
-            $consulta="select * from  ropa where categoria= 'Figuras'";
+              $buscar='';
+              if(isset($_POST['buscar'])){
+                $buscar=$_POST['buscar'];
+              }
+            $consulta="select * from nosotros  where titulo like '%".$buscar."%' ";
             $respuesta=mysqli_query($conexion,$consulta);
             while($arreglo=mysqli_fetch_array($respuesta)){
               echo '
                 <tr>
-                  <th scope="row">'.$arreglo['codigo'].'</th>
+                  <th scope="row">'.$arreglo['titulo'].'</th>
                   
-                  <td ><img class="tableimg"  src="imagenes/Productos/'.$arreglo['imagen'].'"></td>
-                  <td>'.$arreglo['nombre'].'</td>
+                  
+                  
                   <td>'.$arreglo['descripcion'].'</td>
-                  <td>'.$arreglo['precio'].'</td>
-                  <td>'.$arreglo['existencia'].'</td>
-                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarfiguras.php?id='.$arreglo['id'].'"><i class="fas fa-edit"></i></a></td>
+                  <td>'.$arreglo['correo'].'</td>
+                  
+                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarnosotros.php?id='.$arreglo['id'].'"><i class="fas fa-edit"></i></a></td>
                   <td><a href="#"  onclick="eliminar('.$arreglo['id'].')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
                 </tr>
               ';
@@ -74,10 +85,14 @@ $sql=mysqli_query($conexion,"select * from ropa where categoria= 'Figuras'");
     function eliminar(id){
       
       if(confirm("Deseas eliminar este articulo?")){
-        window.location="Verfigura.php?eliminar="+id;
+        window.location="Verproducto.php?eliminar="+id;
       }
     }
   </script>
+
+
+
+  
 </html>
 
 

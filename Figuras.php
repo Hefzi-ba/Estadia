@@ -51,7 +51,7 @@
                           
                         <br> 
                         <br>  
-                          <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btn-outline-danger w-100">Comprar</a>
+                          <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btncompra btn-outline-light w-100">Comprar</a>
                         </div>
                       </div>
                       </div>

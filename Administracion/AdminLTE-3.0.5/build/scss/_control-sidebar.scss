@@ -1,7 +1,7 @@
 //
 // Component: Control Sidebar
 //
- 
+
 html.control-sidebar-animate {
   overflow-x: hidden;
 }
@@ -11,18 +11,21 @@ html.control-sidebar-animate {
   position: absolute;
   top: $main-header-height;
   z-index: $zindex-control-sidebar;
-  
+
   &,
   &::before {
     bottom: $main-footer-height;
     display: none;
     right: -$control-sidebar-width;
     width: $control-sidebar-width;
-    @include transition(right $transition-speed $transition-fn, display $transition-speed $transition-fn);
+    @include transition(
+      right $transition-speed $transition-fn,
+      display $transition-speed $transition-fn
+    );
   }
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     position: fixed;
     top: 0;
@@ -46,11 +49,11 @@ body.text-sm {
 }
 
 .control-sidebar-push-slide {
-    .content-wrapper,
-    .main-footer {
-      @include transition(margin-right $transition-speed $transition-fn);
-    }
+  .content-wrapper,
+  .main-footer {
+    @include transition(margin-right $transition-speed $transition-fn);
   }
+}
 
 // Control sidebar open state
 .control-sidebar-open {
@@ -80,7 +83,10 @@ body.text-sm {
     &,
     &::before {
       right: 0;
-      @include transition(right $transition-speed $transition-fn, display $transition-speed $transition-fn);
+      @include transition(
+        right $transition-speed $transition-fn,
+        display $transition-speed $transition-fn
+      );
     }
   }
 

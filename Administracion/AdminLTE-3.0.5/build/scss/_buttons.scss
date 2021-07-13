@@ -20,7 +20,7 @@
     overflow: hidden;
     position: relative;
 
-    > input[type='file'] {
+    > input[type="file"] {
       background: $white;
       cursor: inherit;
       display: block;
@@ -104,5 +104,11 @@
 // Extra Button Size
 
 .btn-xs {
-  @include button-size($button-padding-y-xs, $button-padding-x-xs, $button-font-size-xs, $button-line-height-xs, $button-border-radius-xs);
+  @include button-size(
+    $button-padding-y-xs,
+    $button-padding-x-xs,
+    $button-font-size-xs,
+    $button-line-height-xs,
+    $button-border-radius-xs
+  );
 }

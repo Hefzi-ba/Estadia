@@ -1,7 +1,7 @@
 //
 // Component: Info Box
 //
- 
+
 .info-box {
   @include box-shadow($card-shadow);
   @include border-radius($border-radius);
@@ -10,12 +10,12 @@
   display: flex;
   margin-bottom: map-get($spacers, 3);
   min-height: 80px;
-  padding: .5rem;
+  padding: 0.5rem;
   position: relative;
   width: 100%;
 
   .progress {
-    background-color: rgba($black, .125);
+    background-color: rgba($black, 0.125);
     height: 2px;
     margin: 5px 0;
 
@@ -52,7 +52,7 @@
 
   .info-box-number {
     display: block;
-    margin-top: .25rem;
+    margin-top: 0.25rem;
     font-weight: $font-weight-bold;
   }
 
@@ -83,7 +83,6 @@
 
   .progress-description {
     margin: 0;
-
   }
 
   @include media-breakpoint-up(md) {
@@ -109,7 +108,7 @@
     .col-lg-2 &,
     .col-md-2 & {
       .progress-description {
-        @include font-size(.75rem);
+        @include font-size(0.75rem);
         display: block;
       }
     }
@@ -118,7 +117,7 @@
     .col-lg-3 &,
     .col-md-3 & {
       .progress-description {
-        @include font-size(.75rem);
+        @include font-size(0.75rem);
         display: block;
       }
     }

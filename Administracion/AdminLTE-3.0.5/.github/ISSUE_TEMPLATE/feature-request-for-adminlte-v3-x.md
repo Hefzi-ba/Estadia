@@ -3,8 +3,7 @@ name: Feature request for AdminLTE v3.x
 about: Suggest an idea for this project
 title: "[FEATURE]"
 labels: type:enhancement, version:3.x
-assignees: ''
-
+assignees: ""
 ---
 
 **Is your feature request related to a problem? Please describe.**

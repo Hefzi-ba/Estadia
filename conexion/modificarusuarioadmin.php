@@ -39,10 +39,10 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <form action="modificarusuarioadmin.php"  method="POST"  class=" container form">
-            <p class="banderin" style="background-color:  rgb(63, 59, 59);
-             color:white;
+            <h1 class="banderin" style="
+
               font-family:fantasy;
-               letter-spacing: 2px;">Edición de usuarios.</p> 
+               letter-spacing: 2px;">Edición de usuarios.</h1>  
                 <div class="form-group">
                 
                     <label  class="ptext">Usuario:</label>
@@ -56,7 +56,7 @@
                     
                 </div>
                 <div class="form-group">
-                    <label  class="ptext">contrasena:</label>
+                    <label  class="ptext">Contrasena:</label>
                     <input type="pwd" class="form-control"  name="contrasena" value='<?php echo $fila['contrasena'] ?>'>
                     
                 </div>

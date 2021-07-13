@@ -55,7 +55,7 @@ $sql=mysqli_query($conexion,"select * from ropa where categoria='Bolsos'");
                   <td>'.$arreglo['descripcion'].'</td>
                   <td>'.$arreglo['precio'].'</td>
                   <td>'.$arreglo['existencia'].'</td>
-                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarbolsos.php?id='.$arreglo['id'].'"><i class="fas fa-edit"></i></a></td>
+                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarsbolsos.php?id='.$arreglo['id'].'"><i class="fas fa-edit"></i></a></td>
                   <td><a href="#"  onclick="eliminar('.$arreglo['id'].')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
                 </tr>
               ';

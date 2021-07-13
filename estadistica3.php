@@ -35,7 +35,7 @@
                     $resultado= mysqli_query($conexion, $sql);
                     while ($registros = mysqli_fetch_array($resultado)) {?>
                         
-                    '<?php echo $registros["lugar"] ?>',
+                    '<?php echo $registros["fecha"] ?>',
                     <?php    
                     }
                     ?>],

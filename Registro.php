@@ -1,3 +1,26 @@
+<?php 
+
+include ("conexion/Conexion.php");
+if(isset($_POST['nombreusuario'])){
+    $nombreusuario =  $_POST['nombreusuario'];
+    $correousuario = $_POST['correousuario'];
+    $contrasena = $_POST['contrasena'];
+    $ciudad = $_POST['ciudad'];
+    $calles = $_POST['calles'];
+    $domicilio = $_POST['domicilio'];
+    $codigo_postal = $_POST['codigo_postal'];
+    
+    $telefono = $_POST['telefono'];
+   
+    
+    $sql = "insert into usuarios (  nombreusuario,  correousuario, contrasena, ciudad, calles, domicilio, codigo_postal, telefono) values
+     ( '".$nombreusuario."','".$correousuario."','".$contrasena."','".$ciudad."','".$calles."','".$domicilio."','".$codigo_postal."','".$telefono."')";
+     mysqli_query($conexion,$sql);
+     
+      
+    
+   }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,25 +40,54 @@
        
     <a href="index.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
     
-        <form action="/action_page.php" class=" container form" style="margin-bottom: 20%;">
+        <form action="Registro.php" method="POST" class=" container form" style="margin-bottom: 20%;">
         <div>
             
         <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">
             <div class="form-group">
             
                 <label for="uname" class="letraslogin">Usuario:</label>
-                <input type="text" class="form-control" id="uname" placeholder="Introduzca un usuario de registro" name="uname" required>
+                <input type="text" class="form-control" id="uname" placeholder="Introduzca un usuario de registro" name="nombreusuario" required>
                 
             </div>
             <div class="form-group">
             
             <label for="uname" class="letraslogin">Correo:</label>
-            <input type="text" class="form-control" id="uname" placeholder="nombre@*****.com" name="uname" required>
+            <input type="text" class="form-control" id="uname" placeholder="nombre@*****.com" name="correousuario" required>
             
             </div>
             <div class="form-group">
                 <label for="pwd" class="letraslogin">Contraseña:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Contraseña que sea  facil de recordar " name="pswd" required>
+                <input type="password" class="form-control" id="pwd" placeholder="Contraseña que sea  facil de recordar " name="contrasena" required>
+                
+            </div>
+            <div >
+                
+                <h1  class="letraslogin" style="text-align: center;">Datos necesarios para envíos. </h1>
+            </div>
+            <div class="form-group">
+                <label for="pwd" class="letraslogin">Ciudad:</label>
+                <input type="text" class="form-control" id="pwd" placeholder="Nuevo casas grandes, Chih. Mex.  " name="ciudad" required>
+                
+            </div>
+            <div class="form-group">
+                <label for="pwd" class="letraslogin">Calle:</label>
+                <input type="text" class="form-control" id="pwd" placeholder="16 de Septiembre " name="calles" required>
+                
+            </div>
+            <div class="form-group">
+                <label for="pwd" class="letraslogin">Domicilio:</label>
+                <input type="text" class="form-control" id="pwd" placeholder="#1209 " name="domicilio" required>
+                
+            </div>
+            <div class="form-group">
+                <label for="pwd" class="letraslogin">Código postal:</label>
+                <input type="text" class="form-control" id="pwd" placeholder=" 31700" name="codigo_postal" required>
+                
+            </div>
+            <div class="form-group">
+                <label for="pwd" class="letraslogin">Teléfono:</label>
+                <input type="text" class="form-control" id="pwd" placeholder="telefono" name="telefono" required>
                 
             </div>
            <br>

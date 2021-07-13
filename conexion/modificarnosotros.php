@@ -39,10 +39,10 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <form action="modificarnosotros.php"  method="POST"  class=" container form">
-            <p class="banderin" style="background-color:  rgb(63, 59, 59);
-             color:white;
+            <h1 class="banderin" style="
+
               font-family:fantasy;
-               letter-spacing: 2px;">Edición de la sección nosotros.</p> 
+               letter-spacing: 2px;">Edición de producto en la sección nosotros.</h1>  
                 <div class="form-group">
                 
                     <label  class="ptext">Titular:</label>

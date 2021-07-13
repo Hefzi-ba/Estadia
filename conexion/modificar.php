@@ -1,6 +1,8 @@
-<?PHP 
-   
+
+<?php 
+  
     include("conexion.php");
+   
     $sql="select * from ropa where id=".$_GET['id']." and categoria='Ropa'";
     $resultado2=mysqli_query($conexion,$sql);
     $fila=mysqli_fetch_array($resultado2);
@@ -23,6 +25,8 @@
           mysqli_query($conexion,$sqlimagen);
         };
     }
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +43,8 @@
    
         <title>DarkCube</title>
     </head>
-    <body >
+    
+    <body>
        
 
     <div class="content-wrapper">
@@ -49,10 +54,10 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <form action="modificar.php"  method="POST"  class=" container form">
-            <p class="banderin" style="background-color:  rgb(63, 59, 59);
-             color:white;
+            <h1 class="banderin" style="
+
               font-family:fantasy;
-               letter-spacing: 2px;">Edición de producto en ropa.</p> 
+               letter-spacing: 2px;">Edición de producto en ropa.</h1> 
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>
@@ -122,7 +127,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="modificar.php" method="post" enctype="multipart/form-data">
+            <form action="modificar.php" method="post" enctype="multipart/form-data" class="container form ">
 
                 
                     <label  class="ptext">Fotografía:</label>

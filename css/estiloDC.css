@@ -127,7 +127,7 @@
 }
 
 .card-header{
-    background: rgb(255, 2, 2);
+    background: rgb(145, 11, 11);
     color: rgb(255, 255, 255);
 }
 .card-body{
@@ -144,7 +144,7 @@
     margin-right: 5%;
 }
 .penvio{
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(145, 11, 11);
     color: white;
     text-align: center;
     font-family: fantasy;
@@ -221,7 +221,7 @@
 	transition: all ease 0.3s;
 }
 .box:hover .mar{
-	color:#c0292b;
+	color:rgb(145, 11, 11);
 	transition: all ease 0.5s;
 }
 
@@ -273,7 +273,7 @@
     font-weight: bold;
     letter-spacing: 2px;
     font-family: fantasy;
-    font-size: 40px;
+    font-size: 25px;
     color: #ffffff;
 
 }
@@ -299,7 +299,8 @@
     color: #7F8C8D ;
 }
 .mmar{
-    color: #32323e;
+    color: #7F8C8D;
+
     font-weight: bold;
     letter-spacing: 2px;
     font-family: fantasy;
@@ -307,14 +308,18 @@
 
 }
 .box:hover .mmar{
-	color:#c0292b;
+	color:rgb(145, 11, 11);
 	transition: all ease 0.5s;
 }
 .banderin{
     
-    color: #c0292b;;
+    color: rgb(145, 11, 11);
     font-family: fantasy;
     letter-spacing: 2px;
     font-size: 28px;
     text-align: center;
+}
+.btncompra{
+ font-family: fantasy;
+ 
 }

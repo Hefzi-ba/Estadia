@@ -48,16 +48,10 @@
                           <h5 class="card-title mar">'.$arreglo2['nombre'].'</h5>
                           <p class="card-text details letrasmenu">'.$arreglo2['descripcion'].'</p>
                           <p class="card-title details">$'.$arreglo2['precio'].'</p>
-                          <select class="form-select">
                          
-                          ';
-                          
-                        
-                        echo '
-                        </select>
                         <br> 
                         <br>  
-                          <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btn-outline-danger w-100">Comprar</a>
+                          <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btncompra btn-outline-light w-100">Comprar</a>
                         </div>
                       </div>
                       </div>

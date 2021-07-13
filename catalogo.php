@@ -63,7 +63,7 @@
                             </select>
                             <br> 
                             <br>  
-                              <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btn-outline-danger w-100">Comprar</a>  
+                              <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btncompra btn-outline-light w-100">Comprar</a>  
                           </div>
                       </div>
                     </div>
@@ -103,7 +103,7 @@
               }
               if($pagina<= $end_loop){
                 echo"<a class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=".($pagina + 1)."'>>></a>";
-                echo"<a class ='pagina  btn btn-outline-dark' href='catalogo.php?pagina=".$total_pages."'>Ultima</a>";
+                echo"<a class ='pagina  btn btn-outline-dark' href='catalogo.php?pagina=".$total_pages."'>Última</a>";
               }
               ?>
   </nav> 

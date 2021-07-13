@@ -52,7 +52,7 @@
                             <p class="card-title details text-decoration-line-through">$'.$arreglo2['precio'].'</p>
                             
                            
-                              <p class="card-title  letradescuento">$'.$arreglo2['preciooferta'].'</p>
+                              <p class="card-title  text-center letradescuento">$'.$arreglo2['preciooferta'].'</p>
                          
                             
 
@@ -71,7 +71,7 @@
                           </select>
                           <br> 
                           <br>  
-                            <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btn-outline-danger w-100">Comprar</a>
+                            <a  href="carrito.php?id=' .$arreglo2['id']. '" type="button" class="btn btncompra btn-outline-light w-100">Comprar</a>
                           </div>
                         </div>
                         </div>

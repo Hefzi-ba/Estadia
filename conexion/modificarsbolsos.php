@@ -4,11 +4,11 @@
    
     include("conexion.php");
     
-    $sql="select * from ropa where id=".$_GET['id']." and categoria='Bolsos";
+    $sql="select * from ropa  where id=".$_GET['id']." and categoria='Bolsos'";
     $resultado2=mysqli_query($conexion,$sql);
     $fila=mysqli_fetch_array($resultado2);
-    if(isset($_POST['nombre'])){
-        $sql="update ropa set  codigo='".$_POST['codigo']."',nombre='".$_POST['nombre']."',  descripcion='".$_POST['descripcion']."', precio='".$_POST['precio']."', existencia='".$_POST['existencia']."' where id=".$_POST['id']." and categoria='Bolsos'";
+    if(isset($_POST['nombrebolso'])){
+        $sql="update ropa  set  codigo='".$_POST['codigo']."',nombre='".$_POST['nombre']."',  descripcion='".$_POST['descripcion']."', precio='".$_POST['precio']."', existencia='".$_POST['existencia']."' where  id=".$_POST['id']." and categoria='Bolsos'";
         mysqli_query($conexion,$sql);
         echo $sql;
         header('location: ../Verbolso.php');
@@ -26,6 +26,8 @@
           echo 'se movio';
           $sqlimagen="update ropa set imagen='".$imagen."' where id=".$_POST['idImagen']." and categoria='Bolsos'";
           mysqli_query($conexion,$sqlimagen);
+        }else{
+          echo 'no se movio';
         }
         header('location: ../Verbolso.php');
     }
@@ -54,11 +56,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="modificarbolsos.php"  method="POST"  class=" container form">
-            <p class="banderin" style="background-color:  rgb(63, 59, 59);
-             color:white;
+            <form action="modificarfiguras.php"  method="POST"  class=" container form">
+            <h1 class="banderin" style="
+
               font-family:fantasy;
-               letter-spacing: 2px;">Edición de producto en bolsos.</p> 
+               letter-spacing: 2px;">Edición de producto en bolsos.</h1>  
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>
@@ -105,7 +107,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="modificarbolsos.php" method="post" enctype="multipart/form-data">
+            <form action="modificarfiguras.php" method="post" enctype="multipart/form-data">
 
                 
                     <label  class="ptext">Fotografía:</label>

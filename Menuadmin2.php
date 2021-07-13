@@ -55,6 +55,16 @@ include("phpconexion/Conexion.php");
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <li class="nav-item ">
+                  <a href="./conexion/cerrar.php" class="nav-link">
+                    <i class="nav-icon "></i>
+                    <p class="letrasmenu">
+                      Cerrar sesión 
+                     
+                      
+                    </p>
+                  </a>
+               </li> 
                <li class="nav-item has-treeview">
                <a href="#" class="nav-link">
               <i class="nav-icon fas fa-hat-wizard"></i>
@@ -81,9 +91,9 @@ include("phpconexion/Conexion.php");
           
           <li class="nav-item has-treeview">
             <a href="Verproducto.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-tshirt"></i>
               <p class="letrasmenu">
-                Productos
+               Ropa
                 <i class="fas fa-angle-left right"></i>
                 
               </p>
@@ -194,7 +204,31 @@ include("phpconexion/Conexion.php");
               </li>
             
             </ul>
+          </li>
+          
+          <li class="nav-item has-treeview">
+               <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cart-arrow-down"></i>
+              <p class="letrasmenu">
+              Ventas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
             
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="ventaslocales2.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Ventas locales</p>
+                </a>
+                <a href="Ventasexternas.php" class="nav-link">
+                  <i class="far  nav-icon"></i>
+                  <p class="letrasmenu">Venta externa </p>
+                </a>
+              </li>
+            
+            </ul>
+          </li>
             
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -220,6 +254,7 @@ include("phpconexion/Conexion.php");
                   <p class="letrasmenu">Administradores</p>
                 </a>
               </li>
+              
         </ul>
         
       </nav>

@@ -18,7 +18,7 @@
   }
 
   .dropdown-toggle::after {
-    vertical-align: .2rem
+    vertical-align: 0.2rem;
   }
 }
 
@@ -60,8 +60,8 @@
   & > a:after {
     @include caret-right;
     float: right;
-    margin-left: .5rem;
-    margin-top: .5rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   & > .dropdown-menu {
@@ -83,8 +83,6 @@
     }
   }
 }
-
-
 
 // Dropdown Sizes
 .dropdown-menu-xl {
@@ -111,14 +109,14 @@
 .dropdown-header {
   display: block;
   font-size: $font-size-sm;
-  padding: .5rem $dropdown-item-padding-x;
+  padding: 0.5rem $dropdown-item-padding-x;
   text-align: center;
 }
 
-// Add fade animation to dropdown menus by appending 
+// Add fade animation to dropdown menus by appending
 // the class .animated-dropdown-menu to the .dropdown-menu ul (or ol)
 .open:not(.dropup) > .animated-dropdown-menu {
-  @include animation(flipInX .7s both);
+  @include animation(flipInX 0.7s both);
   backface-visibility: visible !important;
 }
 
@@ -179,7 +177,7 @@
 // User Menu
 .navbar-nav > .user-menu {
   > .nav-link:after {
-    content:none;
+    content: none;
   }
 
   > .dropdown-menu {
@@ -258,7 +256,7 @@
     @include media-breakpoint-up(sm) {
       float: none;
       line-height: 10px;
-      margin-right: .4rem;
+      margin-right: 0.4rem;
       margin-top: -8px;
     }
 

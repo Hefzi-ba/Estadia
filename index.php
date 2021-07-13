@@ -1,6 +1,11 @@
+<?php 
+if(!isset($_SESSION)){
+    session_start();
+}
+?>
 <html>
 <?php 
-    include ("Menu.html");
+    include ("Menu.php");
     ?>
      <?php 
     include ("Envio.html");

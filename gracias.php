@@ -1,33 +1,43 @@
-<?php 
-    session_start();
-    include("conexion/Conexion.php");
-    $arreglo=$_SESSION['carrito'];
-    $total=0;
-    for($i=0;$i<count($arreglo);$i++){
-        $total=$total+($arreglo[$i]['precio']*$arreglo[$i]['cantidad']);
+<?php
+session_start();
+include "conexion/Conexion.php";
+$arreglo = $_SESSION["carrito"];
+$total = 0;
+for ($i = 0; $i < count($arreglo); $i++) {
+    $total = $total + $arreglo[$i]["precio"] * $arreglo[$i]["cantidad"];
+}
+$fecha = date("Y-m-d h:m:s");
 
-    }
-    $fecha=date('Y-m-d h:m:s');
-    
-    $sql="insert into carrito (idusuario,fecha,totalpagar, usuario,serviciodomicilio) values ('".$_SESSION['idusuario']."','".$fecha."',".$total.",'".$_SESSION['usuario']."','".$_GET['serviciodomicilio']."')";
-    mysqli_query($conexion,$sql);
-    
-    $ultimoid=mysqli_insert_id($conexion);
-    echo $sql;
-    unset($_SESSION['carrito']);
-    for($i=0;$i<count($arreglo);$i++){
-        $total=$total+($arreglo[$i]['precio']*$arreglo[$i]['cantidad']);
+$sql =
+    "insert into carrito (idusuario,fecha,totalpagar, usuario, lugar, serviciodomicilio) 
+    values ('" .$_SESSION["idusuario"] ."','" .$fecha ."'," .$total .",'".$_SESSION["usuario"] ."',
+    '".$_SESSION["calles"]."','" .$_GET["serviciodomicilio"] ."')";
+mysqli_query($conexion, $sql);
+
+$ultimoid = mysqli_insert_id($conexion);
+echo $sql;
+unset($_SESSION["carrito"]);
+for ($i = 0; $i < count($arreglo); $i++) {
+    $total = $total + $arreglo[$i]["precio"] * $arreglo[$i]["cantidad"];
     //insert into a la tabla donde almacenara los productos
-    
-        $carritop="INSERT INTO carrito_productos (id_carrito, id_producto, precio_producto, cantidades_producto, nombre_producto) VALUES ('".$ultimoid."','".$arreglo[$i]['id']."','".$arreglo[$i]['precio']."','".$arreglo[$i]['cantidad']."','".$arreglo[$i]['nombre']."') ";
-        mysqli_query($conexion,$carritop);
-        echo $carritop;
-        
-         
-    }
-    
-    
-    include("Menu.html");
+
+    $carritop =
+        "INSERT INTO carrito_productos (id_carrito, id_producto, precio_producto, cantidades_producto, nombre_producto) VALUES ('" .
+        $ultimoid .
+        "','" .
+        $arreglo[$i]["id"] .
+        "','" .
+        $arreglo[$i]["precio"] .
+        "','" .
+        $arreglo[$i]["cantidad"] .
+        "','" .
+        $arreglo[$i]["nombre"] .
+        "') ";
+    mysqli_query($conexion, $carritop);
+    echo $carritop;
+}
+
+include "Menu.php";
 ?>
 <html>
     <head>
@@ -52,7 +62,5 @@
         </div>
         
     </body>
-    <?php 
-    include("footer.html");
-    ?>
+    <?php include "footer.html"; ?>
 </html>

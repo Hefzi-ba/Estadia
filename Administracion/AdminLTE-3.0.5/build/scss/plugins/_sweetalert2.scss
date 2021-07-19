@@ -32,9 +32,8 @@
       border-color: ligthen($success, 20%);
     }
 
-    [class^='swal2-success-line'] {
+    [class^="swal2-success-line"] {
       background-color: $success;
     }
   }
-
 }

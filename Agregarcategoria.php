@@ -1,19 +1,19 @@
 
  
  
-<?php 
-include("Menuadmin2.php");
-include ("conexion/Conexion.php");
-if(isset($_POST['nombrecategoria'])){
-    $nombrecategoria =  $_POST['nombrecategoria'];
-    
-    $sql = "insert into categoria (nombrecategoria) values
-     ( '".$nombrecategoria."')";
-     mysqli_query($conexion,$sql);
-     
-     
-    
-   }
+<?php
+include "indexad2.php";
+include "conexion/Conexion.php";
+if (isset($_POST["nombrecategoria"])) {
+    $nombrecategoria = $_POST["nombrecategoria"];
+
+    $sql =
+        "insert into categoria (nombrecategoria) values
+     ( '" .
+        $nombrecategoria .
+        "')";
+    mysqli_query($conexion, $sql);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,8 @@ if(isset($_POST['nombrecategoria'])){
     </head>
     <body >
        
-
+    <br>
+    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -41,7 +42,7 @@ if(isset($_POST['nombrecategoria'])){
           <div class="col-sm-6">
             <form action="Agregarcategoria.php"  method="POST"  class=" container form">
                 
-            <p class="ptext" >Registro de una nueva categoría.</p> 
+            <h1 class="ptext" >Registro de una nueva categoría.</1> 
                 
                 <div class="form-group">
                     <label  class="ptext">Nombre:</label>

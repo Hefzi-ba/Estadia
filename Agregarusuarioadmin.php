@@ -1,23 +1,28 @@
 
  
  
-<?php 
-include("Menuadmin2.php");
-include ("conexion/Conexion.php");
-if(isset($_POST['nombreusuario'])){
-    $nombreusuario =  $_POST['nombreusuario'];
-    $correousuario = $_POST['correousuario'];
-    $contrasena = $_POST['contrasena'];
-    $tipodeusuario = $_POST['tipodeusuario'];
-   
-    
-    $sql = "insert into usuarios (  nombreusuario,  correousuario, contrasena, tipodeusuario) values
-     ( '".$nombreusuario."','".$correousuario."','".$contrasena."','".$tipodeusuario."')";
-     mysqli_query($conexion,$sql);
-     
-      
-    
-   }
+<?php
+include "indexad2.php";
+include "conexion/Conexion.php";
+if (isset($_POST["nombreusuario"])) {
+    $nombreusuario = $_POST["nombreusuario"];
+    $correousuario = $_POST["correousuario"];
+    $contrasena = $_POST["contrasena"];
+    $tipodeusuario = $_POST["tipodeusuario"];
+
+    $sql =
+        "insert into usuarios (  nombreusuario,  correousuario, contrasena, tipodeusuario) values
+     ( '" .
+        $nombreusuario .
+        "','" .
+        $correousuario .
+        "','" .
+        $contrasena .
+        "','" .
+        $tipodeusuario .
+        "')";
+    mysqli_query($conexion, $sql);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +40,8 @@ if(isset($_POST['nombreusuario'])){
         <title>DarkCube</title>
     </head>
     <body class="fondologin">
+    <br>
+    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -44,7 +51,7 @@ if(isset($_POST['nombreusuario'])){
     <a href="Menuadmin2.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
     
         <form action="Agregarusuarioadmin.php" class=" container form" method="POST" style="margin-bottom: 20%;">
-        <p class="ptext" >Registro de un nuevo usuario.</p> 
+        <h1 class="ptext" >Registro de un nuevo usuario.</h1> 
         <div>
             
         <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">

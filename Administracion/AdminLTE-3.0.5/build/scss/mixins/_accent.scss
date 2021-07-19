@@ -35,7 +35,11 @@
 
       &::after {
         $newColor: color-yiq($color);
-        background-image: str-replace($custom-checkbox-indicator-icon-checked, str-replace(#{$custom-control-indicator-checked-color}, '#', '%23'), str-replace(#{$newColor}, '#', '%23'));
+        background-image: str-replace(
+          $custom-checkbox-indicator-icon-checked,
+          str-replace(#{$custom-control-indicator-checked-color}, "#", "%23"),
+          str-replace(#{$newColor}, "#", "%23")
+        );
       }
     }
 
@@ -45,7 +49,7 @@
     .custom-file-input:focus ~ .custom-file-label {
       border-color: lighten($color, 25%);
     }
-    
+
     .page-item {
       .page-link {
         color: $link-color;
@@ -70,7 +74,7 @@
       .sidebar {
         a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link) {
           color: $sidebar-dark-color;
-      
+
           @include hover {
             color: $sidebar-dark-hover-color;
           }
@@ -91,4 +95,3 @@
     }
   }
 }
-

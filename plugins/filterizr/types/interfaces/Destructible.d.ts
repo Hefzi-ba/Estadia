@@ -1,3 +1,3 @@
 export interface Destructible {
-    destroy(): void | Promise<void>;
+  destroy(): void | Promise<void>;
 }

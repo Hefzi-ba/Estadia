@@ -1,18 +1,23 @@
-<?PHP 
-   
-    include("conexion.php");
-    
-    $sql="select * from usuarios where id=".$_GET['id']."";
-    $resultado2=mysqli_query($conexion,$sql);
-    $fila=mysqli_fetch_array($resultado2);
-    if(isset($_POST['nombreusuario'])){
-        $sql="update usuarios set nombreusuario='".$_POST['nombreusuario']."',  correousuario='".$_POST['correousuario']."', contrasena='".$_POST['contrasena']."' where id=".$_POST['id']."";
-        mysqli_query($conexion,$sql);
-        echo $sql;
-        header('location: ../Verusuarios.php');
-    }
+<?php include "conexion.php";
 
-  
+$sql = "select * from usuarios where id=" . $_GET["id"] . "";
+$resultado2 = mysqli_query($conexion, $sql);
+$fila = mysqli_fetch_array($resultado2);
+if (isset($_POST["nombreusuario"])) {
+    $sql =
+        "update usuarios set nombreusuario='" .
+        $_POST["nombreusuario"] .
+        "',  correousuario='" .
+        $_POST["correousuario"] .
+        "', contrasena='" .
+        $_POST["contrasena"] .
+        "' where id=" .
+        $_POST["id"] .
+        "";
+    mysqli_query($conexion, $sql);
+    echo $sql;
+    header("location: ../Verusuarios.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,25 +51,33 @@
                 <div class="form-group">
                 
                     <label  class="ptext">Usuario:</label>
-                    <input type="text" class="form-control"   name="nombreusuario" value='<?php echo $fila['nombreusuario'] ?>' >
+                    <input type="text" class="form-control"   name="nombreusuario" value='<?php echo $fila[
+                        "nombreusuario"
+                    ]; ?>' >
                     
                 </div>
                 
                 <div class="form-group">
                     <label  class="ptext">Correo:</label>
-                    <input type="text" class="form-control"   name="correousuario"  value='<?php echo $fila['correousuario'] ?>'>
+                    <input type="text" class="form-control"   name="correousuario"  value='<?php echo $fila[
+                        "correousuario"
+                    ]; ?>'>
                     
                 </div>
                 <div class="form-group">
                     <label  class="ptext">Contrasena:</label>
-                    <input type="pwd" class="form-control"  name="contrasena" value='<?php echo $fila['contrasena'] ?>'>
+                    <input type="pwd" class="form-control"  name="contrasena" value='<?php echo $fila[
+                        "contrasena"
+                    ]; ?>'>
                     
                 </div>
                 
                 
             <br>
                 <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Guardar edición">
-                <input type="hidden" name="id" value="<?php echo $fila['id'] ?>">
+                <input type="hidden" name="id" value="<?php echo $fila[
+                    "id"
+                ]; ?>">
             </form>
             <br>
             </div>

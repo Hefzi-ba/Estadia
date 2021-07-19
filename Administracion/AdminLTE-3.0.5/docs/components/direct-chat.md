@@ -3,7 +3,7 @@ layout: page
 title: Direct Chat Components
 ---
 
-The direct chat widget extends the card component to create a beautiful chat interface. This widget consists of a required messages pane and an __optional__ contacts pane. Examples:
+The direct chat widget extends the card component to create a beautiful chat interface. This widget consists of a required messages pane and an **optional** contacts pane. Examples:
 
 <div class="row">
   <div class="col-md-6">
@@ -314,14 +314,26 @@ The direct chat widget extends the card component to create a beautiful chat int
   <div class="card-header">
     <h3 class="card-title">Direct Chat</h3>
     <div class="card-tools">
-      <span data-toggle="tooltip" title="3 New Messages" class="badge badge-light">3</span>
+      <span
+        data-toggle="tooltip"
+        title="3 New Messages"
+        class="badge badge-light"
+        >3</span
+      >
       <button type="button" class="btn btn-tool" data-widget="collapse">
         <i class="fas fa-minus"></i>
       </button>
-      <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+      <button
+        type="button"
+        class="btn btn-tool"
+        data-toggle="tooltip"
+        title="Contacts"
+        data-widget="chat-pane-toggle"
+      >
         <i class="fas fa-comments"></i>
       </button>
-      <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-times"></i>
+      <button type="button" class="btn btn-tool" data-widget="remove">
+        <i class="fas fa-times"></i>
       </button>
     </div>
   </div>
@@ -336,7 +348,11 @@ The direct chat widget extends the card component to create a beautiful chat int
           <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
         </div>
         <!-- /.direct-chat-infos -->
-        <img class="direct-chat-img" src="{{'assets/img/user1-128x128.jpg' | relative_url}}" alt="message user image">
+        <img
+          class="direct-chat-img"
+          src="{{'assets/img/user1-128x128.jpg' | relative_url}}"
+          alt="message user image"
+        />
         <!-- /.direct-chat-img -->
         <div class="direct-chat-text">
           Is this template really for free? That's unbelievable!
@@ -351,11 +367,13 @@ The direct chat widget extends the card component to create a beautiful chat int
           <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
         </div>
         <!-- /.direct-chat-infos -->
-        <img class="direct-chat-img" src="{{'assets/img/user3-128x128.jpg' | relative_url}}" alt="message user image">
+        <img
+          class="direct-chat-img"
+          src="{{'assets/img/user3-128x128.jpg' | relative_url}}"
+          alt="message user image"
+        />
         <!-- /.direct-chat-img -->
-        <div class="direct-chat-text">
-          You better believe it!
-        </div>
+        <div class="direct-chat-text">You better believe it!</div>
         <!-- /.direct-chat-text -->
       </div>
       <!-- /.direct-chat-msg -->
@@ -366,7 +384,11 @@ The direct chat widget extends the card component to create a beautiful chat int
           <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
         </div>
         <!-- /.direct-chat-infos -->
-        <img class="direct-chat-img" src="{{'assets/img/user1-128x128.jpg' | relative_url}}" alt="message user image">
+        <img
+          class="direct-chat-img"
+          src="{{'assets/img/user1-128x128.jpg' | relative_url}}"
+          alt="message user image"
+        />
         <!-- /.direct-chat-img -->
         <div class="direct-chat-text">
           Working with AdminLTE on a great new app! Wanna join?
@@ -381,11 +403,13 @@ The direct chat widget extends the card component to create a beautiful chat int
           <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
         </div>
         <!-- /.direct-chat-infos -->
-        <img class="direct-chat-img" src="{{'assets/img/user3-128x128.jpg' | relative_url}}" alt="message user image">
+        <img
+          class="direct-chat-img"
+          src="{{'assets/img/user3-128x128.jpg' | relative_url}}"
+          alt="message user image"
+        />
         <!-- /.direct-chat-img -->
-        <div class="direct-chat-text">
-          I would love to.
-        </div>
+        <div class="direct-chat-text">I would love to.</div>
         <!-- /.direct-chat-text -->
       </div>
       <!-- /.direct-chat-msg -->
@@ -396,7 +420,10 @@ The direct chat widget extends the card component to create a beautiful chat int
       <ul class="contacts-list">
         <li>
           <a href="#">
-            <img class="contacts-list-img" src="{{'assets/img/user1-128x128.jpg' | relative_url}}">
+            <img
+              class="contacts-list-img"
+              src="{{'assets/img/user1-128x128.jpg' | relative_url}}"
+            />
             <div class="contacts-list-info">
               <span class="contacts-list-name">
                 Count Dracula
@@ -410,7 +437,10 @@ The direct chat widget extends the card component to create a beautiful chat int
         <!-- End Contact Item -->
         <li>
           <a href="#">
-            <img class="contacts-list-img" src="{{'assets/img/user7-128x128.jpg' | relative_url}}">
+            <img
+              class="contacts-list-img"
+              src="{{'assets/img/user7-128x128.jpg' | relative_url}}"
+            />
             <div class="contacts-list-info">
               <span class="contacts-list-name">
                 Sarah Doe
@@ -424,7 +454,10 @@ The direct chat widget extends the card component to create a beautiful chat int
         <!-- End Contact Item -->
         <li>
           <a href="#">
-            <img class="contacts-list-img" src="{{'assets/img/user3-128x128.jpg' | relative_url}}">
+            <img
+              class="contacts-list-img"
+              src="{{'assets/img/user3-128x128.jpg' | relative_url}}"
+            />
             <div class="contacts-list-info">
               <span class="contacts-list-name">
                 Nadia Jolie
@@ -438,7 +471,10 @@ The direct chat widget extends the card component to create a beautiful chat int
         <!-- End Contact Item -->
         <li>
           <a href="#">
-            <img class="contacts-list-img" src="{{'assets/img/user5-128x128.jpg' | relative_url}}">
+            <img
+              class="contacts-list-img"
+              src="{{'assets/img/user5-128x128.jpg' | relative_url}}"
+            />
             <div class="contacts-list-info">
               <span class="contacts-list-name">
                 Nora S. Vans
@@ -452,7 +488,10 @@ The direct chat widget extends the card component to create a beautiful chat int
         <!-- End Contact Item -->
         <li>
           <a href="#">
-            <img class="contacts-list-img" src="{{'assets/img/user6-128x128.jpg' | relative_url}}">
+            <img
+              class="contacts-list-img"
+              src="{{'assets/img/user6-128x128.jpg' | relative_url}}"
+            />
             <div class="contacts-list-info">
               <span class="contacts-list-name">
                 John K.
@@ -466,7 +505,10 @@ The direct chat widget extends the card component to create a beautiful chat int
         <!-- End Contact Item -->
         <li>
           <a href="#">
-            <img class="contacts-list-img" src="{{'assets/img/user8-128x128.jpg' | relative_url}}">
+            <img
+              class="contacts-list-img"
+              src="{{'assets/img/user8-128x128.jpg' | relative_url}}"
+            />
             <div class="contacts-list-info">
               <span class="contacts-list-name">
                 Kenneth M.
@@ -487,7 +529,12 @@ The direct chat widget extends the card component to create a beautiful chat int
   <div class="card-footer">
     <form action="#" method="post">
       <div class="input-group">
-        <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+        <input
+          type="text"
+          name="message"
+          placeholder="Type Message ..."
+          class="form-control"
+        />
         <span class="input-group-append">
           <button type="button" class="btn btn-primary">Send</button>
         </span>
@@ -498,12 +545,14 @@ The direct chat widget extends the card component to create a beautiful chat int
 </div>
 <!--/.direct-chat -->
 ```
+
 {: .max-height-300}
 
 ##### Outline Direct Chat
+
 {: .text-bold .text-dark .mt-5}
 
-Of course you can use direct chat with a outline card by adding the class `.card-outline` to the card. Here are a couple of examples: 
+Of course you can use direct chat with a outline card by adding the class `.card-outline` to the card. Here are a couple of examples:
 
 <div class="row">
   <div class="col-md-6">

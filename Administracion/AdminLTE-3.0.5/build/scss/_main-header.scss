@@ -1,7 +1,7 @@
 //
 // Component: Main Header
 //
- 
+
 .main-header {
   border-bottom: $main-header-bottom-border;
   z-index: $zindex-main-header;
@@ -26,7 +26,6 @@
         font-size: $font-size-sm;
       }
     }
-
   }
 
   .navbar-nav {
@@ -34,7 +33,7 @@
       margin: 0;
     }
 
-    &[class*='-right'] {
+    &[class*="-right"] {
       .dropdown-menu {
         left: auto;
         margin-top: -3px;
@@ -57,7 +56,7 @@
 
 // Navbar badge
 .navbar-badge {
-  font-size: .6rem;
+  font-size: 0.6rem;
   font-weight: 300;
   padding: 2px 4px;
   position: absolute;

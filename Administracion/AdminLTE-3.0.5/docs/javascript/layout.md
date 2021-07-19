@@ -3,12 +3,14 @@ layout: page
 title: Layout Plugin
 ---
 
-The layout plugin manages the layout in case of css failure to reset the height or width of the content. 
+The layout plugin manages the layout in case of css failure to reset the height or width of the content.
 
 ##### Usage
-This plugin is activated automatically upon window load. 
+
+This plugin is activated automatically upon window load.
 
 ##### Options
+
 {: .mt-4}
 
 |---
@@ -22,13 +24,19 @@ This plugin is activated automatically upon window load.
 {: .table .table-bordered .bg-light}
 
 > ##### Tip!
+>
 > You can use any option via the data-attributes like this.
+>
 > ```html
-> <body data-scrollbar-auto-hide="n">...</body>
+> <body data-scrollbar-auto-hide="n">
+>   ...
+> </body>
 > ```
-{: .quote-info}
+>
+> {: .quote-info}
 
 ##### Methods
+
 {: .mt-4}
 
 |---

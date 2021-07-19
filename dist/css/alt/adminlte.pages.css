@@ -5,33 +5,40 @@
  *   Website: AdminLTE.io <http://adminlte.io>
  *   License: Open source - MIT <http://opensource.org/licenses/MIT>
  */
-.close, .mailbox-attachment-close {
+.close,
+.mailbox-attachment-close {
   float: right;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
   color: #000;
   text-shadow: 0 1px 0 #ffffff;
-  opacity: .5;
+  opacity: 0.5;
 }
 
-.close:hover, .mailbox-attachment-close:hover {
+.close:hover,
+.mailbox-attachment-close:hover {
   color: #000;
   text-decoration: none;
 }
 
-.close:not(:disabled):not(.disabled):hover, .mailbox-attachment-close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus, .mailbox-attachment-close:not(:disabled):not(.disabled):focus {
-  opacity: .75;
+.close:not(:disabled):not(.disabled):hover,
+.mailbox-attachment-close:not(:disabled):not(.disabled):hover,
+.close:not(:disabled):not(.disabled):focus,
+.mailbox-attachment-close:not(:disabled):not(.disabled):focus {
+  opacity: 0.75;
 }
 
-button.close, button.mailbox-attachment-close {
+button.close,
+button.mailbox-attachment-close {
   padding: 0;
   background-color: transparent;
   border: 0;
   appearance: none;
 }
 
-a.close.disabled, a.disabled.mailbox-attachment-close {
+a.close.disabled,
+a.disabled.mailbox-attachment-close {
   pointer-events: none;
 }
 
@@ -200,7 +207,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 .register-logo {
   font-size: 2.1rem;
   font-weight: 300;
-  margin-bottom: .9rem;
+  margin-bottom: 0.9rem;
   text-align: center;
 }
 
@@ -227,7 +234,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 @media (max-width: 576px) {
   .login-box,
   .register-box {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     width: 90%;
   }
 }
@@ -250,8 +257,16 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   box-shadow: none;
 }
 
-.login-card-body .input-group .form-control:focus ~ .input-group-append .input-group-text,
-.register-card-body .input-group .form-control:focus ~ .input-group-append .input-group-text {
+.login-card-body
+  .input-group
+  .form-control:focus
+  ~ .input-group-append
+  .input-group-text,
+.register-card-body
+  .input-group
+  .form-control:focus
+  ~ .input-group-append
+  .input-group-text {
   border-color: #80bdff;
 }
 
@@ -260,8 +275,16 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   box-shadow: none;
 }
 
-.login-card-body .input-group .form-control.is-valid ~ .input-group-append .input-group-text,
-.register-card-body .input-group .form-control.is-valid ~ .input-group-append .input-group-text {
+.login-card-body
+  .input-group
+  .form-control.is-valid
+  ~ .input-group-append
+  .input-group-text,
+.register-card-body
+  .input-group
+  .form-control.is-valid
+  ~ .input-group-append
+  .input-group-text {
   border-color: #28a745;
 }
 
@@ -270,8 +293,16 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   box-shadow: none;
 }
 
-.login-card-body .input-group .form-control.is-invalid ~ .input-group-append .input-group-text,
-.register-card-body .input-group .form-control.is-invalid ~ .input-group-append .input-group-text {
+.login-card-body
+  .input-group
+  .form-control.is-invalid
+  ~ .input-group-append
+  .input-group-text,
+.register-card-body
+  .input-group
+  .form-control.is-invalid
+  ~ .input-group-append
+  .input-group-text {
   border-color: #dc3545;
 }
 
@@ -420,7 +451,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 }
 
 .product-share a {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .projects td {

@@ -1,5 +1,5 @@
-import { Position } from './Position';
+import { Position } from "./Position";
 export interface ContainerLayout {
-    containerHeight: number;
-    itemsPositions: Position[];
+  containerHeight: number;
+  itemsPositions: Position[];
 }

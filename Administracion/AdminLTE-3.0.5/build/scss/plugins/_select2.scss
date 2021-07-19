@@ -81,11 +81,11 @@
   }
 
   .select2-results__option {
-    &[aria-disabled='true'] {
+    &[aria-disabled="true"] {
       color: $gray-600;
     }
 
-    &[aria-selected='true'] {
+    &[aria-selected="true"] {
       $color: $gray-300;
 
       background-color: $color;
@@ -136,7 +136,6 @@
           }
         }
 
-
         .select2-search.select2-search--inline {
           .select2-search__field {
             border: 0;
@@ -150,7 +149,7 @@
         border-color: darken($primary, 5%);
         color: color-yiq($primary);
         padding: 0 10px;
-        margin-top: .31rem;
+        margin-top: 0.31rem;
       }
 
       .select2-selection__choice__remove {
@@ -173,7 +172,7 @@
         }
 
         .select2-selection__choice {
-          margin-top: .4rem;
+          margin-top: 0.4rem;
         }
       }
     }
@@ -228,19 +227,19 @@ select.form-control-sm ~ {
   .select2-container--default {
     .select2-selection--single {
       height: $input-height-sm;
-      
+
       .select2-selection__rendered {
-        margin-top: -.4rem;
+        margin-top: -0.4rem;
       }
 
       .select2-selection__arrow {
-        top: -.12rem;
+        top: -0.12rem;
       }
     }
 
     .select2-selection--multiple {
       min-height: $input-height-sm;
-      
+
       .select2-selection__rendered {
         padding: 0 $input-padding-x-sm / 2 $input-padding-y-sm;
         margin-top: -($input-padding-x-sm / 5);

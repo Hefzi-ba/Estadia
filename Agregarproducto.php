@@ -1,38 +1,44 @@
 
  
  
-<?php 
-include("Menuadmin2.php");
-include ("conexion/Conexion.php");
-if(isset($_POST['nombre'])){
-    $nombre =  $_POST['nombre'];
-    $categoria =  $_POST['categoria'];
-    $descripcion = $_POST['descripcion'];
-    $precio = $_POST['precio'];
-    $existencia = $_POST['existencia'];
-    $codigo =$_POST['codigo'];
-   
-    $tallas = $_POST['tallas'];
-     $formatos=array('.png','.jpg', '.gif', '.jpeg');
-      $ubicacion="imagenes/Productos";
-      $imagen=$_FILES['imagen']['name'];
-      $nombre_temporal=$_FILES['imagen']['tmp_name'];
-      if(move_uploaded_file($nombre_temporal,"$ubicacion/$imagen")){
-        echo 'se movio';
-      }else{
-        echo 'no se movio';
-      }
-    $sql = "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia, categoria) values
-     ( '".$codigo."','".$nombre."','".$imagen."','".$descripcion."', ".$precio.", ".$existencia.",'".$categoria."')";
-     mysqli_query($conexion,$sql);
-     
-      foreach($_POST['tallas'] as $talla){
-        $sql3="insert into tallas(nombretalla, codigoropa) values 
-        ('".$talla."','".$codigo."')";
-         mysqli_query($conexion,$sql3);
-      }
-    
-   }
+<?php
+include "indexad2.php";
+include "conexion/Conexion.php";
+if (isset($_POST["nombre"])) {
+    $nombre = $_POST["nombre"];
+    $categoria = $_POST["categoria"];
+    $descripcion = $_POST["descripcion"];
+    $precio = $_POST["precio"];
+    $existencia = $_POST["existencia"];
+    $codigo = $_POST["codigo"];
+
+    $tallas = $_POST["tallas"];
+    $formatos = [".png", ".jpg", ".gif", ".jpeg"];
+    $ubicacion = "imagenes/Productos";
+    $imagen = $_FILES["imagen"]["name"];
+    $nombre_temporal = $_FILES["imagen"]["tmp_name"];
+    if (move_uploaded_file($nombre_temporal, "$ubicacion/$imagen")) {
+        echo "se movio";
+    } else {
+        echo "no se movio";
+    }
+    $sql =
+        "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia, categoria) values
+     ( '" .$codigo ."','" .$nombre ."','" .$imagen ."','" .$descripcion ."',
+      " .$precio .", '" .$existencia ."','" .$categoria ."')";
+    mysqli_query($conexion, $sql);
+
+    foreach ($_POST["tallas"] as $talla) {
+        $sql3 =
+            "insert into tallas(nombretalla, codigoropa) values 
+        ('" .
+            $talla .
+            "','" .
+            $codigo .
+            "')";
+        mysqli_query($conexion, $sql3);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +57,8 @@ if(isset($_POST['nombre'])){
     </head>
     <body >
        
-
+    <br>
+    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -59,7 +66,7 @@ if(isset($_POST['nombre'])){
         <div class="row mb-2">
           <div class="col-sm-6">
             <form action="Agregarproducto.php"  method="POST" enctype="multipart/form-data" class=" container form">
-            <p class="ptext" >Registro de una nueva prenda.</p> 
+            <h1 class="ptext" >Registro de una nueva prenda.</h1> 
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>
@@ -80,13 +87,15 @@ if(isset($_POST['nombre'])){
                     <label  class="ptext">Categoria:</label>
                     <select name="categoria"  class="form-control" class="form-select">
                         <?php
-                        include("conexion/Conexion.php");
-                        $sql="select * from categoria";
-                        
-                        $respuesta=mysqli_query($conexion,$sql);
-                        while($arreglo=mysqli_fetch_array($respuesta)){
-                            echo'
-                            <option>'.$arreglo['nombrecategoria'].'</option>';
+                        include "conexion/Conexion.php";
+                        $sql = "select * from categoria";
+
+                        $respuesta = mysqli_query($conexion, $sql);
+                        while ($arreglo = mysqli_fetch_array($respuesta)) {
+                            echo '
+                            <option>' .
+                                $arreglo["nombrecategoria"] .
+                                "</option>";
                         }
                         ?>
                         
@@ -101,12 +110,16 @@ if(isset($_POST['nombre'])){
                 <label class="ptext">Marque las tallas existentes:</label>
                     <br>
                     <?php
-                    $consulta="select * from tabladetallas";
-                    $resultado=mysqli_query($conexion,$consulta);
-                    while($arreglo2=mysqli_fetch_array($resultado)){
-                        echo'
+                    $consulta = "select * from tabladetallas";
+                    $resultado = mysqli_query($conexion, $consulta);
+                    while ($arreglo2 = mysqli_fetch_array($resultado)) {
+                        echo '
                         <br><div class="form-check form-switch ">
-                        <input name="tallas[]" class="form-check-input " type="checkbox"  value="'.$arreglo2['nombretalla'].'"> '.$arreglo2['nombretalla'].'
+                        <input name="tallas[]" class="form-check-input " type="checkbox"  value="' .
+                            $arreglo2["nombretalla"] .
+                            '"> ' .
+                            $arreglo2["nombretalla"] .
+                            '
                         </div>
                         
                     
@@ -119,8 +132,14 @@ if(isset($_POST['nombre'])){
                     
                 </div>
                 <div class="form-group">
-                    <label  class="ptext">Cantidad de piezas existentes:</label>
-                    <input type="text" class="form-control"  name="existencia" required>
+                    <label  class="ptext">Existencia:</label>
+                    
+                    <select name="existencia" class="form-select" aria-label="Default select example">
+                        <option selected>Existencia en...</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Agotado">Agotado</option>
+                        
+                    </select>
                     
                 </div>
             <br>

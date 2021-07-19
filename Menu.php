@@ -26,26 +26,22 @@
                       </button>
                       <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
-                        <?php
-                          if(isset($_SESSION['usuario'])){
-                            
-                            ?>
+                        <?php if (isset($_SESSION["usuario"])) { ?>
                             <li class="nav-item">
                             <a type="button" class="btn btn-outline-light letrasmenu " href="./conexion/cerrar.php">Cerrar sesion</a>
                             </li>
+                            <li class="nav-item">
+                            <a type="button" class="btn btn-outline-light letrasmenu " href="pedidos.php">Pedidos</a>
+                            </li>
                             
-                            <?php
-                          }else{
-                            ?>
+                            <?php } else { ?>
                             <li class="nav-item">
                             <a type="button" class="btn btn-outline-light letrasmenu " href="loguin.php">Iniciar sesión</a>
                             </li>
                             <li class="nav-item">
                               <a type="button" class="btn btn-outline-light letrasmenu" href="Registro.php">Registrarse</a>
                             </li>
-                           <?php 
-                          }
-                          ?>
+                           <?php } ?>
                          
                           <li class="nav-item">
                             <a class="btn btn-outline-light letrasmenu" href="catalogo.php">Ropa</a>

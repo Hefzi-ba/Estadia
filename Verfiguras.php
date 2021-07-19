@@ -1,11 +1,14 @@
-<?php 
-include("Menuadmin2.php");
-include("conexion/Conexion.php");
-if(isset($_GET['eliminar'])){
-  $sql="delete from ropa where categoria='Figuras' and id=".$_GET['eliminar']."";
-  mysqli_query($conexion,$sql);
+<?php
+include "indexad2.php";
+include "conexion/Conexion.php";
+if (isset($_GET["eliminar"])) {
+    $sql =
+        "delete from ropa where categoria='Figuras' and id=" .
+        $_GET["eliminar"] .
+        "";
+    mysqli_query($conexion, $sql);
 }
-$sql=mysqli_query($conexion,"select * from ropa where categoria= 'Figuras'");
+$sql = mysqli_query($conexion, "select * from ropa where categoria= 'Figuras'");
 ?>
 <html>
   <head>
@@ -21,46 +24,75 @@ $sql=mysqli_query($conexion,"select * from ropa where categoria= 'Figuras'");
   </head>
   <body>
 
-
+  <br>
+    <br>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
+          <nav class="navbar navbar-light bg-light">
+              <div class="container-fluid">
+                <form class="d-flex" action="Verfiguras.php" method="POST">
+                  <input class="form-control me-2 letrasmenu" type="text" name="buscar" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-dark letrasmenu" type="submit">Buscar</button>
+                </form>
+              </div>
+            </nav>
           <table class="table ">
               <thead class="table-dark">
-              <th scope="col">Codigo </th>
-              <th scope="col">Imagen</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Descripción </th>
-              <th scope="col">Precio</th>
-              <th scope="col">Existencia pz</th>
-              <th scope="col">Editar</th>
-              <th scope="col">eliminar</th>
+              <th class="letrasmenu" scope="col">Codigo </th>
+              <th class="letrasmenu" scope="col">Imagen</th>
+              <th class="letrasmenu" scope="col">Nombre</th>
+              <th class="letrasmenu" scope="col">Descripción </th>
+              <th class="letrasmenu" scope="col">Precio</th>
+              <th class="letrasmenu" scope="col">Existencia pz</th>
+              <th class="letrasmenu" scope="col">Editar</th>
+              <th class="letrasmenu" scope="col">eliminar</th>
               
               </thead>
               
-                <?php 
-              include("conexion/Conexion.php");
-            $consulta="select * from  ropa where categoria= 'Figuras'";
-            $respuesta=mysqli_query($conexion,$consulta);
-            while($arreglo=mysqli_fetch_array($respuesta)){
-              echo '
+                <?php
+                include "conexion/Conexion.php";
+                $buscar = "";
+                if (isset($_POST["buscar"])) {
+                    $buscar = $_POST["buscar"];
+                }
+                $consulta = "select * from  ropa where categoria= 'Figuras' and nombre like '%" .$buscar ."%'";
+                $respuesta = mysqli_query($conexion, $consulta);
+                while ($arreglo = mysqli_fetch_array($respuesta)) {
+                    echo '
                 <tr>
-                  <th scope="row">'.$arreglo['codigo'].'</th>
+                  <th class="letrasmenu" scope="row">' .
+                        $arreglo["codigo"] .
+                        '</th>
                   
-                  <td ><img class="tableimg"  src="imagenes/Productos/'.$arreglo['imagen'].'"></td>
-                  <td>'.$arreglo['nombre'].'</td>
-                  <td>'.$arreglo['descripcion'].'</td>
-                  <td>'.$arreglo['precio'].'</td>
-                  <td>'.$arreglo['existencia'].'</td>
-                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarfiguras.php?id='.$arreglo['id'].'"><i class="fas fa-edit"></i></a></td>
-                  <td><a href="#"  onclick="eliminar('.$arreglo['id'].')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
+                  <td class="letrasmenu" ><img class="tableimg"  src="imagenes/Productos/' .
+                        $arreglo["imagen"] .
+                        '"></td>
+                  <td class="letrasmenu">' .
+                        $arreglo["nombre"] .
+                        '</td>
+                  <td class="letrasmenu">' .
+                        $arreglo["descripcion"] .
+                        '</td>
+                  <td class="letrasmenu">' .
+                        $arreglo["precio"] .
+                        '</td>
+                  <td class="letrasmenu">' .
+                        $arreglo["existencia"] .
+                        '</td>
+                  <td class="letrasmenu"><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarfiguras.php?id=' .
+                        $arreglo["id"] .
+                        '"><i class="fas fa-edit"></i></a></td>
+                  <td class="letrasmenu"><a href="#"  onclick="eliminar(' .
+                        $arreglo["id"] .
+                        ')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
                 </tr>
               ';
-            }
-            ?>
+                }
+                ?>
               
           </table>
           </div>

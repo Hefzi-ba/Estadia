@@ -1,11 +1,11 @@
-<?php 
-include("Menuadmin2.php");
-include("conexion/Conexion.php");
-if(isset($_GET['eliminar'])){
-  $sql="delete from carrito  where serviciodomicilio=1 and id=".$_GET['eliminar']."";
-  mysqli_query($conexion,$sql);
+<?php
+include "indexad2.php";
+include "conexion/Conexion.php";
+if (isset($_GET["eliminar"])) {
+    $sql ="delete from carrito  where serviciodomicilio=1 and id=" . $_GET["eliminar"] ."";
+    mysqli_query($conexion, $sql);
 }
-$sql=mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1 ");
+$sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1 ");
 ?>
 <html>
   <head>
@@ -21,7 +21,8 @@ $sql=mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1 "
   </head>
   <body>
 
-
+  <br>
+    <br>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -29,58 +30,83 @@ $sql=mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1 "
         <div class="row mb-2">
           <div class="col-sm-12">
           
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar navbar-light bg-light letrasmenu">
               <div class="container-fluid">
                 <form class="d-flex" action="Ventaslocales.php" method="POST">
-                  <input class="form-control me-2" type="text" name="buscar" placeholder="Buscar" aria-label="Search">
-                  <button class="btn btn-outline-dark" type="submit">Buscar</button>
+                  <input class="form-control me-2 letrasmenu" type="text" name="buscar" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-dark letrasmenu" type="submit">Buscar</button>
                 </form>
               </div>
             </nav>
           <table class="table table-responsive">
               <thead class="table-dark">
-              <th scope="col">Id de venta  </th>
-              <th scope="col">Id de usuario</th>
-              <th scope="col">Fecha</th>
-              <th scope="col">Usuario</th>
-              <th scope="col">Total</th>
-              <th scope="col">Id de producto</th>
-              <th scope="col">Productos</th>
-              
-              <th scope="col">Eliminar</th>
+              <th class="letrasmenu" scope="col">Id de venta  </th>
+              <th class="letrasmenu" scope="col">Id de usuario</th>
+              <th class="letrasmenu" scope="col">Fecha</th>
+              <th class="letrasmenu" scope="col">Usuario</th>
+              <th class="letrasmenu" scope="col">Total</th>
+              <th class="letrasmenu" scope="col">Id de producto</th>
+              <th class="letrasmenu" scope="col">Productos</th>
+              <th class="letrasmenu" scope="col">Imagen</th>
+              <th class="letrasmenu" scope="col">Ciudad</th>
+              <th class="letrasmenu" scope="col">Calles</th>
+              <th class="letrasmenu" scope="col">Domicilio</th>
+              <th class="letrasmenu" scope="col">Codigo postal</th>
+              <th class="letrasmenu" scope="col">Teléfono</th>
+              <th class="letrasmenu" scope="col">Eliminar</th>
               
               </thead>
               
-                <?php 
-
-              include("conexion/Conexion.php");
-              $buscar='';
-              if(isset($_POST['buscar'])){
-                $buscar=$_POST['buscar'];
-              }
-            $consulta="SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, carrito_productos.id_producto  FROM  carrito, carrito_productos   WHERE serviciodomicilio=1";
-            $respuesta=mysqli_query($conexion,$consulta);
-            while($arreglo=mysqli_fetch_array($respuesta)){
-              echo '
+                <?php
+                include "conexion/Conexion.php";
+                $buscar = "";
+                if (isset($_POST["buscar"])) {
+                    $buscar = $_POST["buscar"];
+                }
+                //$consulta2= "SELECT * FROM usuarios where id= ".$_SESSION["idusuario"]." ";
+                //$datos=mysqli_query($conexion,$consulta2);
+                //$dato=mysqli_fetch_array($datos);
+                $consulta =
+                    "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, carrito_productos.id_producto,ropa.nombre,ropa.imagen, carrito.lugar FROM carrito INNER JOIN carrito_productos ON carrito.id=carrito_productos.id_carrito INNER JOIN ropa on carrito_productos.id_producto=ropa.id WHERE serviciodomicilio=1 ";
+                $respuesta = mysqli_query($conexion, $consulta);
+                while ($arreglo = mysqli_fetch_array($respuesta)) {
+                  $consulta2= "SELECT * FROM usuarios where id= ".$arreglo["idusuario"]." ";
+                $datos=mysqli_query($conexion,$consulta2);
+                $dato=mysqli_fetch_array($datos);
+                    echo '
                 <tr>
                   
-                  <td>'.$arreglo['id'].'</td>
-                  <th scope="row">'.$arreglo['idusuario'].'</th>
+                  <td class="letrasmenu">' .$arreglo["id"] .'</td>
+
+                  <th  class="letrasmenu"scope="row">' .$arreglo["idusuario"] .'</th>
                   
-                  <td>'.$arreglo['fecha'].'</td>
-                  <td>'.$arreglo['usuario'].'</td>
+                  <td class="letrasmenu">' .$arreglo["fecha"] .'</td>
+
+                  <td class="letrasmenu">' .$arreglo["usuario"] .'</td>
                   
-                  <td>'.$arreglo['totalpagar'].'</td>
-                  <td>'.$arreglo['id_producto'].'</td>
-                  <td scope="row">producto</td>
+                  <td class="letrasmenu">' .$arreglo["totalpagar"] .'</td>
+
+                  <td class="letrasmenu">' .$arreglo["id_producto"] .'</td>
+
+                  <td class="letrasmenu" scope="row">' .$arreglo["nombre"] .'</td>
+                  <td class="letrasmenu" scope="row"><img class="tableimg"  src="imagenes/Productos/' .
+                  $arreglo["imagen"] .'"></td>
+
                   
                   
+                  <td class="letrasmenu" scope="row">' .$dato["ciudad"] .'</td>
+                  <td class="letrasmenu" scope="row">' .$dato["calles"] .'</td>
+                  <td class="letrasmenu" scope="row">' .$dato["domicilio"] .'</td>
+                  <td class="letrasmenu" scope="row">' .$dato["codigo_postal"] .'</td>
+                  <td class="letrasmenu" scope="row">' .$dato["telefono"] .'</td>
                   
-                  <td><a href="#"  onclick="eliminar('.$arreglo['id'].')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
+                  <td class="letrasmenu"><a href="#"  onclick="eliminar(' .
+                        $arreglo["id"] .
+                        ')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
                 </tr>
               ';
-            }
-            ?>
+                }
+                ?>
               
           </table>
           </div>
@@ -94,14 +120,10 @@ $sql=mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1 "
     function eliminar(id){
       
       if(confirm("Deseas eliminar esta venta?")){
-        window.location="Ventasexternas.php?eliminar="+id;
+        window.location="ventaslocales2.php?eliminar="+id;
       }
     }
   </script>
-
-
-
-  
 </html>
 
 

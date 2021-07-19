@@ -1,10 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>jsGrid - OData Service Scenario</title>
     <link rel="stylesheet" type="text/css" href="demos.css" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400' rel='stylesheet' type='text/css'>
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,400"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <link rel="stylesheet" type="text/css" href="../css/jsgrid.css" />
     <link rel="stylesheet" type="text/css" href="../css/theme.css" />
@@ -21,54 +25,62 @@
     <script src="../src/fields/jsgrid.field.number.js"></script>
 
     <style>
-        .rating {
-            color: #F8CA03;
-        }
+      .rating {
+        color: #f8ca03;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>OData Service</h1>
     <div id="jsGrid"></div>
 
     <script>
-        $(function() {
+      $(function () {
+        $("#jsGrid").jsGrid({
+          height: "auto",
+          width: "auto",
+          sorting: true,
+          paging: false,
+          autoload: true,
+          controller: {
+            loadData: function () {
+              var d = $.Deferred();
 
-            $("#jsGrid").jsGrid({
-                height: "auto",
-                width: "auto",
-                sorting: true,
-                paging: false,
-                autoload: true,
-                controller: {
-                    loadData: function() {
-                        var d = $.Deferred();
+              $.ajax({
+                url: "http://services.odata.org/V3/(S(3mnweai3qldmghnzfshavfok))/OData/OData.svc/Products",
+                dataType: "json",
+              }).done(function (response) {
+                d.resolve(response.value);
+              });
 
-                        $.ajax({
-                            url: "http://services.odata.org/V3/(S(3mnweai3qldmghnzfshavfok))/OData/OData.svc/Products",
-                            dataType: "json"
-                        }).done(function(response) {
-                            d.resolve(response.value);
-                        });
-
-                        return d.promise();
-                    }
-                },
-                fields: [
-                    { name: "Name", type: "text", width: 100 },
-                    { name: "Description", type: "textarea", width: 200 },
-                    { name: "Rating", type: "number", width: 150, align: "center",
-                        itemTemplate: function(value) {
-                            return $("<div>").addClass("rating").append(Array(value + 1).join("&#9733;"));
-                        }
-                    },
-                    { name: "Price", type: "number", width: 100,
-                        itemTemplate: function(value) {
-                            return value.toFixed(2) + "$"; }
-                    }
-                ]
-            });
-
+              return d.promise();
+            },
+          },
+          fields: [
+            { name: "Name", type: "text", width: 100 },
+            { name: "Description", type: "textarea", width: 200 },
+            {
+              name: "Rating",
+              type: "number",
+              width: 150,
+              align: "center",
+              itemTemplate: function (value) {
+                return $("<div>")
+                  .addClass("rating")
+                  .append(Array(value + 1).join("&#9733;"));
+              },
+            },
+            {
+              name: "Price",
+              type: "number",
+              width: 100,
+              itemTemplate: function (value) {
+                return value.toFixed(2) + "$";
+              },
+            },
+          ],
         });
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -3,27 +3,29 @@ layout: page
 title: Card Refresh Plugin
 ---
 
-The card refresh plugin provides the functionality for loading ajax content into the card. 
+The card refresh plugin provides the functionality for loading ajax content into the card.
 
 ##### Usage
-This plugin can be activated as a jQuery plugin or using the data api. 
+
+This plugin can be activated as a jQuery plugin or using the data api.
 
 ###### Data API
+
 {: .text-bold }
 
-Activate the plugin by adding a button with `data-card-widget="card-refresh"` to the card and provide the required `data-source="/URL-TO-CONTENT"` option. By doing that, the plugin will automatically create a GET request to the provided URL and render the returned response the `.card-body` section of the card. If you need to process the returned response before rendering, you should use the jQuery API, which provides hooks to deal with the response. 
-
-
+Activate the plugin by adding a button with `data-card-widget="card-refresh"` to the card and provide the required `data-source="/URL-TO-CONTENT"` option. By doing that, the plugin will automatically create a GET request to the provided URL and render the returned response the `.card-body` section of the card. If you need to process the returned response before rendering, you should use the jQuery API, which provides hooks to deal with the response.
 
 ###### jQuery
+
 {: .text-bold }
-The jQuery API provides more customizable options that allows the developer to pre-process the request before rendering and post-process it after rendering. 
+The jQuery API provides more customizable options that allows the developer to pre-process the request before rendering and post-process it after rendering.
 
 ```js
-("#my-card").refreshBox(options)
+"#my-card".refreshBox(options);
 ```
 
 ##### Options
+
 {: .mt-4}
 
 |---
@@ -39,10 +41,11 @@ The jQuery API provides more customizable options that allows the developer to p
 | responseType | String | '' | Response type (example: 'json' or 'html')
 | overlayTemplate | String | TRUE | The HTML template for the ajax spinner
 | onLoadStart | Function | Anonymous Function | Called before the ajax request is made
-| onLoadDone | Function | Anonymous Function | Called after the ajax request is made. A `response` parameter is passed to the function that hold the server response. 
+| onLoadDone | Function | Anonymous Function | Called after the ajax request is made. A `response` parameter is passed to the function that hold the server response.
 {: .table .table-bordered .bg-light}
 
 ##### Events
+
 {: .mt-4}
 
 |---
@@ -55,8 +58,8 @@ The jQuery API provides more customizable options that allows the developer to p
 
 Example: `$('#my-card [data-card-widget="card-refresh"]').on('loaded.lte.cardrefresh', handleLoadedEvent)`
 
-
 ##### Methods
+
 {: .mt-4}
 
 |---

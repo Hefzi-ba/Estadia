@@ -1,23 +1,32 @@
 <html>
+<?php
+  if (!isset($_SESSION)) {
+    session_start();
+    } 
+ ?>
     <?php
-    include("Menu.html");
-    include("conexion/Conexion.php");
+    include "Menu.php";
+    include "conexion/Conexion.php";
     ?>
      
     <div class="container">
       <div class="card">
         <?php
-        
-      
-        $consulta="select * from nosotros  ";
-        $respuesta=mysqli_query($conexion,$consulta);
-        while($arreglo2=mysqli_fetch_array($respuesta)){
-          echo '
+        $consulta = "select * from nosotros  ";
+        $respuesta = mysqli_query($conexion, $consulta);
+        while ($arreglo2 = mysqli_fetch_array($respuesta)) {
+            echo '
           
                     <div class="card-body">
-                        <h5 class="card-title nosotros">'.$arreglo2['titulo'].'</h5>
-                        <p class=" ptext nosotros">'.$arreglo2['descripcion'].' </p>
-                        <p class=" ptext nosotros">'.$arreglo2['correo'].' </p>
+                        <h5 class="card-title nosotros">' .
+                $arreglo2["titulo"] .
+                '</h5>
+                        <p class=" ptext nosotros">' .
+                $arreglo2["descripcion"] .
+                ' </p>
+                        <p class=" ptext nosotros">' .
+                $arreglo2["correo"] .
+                ' </p>
                     
                     </div>
                       
@@ -30,8 +39,8 @@
             
             
             ';
-          }
-          ?>
+        }
+        ?>
           
   </div>
 </div>
@@ -53,6 +62,5 @@
         
         <br>
         <br>
-<?php
-include("footer.html")?>
+<?php include "footer.html"; ?>
 </html>

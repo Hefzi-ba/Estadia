@@ -1,5 +1,5 @@
-import StyledFilterizrElement from '../StyledFilterizrElement';
+import StyledFilterizrElement from "../StyledFilterizrElement";
 export default class StyledSpinner extends StyledFilterizrElement {
-    initialize(): void;
-    fadeOut(): Promise<void>;
+  initialize(): void;
+  fadeOut(): Promise<void>;
 }

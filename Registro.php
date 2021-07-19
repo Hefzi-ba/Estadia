@@ -1,25 +1,38 @@
-<?php 
+<?php
 
-include ("conexion/Conexion.php");
-if(isset($_POST['nombreusuario'])){
-    $nombreusuario =  $_POST['nombreusuario'];
-    $correousuario = $_POST['correousuario'];
-    $contrasena = $_POST['contrasena'];
-    $ciudad = $_POST['ciudad'];
-    $calles = $_POST['calles'];
-    $domicilio = $_POST['domicilio'];
-    $codigo_postal = $_POST['codigo_postal'];
-    
-    $telefono = $_POST['telefono'];
-   
-    
-    $sql = "insert into usuarios (  nombreusuario,  correousuario, contrasena, ciudad, calles, domicilio, codigo_postal, telefono) values
-     ( '".$nombreusuario."','".$correousuario."','".$contrasena."','".$ciudad."','".$calles."','".$domicilio."','".$codigo_postal."','".$telefono."')";
-     mysqli_query($conexion,$sql);
-     
-      
-    
-   }
+include "conexion/Conexion.php";
+if (isset($_POST["nombreusuario"])) {
+    $nombreusuario = $_POST["nombreusuario"];
+    $correousuario = $_POST["correousuario"];
+    $contrasena = $_POST["contrasena"];
+    $ciudad = $_POST["ciudad"];
+    $calles = $_POST["calles"];
+    $domicilio = $_POST["domicilio"];
+    $codigo_postal = $_POST["codigo_postal"];
+
+    $telefono = $_POST["telefono"];
+
+    $sql =
+        "insert into usuarios (  nombreusuario,  correousuario, contrasena, ciudad, calles, domicilio, codigo_postal, telefono) values
+     ( '" .
+        $nombreusuario .
+        "','" .
+        $correousuario .
+        "','" .
+        $contrasena .
+        "','" .
+        $ciudad .
+        "','" .
+        $calles .
+        "','" .
+        $domicilio .
+        "','" .
+        $codigo_postal .
+        "','" .
+        $telefono .
+        "')";
+    mysqli_query($conexion, $sql);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

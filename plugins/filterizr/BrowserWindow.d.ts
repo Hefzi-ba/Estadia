@@ -7,10 +7,10 @@
  * their new positions.
  */
 export default class BrowserWindow {
-    private resizeHandler?;
-    constructor();
-    private debounceEventHandler;
-    destroy(): void;
-    setResizeEventHandler(resizeHandler: EventListener): void;
-    private removeResizeHandler;
+  private resizeHandler?;
+  constructor();
+  private debounceEventHandler;
+  destroy(): void;
+  setResizeEventHandler(resizeHandler: EventListener): void;
+  private removeResizeHandler;
 }

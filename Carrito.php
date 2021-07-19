@@ -6,7 +6,7 @@ if (!isset($usuario)) {
     header("location:./loguin.php");
 } else {
 
-    include "Menu.html";
+    include "Menu.php";
     include "conexion/Conexion.php";
     if (isset($_SESSION["carrito"])) {
         //existe
@@ -31,7 +31,8 @@ if (!isset($usuario)) {
                 $sql = "select * from ropa where id=" . $_GET["id"] . "";
                 $resultado = mysqli_query($conexion, $sql);
                 $fila = mysqli_fetch_row($resultado);
-                $nombre = $fila[3];
+                if($fila[6]=="Disponible"){
+                    $nombre = $fila[3];
                 $precio = 0;
                 if ($fila[8] == 0) {
                     $precio = $fila[5];
@@ -49,7 +50,12 @@ if (!isset($usuario)) {
                 ];
                 array_push($arreglo, $arregloNuevo);
                 $_SESSION["carrito"] = $arreglo;
+                }else {
+                    echo '<script>alert("Producto agotado");</script>';
+                }
             }
+                
+                
         }
     } else {
         //no existe
@@ -60,7 +66,8 @@ if (!isset($usuario)) {
             $sql = "select * from ropa where id=" . $_GET["id"] . "";
             $resultado = mysqli_query($conexion, $sql);
             $fila = mysqli_fetch_row($resultado);
-            $nombre = $fila[3];
+            if($fila[6]=="Disponible"){
+                $nombre = $fila[3];
             $precio = 0;
             if ($fila[8] == 0) {
                 $precio = $fila[5];
@@ -76,6 +83,10 @@ if (!isset($usuario)) {
                 "cantidad" => 1,
             ];
             $_SESSION["carrito"] = $arreglo;
+            }else {
+                echo '<script>alert("Producto agotado");</script>';
+            }
+            
         }
     }
     ?>
@@ -131,7 +142,7 @@ if (!isset($usuario)) {
     </div>
     </td>
     <td>
-    <a  type="button"href="" class="btn btn-danger BotonEliminar" data-codigo="<?php echo $arreglocarrito[
+    <a  type="button"href="" class="btn btn-danger BotonEliminar" data-id="<?php echo $arreglocarrito[
         $i
     ]["id"]; ?>">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -169,6 +180,7 @@ $(".BotonEliminar").click(function(event){
     event.preventDefault();
    
     var id=$(this).data('id');
+    
     var boton=$(this);
     $.ajax({
         method:'POST',

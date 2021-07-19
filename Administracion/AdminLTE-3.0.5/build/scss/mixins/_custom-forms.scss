@@ -11,7 +11,7 @@
     }
 
     & .custom-control-input:focus ~ .custom-control-label::before {
-      box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, .25);
+      box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, 0.25);
     }
 
     & .custom-control-input ~ .custom-control-label::after {
@@ -26,7 +26,7 @@
     }
 
     & .custom-control-input:checked:focus ~ .custom-control-label::before {
-      box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, .25);
+      box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, 0.25);
     }
 
     & .custom-control-input:checked ~ .custom-control-label::after {
@@ -42,15 +42,15 @@
       outline: none;
 
       &::-webkit-slider-thumb {
-        box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, .25);
+        box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, 0.25);
       }
 
-      &::-moz-range-thumb     {
-        box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, .25);
+      &::-moz-range-thumb {
+        box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, 0.25);
       }
 
-      &::-ms-thumb            {
-        box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, .25);
+      &::-ms-thumb {
+        box-shadow: 0 0 0 1px $body-bg, 0 0 0 2px rgba($color, 0.25);
       }
     }
 

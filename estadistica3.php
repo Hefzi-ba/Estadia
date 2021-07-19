@@ -9,36 +9,55 @@
 </head>
 <body>
     <?php
-    include("Menuadmin2.php");
+    include("indexad2.php");
     ?>
+    <br>
+    <br>
+    
+
+     <!--include "Menuadmin2.php"-->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-9">
-           
-            <canvas id="migrafica" width="400" height="300"></canvas>
+    
+        <div class="container-fluid">
+            <div class="row mb-1">
+                <div class="col-sm-12">
+                    <div class="col-md-8">
+                            <p class="text-center">
+                                <h2 class="letrasmenu" style="text-align: center;">Ventas por dia</h2>
+                            </p>
+                            <!-- grafica dentro-->
+                            <div class="chart">
+                                <!-- Sales Chart Canvas se inserta el canvas  -->
+                                <canvas id="migrafica" width="2000" height="2000"></canvas>
+                            </div>
+
+                        <!-- /.chart-responsive -->
+                    </div>
+                     
+                </div> 
             </div>
-        </div> 
-    </div><!-- /.container-fluid -->
+        </div>
+    
+</div>
+             <!-- /.container-fluid -->
 </body>
+
 <script>
     let miCanvas=document.getElementById("migrafica").getContext("2d");
 
     var chart = new Chart(miCanvas,{
         type:"bar",
         data: {
-            labels:[ <?php 
-                    include('./conexion/Conexion.php');
-                    $sql= "SELECT * FROM carrito";
-                    $resultado= mysqli_query($conexion, $sql);
-                    while ($registros = mysqli_fetch_array($resultado)) {?>
+            labels:[ <?php
+            include "./conexion/Conexion.php";
+            $sql = "SELECT * FROM carrito";
+            $resultado = mysqli_query($conexion, $sql);
+            while ($registros = mysqli_fetch_array($resultado)) { ?>
                         
-                    '<?php echo $registros["fecha"] ?>',
-                    <?php    
-                    }
-                    ?>],
+                    '<?php echo $registros["fecha"]; ?>',
+                    <?php }
+            ?>],
             datasets:[
                 {
                     label: "Grafica de ventas",

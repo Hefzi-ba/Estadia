@@ -1,34 +1,45 @@
 
  
  
-<?php 
-include("Menuadmin2.php");
-include ("conexion/Conexion.php");
-if(isset($_POST['nombre'])){
-    $nombre =  $_POST['nombre'];
-    $categoria =  $_POST['categoria'];
-    $descripcion = $_POST['descripcion'];
-    $precio = $_POST['precio'];
-    $existencia = $_POST['existencia'];
-    $codigo =$_POST['codigo'];
-   
-    
-     $formatos=array('.png','.jpg', '.gif', '.jpeg');
-      $ubicacion="imagenes/Productos";
-      $imagen=$_FILES['imagen']['name'];
-      $nombre_temporal=$_FILES['imagen']['tmp_name'];
-      if(move_uploaded_file($nombre_temporal,"$ubicacion/$imagen")){
-        echo 'se movio';
-      }else{
-        echo 'no se movio';
-      }
-    $sql = "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia, categoria) values
-     ( '".$codigo."','".$nombre."','".$imagen."','".$descripcion."', ".$precio.", ".$existencia.",'".$categoria."')";
-     mysqli_query($conexion,$sql);
-     
-      
-    
-   }
+<?php
+include "indexad2.php";
+include "conexion/Conexion.php";
+if (isset($_POST["nombre"])) {
+    $nombre = $_POST["nombre"];
+    $categoria = $_POST["categoria"];
+    $descripcion = $_POST["descripcion"];
+    $precio = $_POST["precio"];
+    $existencia = $_POST["existencia"];
+    $codigo = $_POST["codigo"];
+
+    $formatos = [".png", ".jpg", ".gif", ".jpeg"];
+    $ubicacion = "imagenes/Productos";
+    $imagen = $_FILES["imagen"]["name"];
+    $nombre_temporal = $_FILES["imagen"]["tmp_name"];
+    if (move_uploaded_file($nombre_temporal, "$ubicacion/$imagen")) {
+        echo "se movio";
+    } else {
+        echo "no se movio";
+    }
+    $sql =
+        "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia, categoria) values
+     ( '" .
+        $codigo .
+        "','" .
+        $nombre .
+        "','" .
+        $imagen .
+        "','" .
+        $descripcion .
+        "', " .
+        $precio .
+        ", " .
+        $existencia .
+        ",'" .
+        $categoria .
+        "')";
+    mysqli_query($conexion, $sql);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +58,8 @@ if(isset($_POST['nombre'])){
     </head>
     <body >
        
-
+    <br>
+    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -55,7 +67,7 @@ if(isset($_POST['nombre'])){
         <div class="row mb-2">
           <div class="col-sm-6">
             <form action="Agregarbolso.php"  method="POST" enctype="multipart/form-data" class=" container form">
-            <p class="ptext" >Registro de una nueva bolso.</p> 
+            <h1 class="ptext" >Registro de una nueva bolso.</h1> 
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>
@@ -76,13 +88,15 @@ if(isset($_POST['nombre'])){
                     <label  class="ptext">Categoria:</label>
                     <select name="categoria"  class="form-control" class="form-select">
                         <?php
-                        include("conexion/Conexion.php");
-                        $sql="select * from categoria";
-                        
-                        $respuesta=mysqli_query($conexion,$sql);
-                        while($arreglo=mysqli_fetch_array($respuesta)){
-                            echo'
-                            <option>'.$arreglo['nombrecategoria'].'</option>';
+                        include "conexion/Conexion.php";
+                        $sql = "select * from categoria";
+
+                        $respuesta = mysqli_query($conexion, $sql);
+                        while ($arreglo = mysqli_fetch_array($respuesta)) {
+                            echo '
+                            <option>' .
+                                $arreglo["nombrecategoria"] .
+                                "</option>";
                         }
                         ?>
                         

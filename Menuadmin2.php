@@ -65,7 +65,7 @@ include("phpconexion/Conexion.php");
                     </p>
                   </a>
                </li> 
-               <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview">
                <a href="#" class="nav-link">
               <i class="nav-icon fas fa-hat-wizard"></i>
               <p class="letrasmenu">
@@ -89,173 +89,18 @@ include("phpconexion/Conexion.php");
             </ul>
           </li>
           
-          <li class="nav-item has-treeview">
-            <a href="Verproducto.php" class="nav-link">
-              <i class="nav-icon fas fa-tshirt"></i>
-              <p class="letrasmenu">
-               Ropa
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="Agregarproducto.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu"> Agregar  </p>
-                </a>
-                <a href="./Verproducto.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">ver productos </p>
-                </a>
-              </li>
-            
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="Verproducto.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p class="letrasmenu">
-                Categorías
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="Agregarcategoria.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu"> Agregar  </p>
-                </a>
-                <a href="./Vercategoria.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">Ver categorías </p>
-                </a>
-              </li>
-            
-            </ul>
-          </li> 
-          <li class="nav-item has-treeview">
-            <a href="Verproducto.php" class="nav-link">
-              <i class="nav-icon fas fa-ghost"></i>
-              <p class="letrasmenu">
-                Figuras
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-              <a href="./Agregarfigura.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">Agregar</p>
-                </a>
-                <a href="./Verfiguras.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu"> Ver figuras </p>
-                </a>
-               
-              </li>
-            
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-shopping-bag"></i>
-              <p class="letrasmenu">
-                Bolsos 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="Agregarbolso.php" class="nav-link">
-                  <i class="far nav-icon"></i>
-                  <p class="letrasmenu"> Agregar  </p>
-                </a>
-                <a href="./Verbolso.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">Ver bolsos</p>
-                </a>
-              </li>
-          </li>
+         
+           
+          
+          
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user-friends"></i>
-              <p class="letrasmenu">
-              Nosotros 
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="Vernosotros.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">Editar nosotros </p>
-                </a>
-              </li>
-            
-            </ul>
-          </li>
           
-          <li class="nav-item has-treeview">
-               <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-cart-arrow-down"></i>
-              <p class="letrasmenu">
-              Ventas
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
+          
+          
             
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="ventaslocales2.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">Ventas locales</p>
-                </a>
-                <a href="Ventasexternas.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">Venta externa </p>
-                </a>
-              </li>
-            
-            </ul>
-          </li>
-            
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fas fa-user-circle"></i>
-              <p class="letrasmenu">
-                Usuarios
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="Agregarusuarioadmin.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">Agregar usuario </p>
-                </a>
-                
-                
-              </li>
-              <li class="nav-item">
-              <a href="Verusuarios.php" class="nav-link">
-                  <i class="far  nav-icon"></i>
-                  <p class="letrasmenu">Administradores</p>
-                </a>
-              </li>
-              
-        </ul>
+          
         
       </nav>
       <!-- /.sidebar-menu -->

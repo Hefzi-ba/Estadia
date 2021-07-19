@@ -1,29 +1,31 @@
 
  
  
-<?php 
-include("Menuadmin2.php");
-include ("conexion/Conexion.php");
-if(isset($_POST['titular'])){
-    $titular =  $_POST['titular'];
-    
-   
-    
-     $formatos=array('.png','.jpg', '.gif', '.jpeg');
-      $ubicacion="imagenes/Inicio";
-      $imageninicio=$_FILES['imageninicio']['name'];
-      $nombre_temporal=$_FILES['imageninicio']['tmp_name'];
-      if(move_uploaded_file($nombre_temporal,"$ubicacion/$imageninicio")){
-        echo 'se movio';
-      }else{
-        echo 'no se movio';
-      }
-    $sql = "insert into inicio (titular, imageninicio) values
-     ( '".$titular."','".$imageninicio."')";
-     mysqli_query($conexion,$sql);
-      $ultimoid=mysqli_insert_id($conexion);
-      
-   }
+<?php
+include "indexad2.php";
+include "conexion/Conexion.php";
+if (isset($_POST["titular"])) {
+    $titular = $_POST["titular"];
+
+    $formatos = [".png", ".jpg", ".gif", ".jpeg"];
+    $ubicacion = "imagenes/Inicio";
+    $imageninicio = $_FILES["imageninicio"]["name"];
+    $nombre_temporal = $_FILES["imageninicio"]["tmp_name"];
+    if (move_uploaded_file($nombre_temporal, "$ubicacion/$imageninicio")) {
+        echo "se movio";
+    } else {
+        echo "no se movio";
+    }
+    $sql =
+        "insert into inicio (titular, imageninicio) values
+     ( '" .
+        $titular .
+        "','" .
+        $imageninicio .
+        "')";
+    mysqli_query($conexion, $sql);
+    $ultimoid = mysqli_insert_id($conexion);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +44,8 @@ if(isset($_POST['titular'])){
     </head>
     <body >
        
-
+    <br>
+    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -51,7 +54,7 @@ if(isset($_POST['titular'])){
           <div class="col-sm-6">
             <form action="agregarinicio.php"  method="POST" enctype="multipart/form-data" class=" container form">
                 
-            <p class="ptext" >Registro de una nueva novedad o marca.</p> 
+            <h1 class="ptext" >Registro de una nueva novedad o marca.</h1> 
                 <div class="form-group">
                     <label  class="ptext">Fotografía:</label>
                     <input type="file" class="form-control"   name="imageninicio" required>

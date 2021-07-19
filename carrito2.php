@@ -1,33 +1,53 @@
   
 <?php
-include 'conexion/Conexion.php';
-if(isset($_GET['agregar'])){
-    $sql="select * from carritoo where usuario='".$_SESSION['usuario']."' and id_producto='".$_GET['agregar']."'";
-    $resultados=mysqli_query($conexion,$sql);
-    $num=mysqli_num_rows($resultados);
-    if($num==0){
-        $sql="INSERT INTO carritoo(id_producto,cantidad,usuario) values('".$_GET['agregar']."','1','".$_SESSION['usuario']."')";
-        mysqli_query($conexion,$sql);
-    }else{
-        $fila=mysqli_fetch_array($resultados);
-        $cantidad=$fila['cantidad']+1;
-        $sql="update carritoo set cantidad='".$cantidad."' where usuario='".$_SESSION['usuario']."' and id_producto='".$_GET['agregar']."'";
-        mysqli_query($conexion,$sql);
+include "conexion/Conexion.php";
+if (isset($_GET["agregar"])) {
+    $sql =
+        "select * from carritoo where usuario='" .
+        $_SESSION["usuario"] .
+        "' and id_producto='" .
+        $_GET["agregar"] .
+        "'";
+    $resultados = mysqli_query($conexion, $sql);
+    $num = mysqli_num_rows($resultados);
+    if ($num == 0) {
+        $sql =
+            "INSERT INTO carritoo(id_producto,cantidad,usuario) values('" .
+            $_GET["agregar"] .
+            "','1','" .
+            $_SESSION["usuario"] .
+            "')";
+        mysqli_query($conexion, $sql);
+    } else {
+        $fila = mysqli_fetch_array($resultados);
+        $cantidad = $fila["cantidad"] + 1;
+        $sql =
+            "update carritoo set cantidad='" .
+            $cantidad .
+            "' where usuario='" .
+            $_SESSION["usuario"] .
+            "' and id_producto='" .
+            $_GET["agregar"] .
+            "'";
+        mysqli_query($conexion, $sql);
     }
-    
 }
-if(isset($_POST['id'])){
-    
-    $sql="update carritoo set cantidad='".$_POST['cantidad']."' where id='".$_POST['id']."'";
-        mysqli_query($conexion,$sql);
+if (isset($_POST["id"])) {
+    $sql =
+        "update carritoo set cantidad='" .
+        $_POST["cantidad"] .
+        "' where id='" .
+        $_POST["id"] .
+        "'";
+    mysqli_query($conexion, $sql);
 }
-if(isset($_GET['eliminar'])){
-    $sql="delete from carritoo where id=".$_GET['eliminar']."";
-    mysqli_query($conexion,$sql);
+if (isset($_GET["eliminar"])) {
+    $sql = "delete from carritoo where id=" . $_GET["eliminar"] . "";
+    mysqli_query($conexion, $sql);
 }
-if(isset($_GET['limpiar'])){
-    $sql="delete from carritoo where usuario=".$_SESSION['usuario']."";
-    mysqli_query($conexion,$sql);
+if (isset($_GET["limpiar"])) {
+    $sql = "delete from carritoo where usuario=" . $_SESSION["usuario"] . "";
+    mysqli_query($conexion, $sql);
 }
 ?>
 <!DOCTYPE html>
@@ -49,30 +69,45 @@ if(isset($_GET['limpiar'])){
             <th>Eliminar</th>
         </tr>
         <?php
-            $sql="select ropa.nombre,ropa.precio,carritoo.cantidad,carritoo.id from carritoo,ropa where carritoo.id_producto=ropa.id and usuario='".$_SESSION['usuario']."'";
-            
-            $resultados=mysqli_query($conexion,$sql);
-            $total=0;
-            while($filas=mysqli_fetch_array($resultados)){
-                $totalproductos=$filas['cantidad']*$filas['precio'];
-                $total=$total+$totalproductos;
-                echo '
+        $sql =
+            "select ropa.nombre,ropa.precio,carritoo.cantidad,carritoo.id from carritoo,ropa where carritoo.id_producto=ropa.id and usuario='" .
+            $_SESSION["usuario"] .
+            "'";
+
+        $resultados = mysqli_query($conexion, $sql);
+        $total = 0;
+        while ($filas = mysqli_fetch_array($resultados)) {
+            $totalproductos = $filas["cantidad"] * $filas["precio"];
+            $total = $total + $totalproductos;
+            echo '
                 <form action="carrito2.php" method="post">
                     <tr>
-                        <td>'.$filas['nombre'].'</td>
-                        <td>'.$filas['precio'].'</td>
+                        <td>' .
+                $filas["nombre"] .
+                '</td>
+                        <td>' .
+                $filas["precio"] .
+                '</td>
                         
-                        <td><input value="'.$filas['cantidad'].'" type="number" name="cantidad">
-                            <input type="hidden" value="'.$filas['id'].'" name="id">
+                        <td><input value="' .
+                $filas["cantidad"] .
+                '" type="number" name="cantidad">
+                            <input type="hidden" value="' .
+                $filas["id"] .
+                '" name="id">
                         </td>
-                        <td>$'.$totalproductos.'</td>
+                        <td>$' .
+                $totalproductos .
+                '</td>
                         <td><input type="submit" value="Actualizar cantidad"></td>
                         
-                        <td><a href="#" onclick="eliminar('.$filas['id'].')">Eliminar</a></td>
+                        <td><a href="#" onclick="eliminar(' .
+                $filas["id"] .
+                ')">Eliminar</a></td>
                     </tr>
                     </form>
                 ';
-            }
+        }
         ?>
     </table>
     $<?php echo $total; ?>

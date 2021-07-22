@@ -3,33 +3,31 @@
 include ("conexion.php");
  
 $sql = "select * from ropa where id=". $_GET["id"] ." and categoria='Ropa'";
+
 $resultado2 = mysqli_query($conexion, $sql);
+
 $fila = mysqli_fetch_array($resultado2);
-if (isset($_POST["nombre"])) {
-    $sql =
-        "update ropa set codigo='" .$_POST["codigo"] ."',  nombre='" .$_POST["nombre"] ."', descripcion='" . $_POST["descripcion"] ."', precio='" .$_POST["precio"] ."', existencia='" .$_POST["existencia"] ."', oferta='" .$_POST["oferta"] . "', preciooferta='" .$_POST["preciooferta"] ."' where id=" . $_POST["id"] ." and categoria='Ropa'";
 
-    mysqli_query($conexion, $sql);
-    echo $sql;
-    header('location: ../Verproducto.php');
-}
+    if (isset($_POST["nombre"])) {
+        $sql =
+            "update ropa set codigo='" .$_POST["codigo"] ."',  nombre='" .$_POST["nombre"] ."', descripcion='" . $_POST["descripcion"] ."', precio='" .$_POST["precio"] ."', existencia='" .$_POST["existencia"] ."', oferta='" .$_POST["oferta"] . "', preciooferta='" .$_POST["preciooferta"] ."' where id=" . $_POST["id"] ." and categoria='Ropa'";
 
-if (isset($_FILES["imagen"])) {
-    $formatos = [".png", ".jpg", ".gif", ".jpeg"];
-    $ubicacion = "../imagenes/Productos";
-    $imagen = $_FILES["imagen"]["name"];
-    $nombre_temporal = $_FILES["imagen"]["tmp_name"];
-    if (move_uploaded_file($nombre_temporal, "$ubicacion/$imagen")) {
-        echo "se movio";
-        $sqlimagen =
-            "update ropa set imagen='" .
-            $imagen .
-            "' where id=" .
-            $_POST["idImagen"] .
-            " and categoria='Ropa'";
-        mysqli_query($conexion, $sqlimagen);
+        mysqli_query($conexion, $sql);
+        
+        header('location: ../Verproducto.php');
     }
-}
+
+    if (isset($_FILES["imagen"])) {
+        $formatos = [".png", ".jpg", ".gif", ".jpeg"];
+        $ubicacion = "../imagenes/Productos";
+        $imagen = $_FILES["imagen"]["name"];
+        $nombre_temporal = $_FILES["imagen"]["tmp_name"];
+        if (move_uploaded_file($nombre_temporal, "$ubicacion/$imagen")) {
+            
+            $sqlimagen ="update ropa set imagen='" .$imagen ."' where id=" .$_POST["idImagen"] ." and categoria='Ropa'";
+            mysqli_query($conexion, $sqlimagen);
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,19 +1,13 @@
 <?php include "conexion.php";
 
-$sql =
-    "select * from envio  where id=" . $_GET["id"] . " ";
+$sql ="select * from envio  where id=" . $_GET["id"] . " ";
 $resultado2 = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_array($resultado2);
 if (isset($_POST["montoenvio"])) {
     $sql =
-        "update envio  set  montoenvio='" .
-        $_POST["montoenvio"] .
-        "',texto_envio='" .
-        $_POST["texto_envio"] .
-        "'  where  id=" .
-        $_POST["id"] ." ";
+        "update envio  set  montoenvio='" .$_POST["montoenvio"]."',texto_envio='" .$_POST["texto_envio"]."'  where  id=".$_POST["id"] ." ";
     mysqli_query($conexion, $sql);
-    echo $sql;
+    
     header("location: ../Verenvio.php");
 }
 

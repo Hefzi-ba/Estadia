@@ -8,8 +8,7 @@ for ($i = 0; $i < count($arreglo); $i++) {
 }
 $fecha = date("Y-m-d h:m:s");
 
-$sql =
-    "insert into carrito (idusuario,fecha,totalpagar, usuario, lugar, serviciodomicilio) 
+$sql ="insert into carrito (idusuario,fecha,totalpagar, usuario, lugar, serviciodomicilio) 
     values ('" .$_SESSION["idusuario"] ."','" .$fecha ."'," .$total .",'".$_SESSION["usuario"] ."',
     '".$_SESSION["calles"]."','" .$_GET["serviciodomicilio"] ."')";
 mysqli_query($conexion, $sql);
@@ -58,7 +57,7 @@ include "Menu.php";
         <div class="container" style="margin-bottom: 10%;margin-top: 10%;">
             <h5 class="letraslogin">Tu pedido se realizo exitosamente!!</h5>
             <br>
-            <a href="conexion/cerrar.php" class="btnx btn btn btn-outline-light"> Cerrar Sesion</a>
+            <a href="./index.php" class="btnx btn btn btn-outline-light">Inicio</a>
         </div>
         
     </body>

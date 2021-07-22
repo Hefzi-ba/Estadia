@@ -5,16 +5,8 @@ $sql =
 $resultado2 = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_array($resultado2);
 if (isset($_POST["nombrebolso"])) {
-    $sql =
-        "update ropa  set  codigo='" .
-        $_POST["codigo"] .
-        "',nombre='" .
-        $_POST["nombre"] .
-        "',  descripcion='" .
-        $_POST["descripcion"] .
-        "', precio='" .
-        $_POST["precio"] .
-        "', existencia='" .
+    $sql ="update ropa  set  codigo='" .$_POST["codigo"] ."',nombre='".$_POST["nombre"]."', 
+             descripcion='".$_POST["descripcion"]."', precio='".$_POST["precio"]."', existencia='" .
         $_POST["existencia"] .
         "' where  id=" .
         $_POST["id"] .

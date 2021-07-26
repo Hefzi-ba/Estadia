@@ -5,18 +5,42 @@ $arreglo = $_SESSION["carrito"];
 
 require __DIR__.'/vendor/autoload.php';
 //agrega credenciales del vendedor
-MercadoPago\SDK::setAccessToken('PROD_ACCESS_TOKEN');
+MercadoPago\SDK::setAccessToken('TEST-1394202291892395-072616-dc8c8880b99e11fee68fd422b6943987-797204514');
 $arreglo=$_SESSION['carrito'];
 $total=0;
 
+//curl -X POST -H "Content-Type: application/json" "https://api.mercadopago.com/users/test_user?access_token=TEST-6782268921640834-072614-67e48a9805ae633a8efac290649c6c2f-495730978" -d "{'site_id':'MLM'}"
+
+//{"id":797204514,"nickname":"TT394831","password":"qatest5819","site_status":"active","email":"test_user_41780942@testuser.com"} VENDEDOR
+//{"id":797206738,"nickname":"TETE5415964","password":"qatest6580","site_status":"active","email":"test_user_68953720@testuser.com"} COMPRA
+
+
+
+$datos=array();
 
 $preference = new MercadoPago\Preference();
 
-$item = new MercadoPago\Item();
-$item->title = 'Mi producto';
-$item->quantity = 1;
-$item->unit_price =75.56;
-$preference->items = array($item);
+
+
+
+//...
+$preference->back_urls = array(
+    "success" => "https://localhost:8888/DC/gracias.php",
+    "failure" => "https://localhost:8888/DC/errorpago?error=fallure",
+    "pending" => "https://localhost:8888/DC/errorpago?error=pending"
+);
+$preference->auto_return = "approved";
+// ...
+
+
+for ($i = 0; $i < count($arreglo); $i++) {
+    $item = new MercadoPago\Item();
+    $item->title = $arreglo[$i]["nombre"];
+    $item->quantity = $arreglo[$i]["cantidad"];
+    $item->unit_price =$arreglo[$i]["precio"];
+    $datos[]=$item;
+}
+$preference->items = $datos;
 $preference->save();
 
 
@@ -55,7 +79,7 @@ $preference->save();
         <a href="gracias.php?serviciodomicilio=0" class="btnx btn btn btn-outline-light">comprar y recoger</a>
         <a href="gracias.php?serviciodomicilio=1" class="btnx btn btn btn-outline-light">comprar y enviar a domicilio</a>
         <!-- este es el boton de pago que deberia ir en otro lugar-->
-        <form action="http://localhost/DC/gracias.php" method="$_POST">
+        <form action="http://localhost:8888/DC/gracias.php" method="POST">
         <!-- el action del form debe mandar a donde inserta la base de datos la compra 
         y cuando se suba a algun servidor hay subirlo con el dominio-->
             <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">

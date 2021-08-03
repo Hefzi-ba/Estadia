@@ -25,7 +25,7 @@ $preference = new MercadoPago\Preference();
 
 //...
 $preference->back_urls = array(
-    "success" => "https://localhost:8888/DC/gracias.php",
+    "success" => "http://localhost:8888/DC/gracias.php",
     "failure" => "https://localhost:8888/DC/errorpago?error=fallure",
     "pending" => "https://localhost:8888/DC/errorpago?error=pending"
 );
@@ -76,8 +76,8 @@ $preference->save();
          <td colspan="2"><?php echo number_format($total, 2, ".", ""); ?></td>
          </tr>
         </table>
-        <a href="gracias.php?serviciodomicilio=0" class="btnx btn btn btn-outline-light">comprar y recoger</a>
-        <a href="gracias.php?serviciodomicilio=1" class="btnx btn btn btn-outline-light">comprar y enviar a domicilio</a>
+        <!--<a href="gracias.php?serviciodomicilio=0" class="btnx btn btn btn-outline-light">comprar y recoger</a>
+        <a href="gracias.php?serviciodomicilio=1" class="btnx btn btn btn-outline-light">comprar y enviar a domicilio</a>-->
         <!-- este es el boton de pago que deberia ir en otro lugar-->
         <form action="http://localhost:8888/DC/gracias.php" method="POST">
         <!-- el action del form debe mandar a donde inserta la base de datos la compra 
@@ -90,5 +90,5 @@ $preference->save();
     </body>
 
 </html>
-<?php include "footer.html";
+<?php include "footer.php";
 ?>

@@ -3,10 +3,10 @@ include "indexad2.php";
 include "conexion/Conexion.php";
 if (isset($_GET["eliminar"])) {
     $sql =
-        "delete from envio where id=" .$_GET["eliminar"] . "";
+        "delete from footer where id=" .$_GET["eliminar"] . "";
     mysqli_query($conexion, $sql);
 }
-$sql = mysqli_query($conexion, "select * from envio ");
+$sql = mysqli_query($conexion, "select * from footer ");
 ?>
 <html>
   <head>
@@ -32,9 +32,13 @@ $sql = mysqli_query($conexion, "select * from envio ");
           <div class="col-sm-12">
           <table class="table ">
               <thead class="table-dark">
-              <th class="letrasmenu" scope="col">Texto de envío</th>
-              <th class="letrasmenu" scope="col">Monto</th>
-              
+              <th class="letrasmenu" scope="col">Titulo</th>
+              <th class="letrasmenu" scope="col">Horario</th>
+              <th class="letrasmenu" scope="col">Teléfono</th>
+              <th class="letrasmenu" scope="col">Correo</th>
+              <th class="letrasmenu" scope="col">Facebook</th>
+              <th class="letrasmenu" scope="col">Instagram</th>
+              <th class="letrasmenu" scope="col">Pie de footer</th>
               <th class="letrasmenu" scope="col">Editar</th>
               <th class="letrasmenu" scope="col">eliminar</th>
               
@@ -42,16 +46,26 @@ $sql = mysqli_query($conexion, "select * from envio ");
               
                 <?php
                 include "conexion/Conexion.php";
-                $consulta = "select * from  envio ";
+                $consulta = "select * from  footer ";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                     echo '
                 <tr>
-                  <th class="letrasmenu" scope="row">' .$arreglo["texto_envio"] .'</th>
-                  <th class="letrasmenu" scope="row">' .$arreglo["montoenvio"] .'</th>
+                  <th class="letrasmenu" scope="row">' .$arreglo["titulofooter"] .'</th>
+                  <th class="letrasmenu" scope="row">' .$arreglo["horario"] .'</th>
+                  <th class="letrasmenu" scope="row">' .$arreglo["telefonofooter"] .'</th>
+                  <th class="letrasmenu" scope="row">' .$arreglo["correofooter"] .'</th>
+                  <th class="letrasmenu" scope="row"><img class="tableimg"  src="imagenes/redsocial/' .
+                  $arreglo["ligafooter"] .
+                  '"></th>
+                  <th class="letrasmenu" scope="row"><img class="tableimg"  src="imagenes/redsocial/' .
+                  $arreglo["instagram"] .
+                  '"></th>
                   
+                  <th class="letrasmenu" scope="row">' .$arreglo["piefooter"] .'</th>
+                 
                   
-                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarenvio.php?id=' .
+                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificafooter.php?id=' .
                         $arreglo["id"] .'"><i class="fas fa-edit"></i></a></td>
                   <td><a href="#"  onclick="eliminar(' .$arreglo["id"] .')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
                 </tr>
@@ -70,8 +84,8 @@ $sql = mysqli_query($conexion, "select * from envio ");
   <script>
     function eliminar(id){
       
-      if(confirm("Deseas eliminar este monto?")){
-        window.location="Verenvio.php?eliminar="+id;
+      if(confirm("Deseas eliminar esta información?")){
+        window.location="Verfooter.php?eliminar="+id;
       }
     }
   </script>

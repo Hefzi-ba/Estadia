@@ -14,7 +14,7 @@ $sql ="insert into carrito (idusuario,fecha,totalpagar, usuario, lugar, servicio
 mysqli_query($conexion, $sql);
 
 $ultimoid = mysqli_insert_id($conexion);
-echo $sql;
+
 unset($_SESSION["carrito"]);
 for ($i = 0; $i < count($arreglo); $i++) {
     $total = $total + $arreglo[$i]["precio"] * $arreglo[$i]["cantidad"];
@@ -58,8 +58,10 @@ include "Menu.php";
             <h5 class="letraslogin">Tu pedido se realizo exitosamente!!</h5>
             <br>
             <a href="./index.php" class="btnx btn btn btn-outline-light">Inicio</a>
+            <a href="gracias.php?serviciodomicilio=0" class="btnx btn btn btn-outline-light">comprar y recoger</a>
+            <a href="gracias.php?serviciodomicilio=1" class="btnx btn btn btn-outline-light">comprar y enviar a domicilio</a>
         </div>
         
     </body>
-    <?php include "footer.html"; ?>
+    <?php include "footer.php"; ?>
 </html>

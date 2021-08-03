@@ -9,7 +9,7 @@ if (isset($_POST["titular"])) {
 
     $formatos = [".png", ".jpg", ".gif", ".jpeg"];
     $ubicacion = "imagenes/Inicio";
-    $imageninicio = $_FILES["imageninicio"]["name"];
+    $imageninicio= $_FILES["imageninicio"]["name"];
     $nombre_temporal = $_FILES["imageninicio"]["tmp_name"];
     if (move_uploaded_file($nombre_temporal, "$ubicacion/$imageninicio")) {
         echo "se movio";

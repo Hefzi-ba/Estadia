@@ -107,6 +107,24 @@ include("conexion/Conexion.php");
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-user-friends"></i>
                   <p class="letrasmenu">
+                  Footer 
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="Verfooter.php" class="nav-link">
+                      <i class="far  nav-icon"></i>
+                      <p class="letrasmenu">Editar Footer </p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-user-friends"></i>
+                  <p class="letrasmenu">
                   Nosotros 
                     <i class="right fas fa-angle-left"></i>
                   </p>
@@ -227,7 +245,7 @@ include("conexion/Conexion.php");
                 
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                  <a href="./Agregarfigura.php" class="nav-link">
+                  <a href="Agregarfigura.php" class="nav-link">
                       <i class="far  nav-icon"></i>
                       <p class="letrasmenu">Agregar</p>
                     </a>
@@ -282,7 +300,9 @@ include("conexion/Conexion.php");
                     </a>
                   </li> 
                 </ul>
+                
               </li>
+              
             </ul>
           </nav>
           <!-- /.sidebar-menu -->

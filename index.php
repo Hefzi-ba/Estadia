@@ -8,6 +8,6 @@ if (!isset($_SESSION)) {
     
      <?php include "inicio.php"; ?>
     <br>
-    <?php include "footer.html"; ?>
+    <?php include "footer.php"; ?>
 
 </html>

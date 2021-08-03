@@ -130,14 +130,14 @@ if (!isset($usuario)) {
     
     <td>
     <div class="input-group mb-3" style="width: 25%;">
-        <button class="btn btn-outline-secondary btnIncrementar" type="button">&minus;</button>
+        
         <input type="text" class="form-control textCantidad" value="<?php echo $arreglocarrito[
             $i
         ]["cantidad"]; ?>"  
         data-id="<?php echo $arreglocarrito[$i]["id"]; ?>"  
         data-precio="<?php echo $arreglocarrito[$i]["precio"]; ?>"
           aria-label="Example text with two button addons">
-        <button class="btn btn-outline-secondary" type="button">&plus;</button>
+        
        
     </div>
     </td>

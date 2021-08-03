@@ -1,4 +1,7 @@
-<?php
+
+
+
+                     <?php
 include "indexad2.php";
 include "conexion/Conexion.php";
 if (isset($_GET["eliminar"])) {
@@ -46,6 +49,7 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
               <th class="letrasmenu" scope="col">Usuario</th>
               <th class="letrasmenu" scope="col">Total</th>
               <th class="letrasmenu" scope="col">Id de producto</th>
+              <th class="letrasmenu" scope="col">Talla</th>
               <th class="letrasmenu" scope="col">Productos</th>
               <th class="letrasmenu" scope="col">Imagen</th>
               <th class="letrasmenu" scope="col">Ciudad</th>
@@ -68,9 +72,9 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
                 //$dato=mysqli_fetch_array($datos);
                 $consulta =
                     "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
-                    carrito_productos.id_producto,ropa.nombre,ropa.imagen, carrito.lugar FROM carrito 
+                    carrito_productos.id_producto,ropa.nombre,ropa.imagen,ropa.codigo, tallas.codigoropa, tallas.nombretalla, carrito.lugar FROM tallas,carrito 
                     INNER JOIN carrito_productos ON carrito.id=carrito_productos.id_carrito INNER JOIN ropa
-                     on carrito_productos.id_producto=ropa.id WHERE serviciodomicilio=1 ";
+                     on carrito_productos.id_producto=ropa.id WHERE carrito_productos.id_producto=ropa.id AND carrito.serviciodomicilio=0 AND ropa.codigo=tallas.codigoropa ";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                   $consulta2= "SELECT * FROM usuarios where id= ".$arreglo["idusuario"]." ";
@@ -90,6 +94,7 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
                   <td class="letrasmenu">' .$arreglo["totalpagar"] .'</td>
 
                   <td class="letrasmenu">' .$arreglo["id_producto"] .'</td>
+                  <td class="letrasmenu">' .$arreglo["nombretalla"] .'</td>
 
                   <td class="letrasmenu" scope="row">' .$arreglo["nombre"] .'</td>
                   <td class="letrasmenu" scope="row"><img class="tableimg"  src="imagenes/Productos/' .

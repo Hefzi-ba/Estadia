@@ -66,20 +66,22 @@ $sql = mysqli_query($conexion, "select * from ropa where categoria= 'Ropa'");
                   <th class="letrasmenu" scope="row">' .
                         $arreglo["codigo"] .
                         '</th>
+
+                       
                   
                   <td class="letrasmenu" ><img class="tableimg"  src="imagenes/Productos/' .
                         $arreglo["imagen"] .
                         '"></td>
-                  <td class="letrasmenu"><input type="text" name="nombre" value="' .
+                  <td class="letrasmenu">' .
                         $arreglo["nombre"] .
-                        '"></td>
-                  <td class="letrasmenu"><input type="text" name="descripcion" value="' .
+                        '</td>
+                  <td class="letrasmenu">' .
                         $arreglo["descripcion"] .
-                        '"></td>
+                        '</td>
                   
-                  <td class="letrasmenu"><input type="text" name="precio" value="' .
+                  <td class="letrasmenu">' .
                         $arreglo["precio"] .
-                        '"></td>
+                        '</td>
                   
                   <td class="letrasmenu">' .
                         $arreglo["existencia"] .

@@ -46,67 +46,75 @@ if (isset($_POST["nombreusuario"])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="./css/estiloDC.css" rel="stylesheet">
+        <link href="./css/login.css" rel="stylesheet">
    
         <title>DarkCube</title>
     </head>
-    <body class="fondologin">
+    <body class=""> 
        
-    <a href="index.php" type="button" class="btn-close btn-close-white" aria-label="Close"> </a>
     
-        <form action="Registro.php" method="POST" class=" container form" style="margin-bottom: 20%;">
-        <div>
+    
+    <form action="Registro.php" method="POST" class="container" style="margin-bottom: 20%;" >
+        <div class="body"></div>
+        <div class="grad">
+        <div class="container">
             
-        <img class="mb-4" src="./imagenes/logoDCpng.png" alt="" width="200px" height="200px" style="margin-left: 40%;">
-            <div class="form-group">
-            
-                <label for="uname" class="letraslogin">Usuario:</label>
-                <input type="text" class="form-control" id="uname" placeholder="Introduzca un usuario de registro" name="nombreusuario" required>
+           
+                <div class="form-group container " style="margin-top: 2%;">
                 
-            </div>
-            <div class="form-group">
-            
-            <label for="uname" class="letraslogin">Correo:</label>
-            <input type="text" class="form-control" id="uname" placeholder="nombre@*****.com" name="correousuario" required>
-            
-            </div>
-            <div class="form-group">
-                <label for="pwd" class="letraslogin">Contraseña:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Contraseña que sea  facil de recordar " name="contrasena" required>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a class="btn btn-close btn-close-white me-md-2" type="button" href="index.php"></a>
+                    </div>
+                    <label for="uname" class="letraslogin">Usuario:</label>
+                    <input type="text" class="form-control" id="uname" placeholder="Introduzca un usuario de registro" name="nombreusuario" required>
+                    
+                </div>
+                <div class="form-group container">
                 
-            </div>
-            <div >
+                    <label for="uname" class="letraslogin">Correo:</label>
+                    <input type="text" class="form-control" id="uname" placeholder="nombre@*****.com" name="correousuario" required>
+                    
+                </div>
+                <div class="form-group container">
+                    <label for="pwd" class="letraslogin">Contraseña:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Contraseña que sea  facil de recordar " name="contrasena" required>
+                    
+                </div>
+                <div >
+                    
+                    <h1  class="letraslogin" style="text-align: center;">Datos necesarios para envíos. </h1>
+                </div>
+                <div class="form-group container">
+                    <label for="pwd" class="letraslogin">Ciudad:</label>
+                    <input type="text" class="form-control" id="pwd" placeholder="Nuevo casas grandes, Chih. Mex.  " name="ciudad" required>
+                    
+                </div>
+                <div class="form-group container">
+                    <label for="pwd" class="letraslogin">Calle:</label>
+                    <input type="text" class="form-control" id="pwd" placeholder="16 de Septiembre " name="calles" required>
+                    
+                </div>
+                <div class="form-group container">
+                    <label for="pwd" class="letraslogin">Domicilio:</label>
+                    <input type="text" class="form-control" id="pwd" placeholder="#1209 " name="domicilio" required>
+                    
+                </div>
+                <div class="form-group container">
+                    <label for="pwd" class="letraslogin">Código postal:</label>
+                    <input type="text" class="form-control" id="pwd" placeholder=" 31700" name="codigo_postal" required>
+                    
+                </div>
+                <div class="form-group container">
+                    <label for="pwd" class="letraslogin">Teléfono:</label>
+                    <input type="text" class="form-control" id="pwd" placeholder="telefono" name="telefono" required>
+                    
+                </div>
+               <br>
+                <button  type="submit" class="w-100 btnx btn btn btn-outline-light ">Registrarse</button>
                 
-                <h1  class="letraslogin" style="text-align: center;">Datos necesarios para envíos. </h1>
-            </div>
-            <div class="form-group">
-                <label for="pwd" class="letraslogin">Ciudad:</label>
-                <input type="text" class="form-control" id="pwd" placeholder="Nuevo casas grandes, Chih. Mex.  " name="ciudad" required>
-                
-            </div>
-            <div class="form-group">
-                <label for="pwd" class="letraslogin">Calle:</label>
-                <input type="text" class="form-control" id="pwd" placeholder="16 de Septiembre " name="calles" required>
-                
-            </div>
-            <div class="form-group">
-                <label for="pwd" class="letraslogin">Domicilio:</label>
-                <input type="text" class="form-control" id="pwd" placeholder="#1209 " name="domicilio" required>
-                
-            </div>
-            <div class="form-group">
-                <label for="pwd" class="letraslogin">Código postal:</label>
-                <input type="text" class="form-control" id="pwd" placeholder=" 31700" name="codigo_postal" required>
-                
-            </div>
-            <div class="form-group">
-                <label for="pwd" class="letraslogin">Teléfono:</label>
-                <input type="text" class="form-control" id="pwd" placeholder="telefono" name="telefono" required>
-                
-            </div>
-           <br>
-            <button  type="submit" class="w-100 btnx btn btn btn-outline-light">Registrarse</button>
-            
-        </form>
+        </div>
+        
+    </form>
         
         
     </body>

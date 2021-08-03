@@ -40,14 +40,15 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
             </nav>
           <table class="table table-responsive">
               <thead class="table-dark">
-              <th class="letrasmenu" scope="col">Id de venta  </th>
-              <th class="letrasmenu" scope="col">Id de usuario</th>
+              <th class="letrasmenu" scope="col">Venta id </th>
+              <th class="letrasmenu" scope="col">Usuario id</th>
               <th class="letrasmenu" scope="col">Fecha</th>
               <th class="letrasmenu" scope="col">Usuario</th>
               <th class="letrasmenu" scope="col">Total</th>
               <th class="letrasmenu" scope="col">Id de producto</th>
               <th class="letrasmenu" scope="col">Productos</th>
               <th class="letrasmenu" scope="col">Imagen</th>
+              <th class="letrasmenu" scope="col">Talla</th>
               <th class="letrasmenu" scope="col">Ciudad</th>
               <th class="letrasmenu" scope="col">Calles</th>
               <th class="letrasmenu" scope="col">Domicilio</th>
@@ -76,6 +77,10 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
                   $consulta2= "SELECT * FROM usuarios where id= ".$arreglo["idusuario"]." ";
                 $datos=mysqli_query($conexion,$consulta2);
                 $dato=mysqli_fetch_array($datos);
+                $con2= "SELECT ropa.codigo, tallas.codigoropa, tallas.nombretalla, ropa.id from ropa,tallas
+                where ropa.id=".$arreglo["id_producto"]." ";
+                $con=mysqli_query($conexion,$con2);
+                $co=mysqli_fetch_array($con);
                     echo '
                 <tr>
                   
@@ -96,7 +101,7 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
                   $arreglo["imagen"] .'"></td>
 
                   
-                  
+                  <td class="letrasmenu" scope="row">' .$co["nombretalla"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["ciudad"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["calles"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["domicilio"] .'</td>

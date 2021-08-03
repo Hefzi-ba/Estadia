@@ -90,6 +90,7 @@ $sql = mysqli_query($conexion, "select * from ropa where categoria= 'Figuras'");
                         $arreglo["id"] .
                         ')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
                 </tr>
+
               ';
                 }
                 ?>
@@ -106,7 +107,7 @@ $sql = mysqli_query($conexion, "select * from ropa where categoria= 'Figuras'");
     function eliminar(id){
       
       if(confirm("Deseas eliminar este articulo?")){
-        window.location="Verfigura.php?eliminar="+id;
+        window.location="Verfiguras.php?eliminar="+id;
       }
     }
   </script>

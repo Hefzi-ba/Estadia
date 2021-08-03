@@ -33,7 +33,9 @@ if (isset($_POST["nombre"])) {
         $descripcion .
         "', " .
         $precio .
-        ", '" .$existencia ."','" .$categoria ."')";
+        ", '" .
+        $existencia ."','" .$categoria .
+        "')";
     mysqli_query($conexion, $sql);
 }
 ?>
@@ -62,8 +64,8 @@ if (isset($_POST["nombre"])) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <form action="Agregarbolso.php"  method="POST" enctype="multipart/form-data" class=" container form">
-            <h1 class="ptext" >Registro de una nueva bolso.</h1> 
+            <form action="Agregarfigura.php"  method="POST" enctype="multipart/form-data" class=" container form">
+            <h1 class="ptext" >Registro de una nieva figura.</h1> 
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>
@@ -122,7 +124,7 @@ if (isset($_POST["nombre"])) {
                     
                 </div>
             <br>
-                <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Agregar Producto">
+                <input type="submit" class="w-100 btnx btn btn-outline-dark" value="Agregar figura">
                 
             </form>
             <br>

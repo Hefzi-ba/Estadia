@@ -171,6 +171,7 @@ if (!isset($usuario)) {
       </div>
     </section>
 <a type="button" href="orden.php"  class=" btnx btn btn btn-outline-light" style="margin-left: 40%;"> Realizar pedido</a>
+<br>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -226,4 +227,5 @@ function incrementar(cantidad,precio,id){
 <?php
 }
 ?>
-<?php include "footer.html"; ?>
+<br>
+<?php include "footer.php"; ?>

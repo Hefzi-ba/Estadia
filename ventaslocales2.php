@@ -52,8 +52,7 @@ $sql = mysqli_query(
               <th class="letrasmenu" scope="col">Usuario</th>
               <th class="letrasmenu" scope="col">Total</th>
               <th class="letrasmenu" scope="col">Id de producto</th>
-              <th class="letrasmenu" scope="col">Productos</th>
-              <th class="letrasmenu" scope="col">Imagen</th>
+             
               
               <th class="letrasmenu" scope="col">Eliminar</th>
               
@@ -66,7 +65,9 @@ $sql = mysqli_query(
                     $buscar = $_POST["buscar"];
                 }
                 $consulta =
-                    "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, carrito_productos.id_producto,ropa.nombre, ropa.imagen FROM carrito INNER JOIN carrito_productos ON carrito.id=carrito_productos.id_carrito INNER JOIN ropa on carrito_productos.id_producto=ropa.id WHERE serviciodomicilio=0 ";
+                    
+                     "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
+                     carrito.lugar FROM carrito  WHERE serviciodomicilio=0 ";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                     echo '
@@ -89,17 +90,8 @@ $sql = mysqli_query(
                   <td class="letrasmenu">' .
                         $arreglo["totalpagar"] .
                         '</td>
-                  <td class="letrasmenu">' .
-                        $arreglo["id_producto"] .
-                        '</td>
-                  <td class="letrasmenu" scope="row">' .
-                        $arreglo["nombre"] .
-                        '</td>
-                  <td class="letrasmenu" scope="row"><img class="tableimg"  src="imagenes/Productos/' .
-                  $arreglo["imagen"] .'"></td>
-
                   
-                  
+                  <td class="letrasmenu"><a href="ventaslocales22.php?id='.$arreglo["id"].'"   type="button" class="btn btn-outline-danger" > Consultar</a></td>
                   
                   <td class="letrasmenu"><a href="#"  onclick="eliminar(' .
                         $arreglo["id"] .

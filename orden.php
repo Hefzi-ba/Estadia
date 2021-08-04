@@ -25,7 +25,7 @@ $preference = new MercadoPago\Preference();
 
 //...
 $preference->back_urls = array(
-    "success" => "http://localhost:8888/DC/gracias.php",
+    "success" => "http://localhost:8888/DC/metodoentrega.php",
     "failure" => "https://localhost:8888/DC/errorpago?error=fallure",
     "pending" => "https://localhost:8888/DC/errorpago?error=pending"
 );
@@ -51,7 +51,7 @@ $preference->save();
     <link href="./css/estiloDC.css" rel="stylesheet">
     </head>
     <body>
-        <table class="table table-light responsive">
+        <table class="table table-light responsive" style="margin-right: 8px;" style="margin-left: 8px;" >
          <tr>
            <th > Nombre del producto:</th> 
            <th >Cantidad:</th> 
@@ -76,10 +76,10 @@ $preference->save();
          <td colspan="2"><?php echo number_format($total, 2, ".", ""); ?></td>
          </tr>
         </table>
-        <!--<a href="gracias.php?serviciodomicilio=0" class="btnx btn btn btn-outline-light">comprar y recoger</a>
-        <a href="gracias.php?serviciodomicilio=1" class="btnx btn btn btn-outline-light">comprar y enviar a domicilio</a>-->
-        <!-- este es el boton de pago que deberia ir en otro lugar-->
-        <form action="http://localhost:8888/DC/gracias.php" method="POST">
+        
+        
+        
+        <form action="http://localhost:8888/DC/metodoentrega.php" method="POST">
         <!-- el action del form debe mandar a donde inserta la base de datos la compra 
         y cuando se suba a algun servidor hay subirlo con el dominio-->
             <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
@@ -87,6 +87,8 @@ $preference->save();
             </script>
 
         </form>
+        <br>
+        <br>
     </body>
 
 </html>

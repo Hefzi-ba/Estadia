@@ -22,14 +22,14 @@ if (isset($_POST["titulofooter"])) {
     $instagram= $_FILES["instagram"]["name"];
     $nombre_temporal2 = $_FILES["instagram"]["tmp_name"];
     if (move_uploaded_file($nombre_temporal, "$ubicacion/$ligafooter")) {
-        echo "se movio";
+        
     } else {
-        echo "no se movio";
+        
     }
     if (move_uploaded_file($nombre_temporal2, "$ubicacion2/$instagram")) {
-        echo "se movio";
+        
     } else {
-        echo "no se movio";
+        
     }
     $sql =
         "insert into footer ( titulofooter, horario, telefonofooter, correofooter, ligafooter, instagram, piefooter) values

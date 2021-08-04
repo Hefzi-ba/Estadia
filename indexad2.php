@@ -105,7 +105,7 @@ include("conexion/Conexion.php");
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-user-friends"></i>
+                  <i class="nav-icon fas fa-shoe-prints"></i>
                   <p class="letrasmenu">
                   Footer 
                     <i class="right fas fa-angle-left"></i>

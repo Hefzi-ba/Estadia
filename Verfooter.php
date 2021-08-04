@@ -1,11 +1,7 @@
 <?php
 include "indexad2.php";
 include "conexion/Conexion.php";
-if (isset($_GET["eliminar"])) {
-    $sql =
-        "delete from footer where id=" .$_GET["eliminar"] . "";
-    mysqli_query($conexion, $sql);
-}
+
 $sql = mysqli_query($conexion, "select * from footer ");
 ?>
 <html>
@@ -40,7 +36,7 @@ $sql = mysqli_query($conexion, "select * from footer ");
               <th class="letrasmenu" scope="col">Instagram</th>
               <th class="letrasmenu" scope="col">Pie de footer</th>
               <th class="letrasmenu" scope="col">Editar</th>
-              <th class="letrasmenu" scope="col">eliminar</th>
+              
               
               </thead>
               
@@ -65,9 +61,9 @@ $sql = mysqli_query($conexion, "select * from footer ");
                   <th class="letrasmenu" scope="row">' .$arreglo["piefooter"] .'</th>
                  
                   
-                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificafooter.php?id=' .
+                  <td><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarfooter.php?id=' .
                         $arreglo["id"] .'"><i class="fas fa-edit"></i></a></td>
-                  <td><a href="#"  onclick="eliminar(' .$arreglo["id"] .')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
+                  
                 </tr>
               ';
                 }
@@ -81,14 +77,7 @@ $sql = mysqli_query($conexion, "select * from footer ");
     </section>
       
   </body>
-  <script>
-    function eliminar(id){
-      
-      if(confirm("Deseas eliminar esta información?")){
-        window.location="Verfooter.php?eliminar="+id;
-      }
-    }
-  </script>
+  
 </html>
 
 

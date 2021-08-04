@@ -8,9 +8,8 @@ for ($i = 0; $i < count($arreglo); $i++) {
 }
 $fecha = date("Y-m-d h:m:s");
 
-$sql ="insert into carrito (idusuario,fecha,totalpagar, usuario, lugar, serviciodomicilio) 
-    values ('" .$_SESSION["idusuario"] ."','" .$fecha ."'," .$total .",'".$_SESSION["usuario"] ."',
-    '".$_SESSION["calles"]."','" .$_GET["serviciodomicilio"] ."')";
+$sql ="insert into carrito (idusuario,fecha,totalpagar, usuario, serviciodomicilio) 
+    values ('" .$_SESSION["idusuario"] ."','" .$fecha ."'," .$total .",'".$_SESSION["usuario"] ."','" .$_GET["serviciodomicilio"] ."')";
 mysqli_query($conexion, $sql);
 
 $ultimoid = mysqli_insert_id($conexion);
@@ -58,8 +57,8 @@ include "Menu.php";
             <h5 class="letraslogin">Tu pedido se realizo exitosamente!!</h5>
             <br>
             <a href="./index.php" class="btnx btn btn btn-outline-light">Inicio</a>
-            <a href="gracias.php?serviciodomicilio=0" class="btnx btn btn btn-outline-light">comprar y recoger</a>
-            <a href="gracias.php?serviciodomicilio=1" class="btnx btn btn btn-outline-light">comprar y enviar a domicilio</a>
+            
+            
         </div>
         
     </body>

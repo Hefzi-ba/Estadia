@@ -31,9 +31,7 @@
             $respuesta = mysqli_query($conexion, $consulta);
             while ($arreglo2 = mysqli_fetch_array($respuesta)) {
                 echo '
-                        <body class="body">
-                          <p class="penvio">' .$arreglo2["texto_envio"] .'' .$arreglo2["montoenvio"] .'</p>
-                        </body>
+                        
 
                         <body class="body">
                           <div class="card text-center">

@@ -57,30 +57,34 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
               <th class="letrasmenu" scope="col">Eliminar</th>
               
               </thead>
-              
+              <tbody>
                 <?php
                 include "conexion/Conexion.php";
                 $buscar = "";
                 if (isset($_POST["buscar"])) {
                     $buscar = $_POST["buscar"];
                 }
-                //$consulta2= "SELECT * FROM usuarios where id= ".$_SESSION["idusuario"]." ";
-                //$datos=mysqli_query($conexion,$consulta2);
-                //$dato=mysqli_fetch_array($datos);
+                
                 $consulta =
                     "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
-                    carrito_productos.id_producto,ropa.nombre,ropa.imagen, carrito.lugar FROM carrito 
+                    carrito_productos.id_producto,ropa.nombre,ropa.imagen,ropa.categoria, carrito.lugar FROM carrito 
                     INNER JOIN carrito_productos ON carrito.id=carrito_productos.id_carrito INNER JOIN ropa
-                     on carrito_productos.id_producto=ropa.id WHERE serviciodomicilio=1 ";
+                     on carrito_productos.id_producto=ropa.id WHERE serviciodomicilio=1 and carrito.id=".$_GET["id"]." ";
                 $respuesta = mysqli_query($conexion, $consulta);
+                $total=0;
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
+                  $total=$arreglo["totalpagar"];
                   $consulta2= "SELECT * FROM usuarios where id= ".$arreglo["idusuario"]." ";
                 $datos=mysqli_query($conexion,$consulta2);
                 $dato=mysqli_fetch_array($datos);
-                $con2= "SELECT ropa.codigo, tallas.codigoropa, tallas.nombretalla, ropa.id from ropa,tallas
-                where ropa.id=".$arreglo["id_producto"]." ";
-                $con=mysqli_query($conexion,$con2);
-                $co=mysqli_fetch_array($con);
+                
+                if($arreglo["categoria"]=="Ropa"){
+                  $con2= "SELECT ropa.codigo, tallas.codigoropa, tallas.nombretalla, ropa.id from ropa,tallas
+                  where ropa.id=".$arreglo["id_producto"]." ";
+                  $con=mysqli_query($conexion,$con2);
+                  $co=mysqli_fetch_array($con);
+                  
+                }
                     echo '
                 <tr>
                   
@@ -92,7 +96,7 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
 
                   <td class="letrasmenu">' .$arreglo["usuario"] .'</td>
                   
-                  <td class="letrasmenu">' .$arreglo["totalpagar"] .'</td>
+                  
 
                   <td class="letrasmenu">' .$arreglo["id_producto"] .'</td>
 
@@ -101,7 +105,13 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
                   $arreglo["imagen"] .'"></td>
 
                   
-                  <td class="letrasmenu" scope="row">' .$co["nombretalla"] .'</td>
+                  <td class="letrasmenu" scope="row">';
+                  if($arreglo["categoria"]=="Ropa"){ 
+                 echo $co["nombretalla"];
+                }else{
+                  echo "No aplica";
+                }
+                   echo '</td>
                   <td class="letrasmenu" scope="row">' .$dato["ciudad"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["calles"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["domicilio"] .'</td>
@@ -115,7 +125,12 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
               ';
                 }
                 ?>
-              
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total: <?php echo $total ?> </td>
+                </tr>
+              </tfoot>
           </table>
           </div>
         </div>

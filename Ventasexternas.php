@@ -45,15 +45,12 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
               <th class="letrasmenu" scope="col">Fecha</th>
               <th class="letrasmenu" scope="col">Usuario</th>
               <th class="letrasmenu" scope="col">Total</th>
-              <th class="letrasmenu" scope="col">Id de producto</th>
-              <th class="letrasmenu" scope="col">Productos</th>
-              <th class="letrasmenu" scope="col">Imagen</th>
               <th class="letrasmenu" scope="col">Ciudad</th>
               <th class="letrasmenu" scope="col">Calles</th>
               <th class="letrasmenu" scope="col">Domicilio</th>
               <th class="letrasmenu" scope="col">Codigo postal</th>
               <th class="letrasmenu" scope="col">Teléfono</th>
-              <th class="letrasmenu" scope="col">Eliminar</th>
+              <th class="letrasmenu" scope="col">Especificaciónes</th>
               
               </thead>
               
@@ -63,14 +60,10 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
                 if (isset($_POST["buscar"])) {
                     $buscar = $_POST["buscar"];
                 }
-                //$consulta2= "SELECT * FROM usuarios where id= ".$_SESSION["idusuario"]." ";
-                //$datos=mysqli_query($conexion,$consulta2);
-                //$dato=mysqli_fetch_array($datos);
+                
                 $consulta =
                     "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
-                    carrito_productos.id_producto,ropa.nombre,ropa.imagen, carrito.lugar FROM carrito 
-                    INNER JOIN carrito_productos ON carrito.id=carrito_productos.id_carrito INNER JOIN ropa
-                     on carrito_productos.id_producto=ropa.id WHERE serviciodomicilio=1 ";
+                    carrito.lugar FROM carrito  WHERE serviciodomicilio=1 ";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                   $consulta2= "SELECT * FROM usuarios where id= ".$arreglo["idusuario"]." ";
@@ -88,21 +81,12 @@ $sql = mysqli_query($conexion,"select * from carrito  where  serviciodomicilio=1
                   <td class="letrasmenu">' .$arreglo["usuario"] .'</td>
                   
                   <td class="letrasmenu">' .$arreglo["totalpagar"] .'</td>
-
-                  <td class="letrasmenu">' .$arreglo["id_producto"] .'</td>
-
-                  <td class="letrasmenu" scope="row">' .$arreglo["nombre"] .'</td>
-                  <td class="letrasmenu" scope="row"><img class="tableimg"  src="imagenes/Productos/' .
-                  $arreglo["imagen"] .'"></td>
-
-                  
-                  
                   <td class="letrasmenu" scope="row">' .$dato["ciudad"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["calles"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["domicilio"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["codigo_postal"] .'</td>
                   <td class="letrasmenu" scope="row">' .$dato["telefono"] .'</td>
-                  
+                  <td class="letrasmenu"><a href="ventasexternas22.php?id='.$arreglo["id"].'"   type="button" class="btn btn-outline-danger" > Consultar</a></td>
                   <td class="letrasmenu"><a href="#"  onclick="eliminar(' .
                         $arreglo["id"] .
                         ')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>

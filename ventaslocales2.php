@@ -36,14 +36,7 @@ $sql = mysqli_query(
         <div class="row mb-2">
           <div class="col-sm-12">
           
-            <nav class="navbar navbar-light bg-light">
-              <div class="container-fluid">
-                <form class="d-flex" action="Ventaslocales.php" method="POST">
-                  <input class="form-control me-2 letrasmenu" type="text" name="buscar" placeholder="Buscar" aria-label="Search">
-                  <button class="btn btn-outline-dark letrasmenu" type="submit">Buscar</button>
-                </form>
-              </div>
-            </nav>
+            
           <table class="table table-responsive">
               <thead class="table-dark">
               <th class="letrasmenu" scope="col">Id de venta  </th>
@@ -61,9 +54,7 @@ $sql = mysqli_query(
                 <?php
                 include "conexion/Conexion.php";
                 $buscar = "";
-                if (isset($_POST["buscar"])) {
-                    $buscar = $_POST["buscar"];
-                }
+                
                 $consulta =
                     
                      "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 

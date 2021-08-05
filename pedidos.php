@@ -31,8 +31,10 @@ include("Menu.php");
           <table class="table table-light">
               <thead class="table-light">
               <th class="letrasmenu" scope="col">Usuario </th>
-              <th class="letrasmenu" scope="col">Productos</th>
-              <th class="letrasmenu" scope="col">Imagen</th>
+              <th class="letrasmenu" scope="col">Fecha</th>
+              <th class="letrasmenu" scope="col">Total</th>
+              <th class="letrasmenu" scope="col">Ciudad</th>
+              <th class="letrasmenu" scope="col">Detalles</th>
               
             
               
@@ -41,27 +43,35 @@ include("Menu.php");
                 <?php
                 include "conexion/Conexion.php";
                
-                $consulta = "SELECT carrito.id, ropa.id, ropa.imagen, carrito_productos.id_producto, carrito_productos.nombre_producto, carrito.usuario FROM 
-                carrito inner join carrito_productos on carrito.id=carrito_productos.id_carrito  inner join ropa on carrito_productos.id_producto=ropa.id  where carrito.usuario= '$_SESSION[usuario]'";
+                $consulta = "SELECT carrito.id, carrito.idusuario, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
+                carrito.lugar FROM 
+                carrito   where carrito.usuario= '$_SESSION[usuario]'";
                  
-                 //"SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
-                 //carrito_productos.id_producto,ropa.nombre,ropa.imagen, carrito.lugar FROM carrito 
-                 //INNER JOIN carrito_productos ON carrito.id=carrito_productos.id_carrito INNER JOIN ropa
-                  //on carrito_productos.id_producto=ropa.id WHERE serviciodomicilio=1 ";
+                 
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
+                $consulta2= "SELECT * FROM usuarios where id= ".$arreglo["idusuario"]." ";
+                $datos=mysqli_query($conexion,$consulta2);
+                $dato=mysqli_fetch_array($datos);
                     echo '
                 <tr>
                   <th class="letrasmenu" scope="row">' .
                         $arreglo["usuario"] .
                         '</th>
+                        <th class="letrasmenu" scope="row">' .
+                        $arreglo["fecha"] .
+                        '</th>
+                        <th class="letrasmenu" scope="row">' .
+                        $arreglo["totalpagar"] .
+                        '</th>
+                        <th class="letrasmenu" scope="row">' .
+                        $dato["ciudad"] .
+                        '</th>
+                  
+                        <td class="letrasmenu"><a href="pedidos2.php?id='.$arreglo["id"].'"   
+                        type="button" class="btn btn-outline-danger letrasmenu" > Detalles</a></td>
                   
                   
-                  <td class="letrasmenu">' .
-                        $arreglo["nombre_producto"] .
-                        '</td>
-                  <td class="letrasmenu" scope="row"><img class="tableimg"  src="imagenes/Productos/' .
-                        $arreglo["imagen"] .'"></td>
                  
                   
                   

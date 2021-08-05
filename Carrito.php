@@ -103,12 +103,12 @@ if (!isset($usuario)) {
               
 <table class=" table table-light table-striped">
     <tr>
-        <th>Imagen</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Cantidad</th>
-        <th>Quitar</th>
-        <th>Subtotal</th>
+        <th class="letrasmenu">Imagen</th>
+        <th class="letrasmenu">Nombre</th>
+        <th class="letrasmenu">Precio</th>
+        <th class="letrasmenu">Cantidad</th>
+        <th class="letrasmenu">Quitar</th>
+        <th class="letrasmenu">Subtotal</th>
     </tr>
     <?php
     $total = 0;
@@ -125,10 +125,10 @@ if (!isset($usuario)) {
         $i
     ]["imagen"]; ?>" class="img-tumbnail">
     </td>
-    <td><?php echo $arreglocarrito[$i]["nombre"]; ?> </td>
-    <td><?php echo $arreglocarrito[$i]["precio"]; ?></td>
+    <td class="letrasmenu"><?php echo $arreglocarrito[$i]["nombre"]; ?> </td>
+    <td class="letrasmenu"><?php echo $arreglocarrito[$i]["precio"]; ?></td>
     
-    <td>
+    <td class="letrasmenu">
     <div class="input-group mb-3" style="width: 25%;">
         
         <input type="text" class="form-control textCantidad" value="<?php echo $arreglocarrito[
@@ -141,7 +141,7 @@ if (!isset($usuario)) {
        
     </div>
     </td>
-    <td>
+    <td class="letrasmenu">
     <a  type="button"href="" class="btn btn-danger BotonEliminar" data-id="<?php echo $arreglocarrito[
         $i
     ]["id"]; ?>">
@@ -150,7 +150,7 @@ if (!isset($usuario)) {
     </svg>
     </a>
     </td>
-    <td class="canti<?php echo $arreglocarrito[$i]["id"]; ?>">
+    <td class="letrasmenu canti<?php echo $arreglocarrito[$i]["id"]; ?>">
     <?php echo $arreglocarrito[$i]["cantidad"] *
         $arreglocarrito[$i]["precio"]; ?>
     </td>
@@ -160,8 +160,8 @@ if (!isset($usuario)) {
     }
     ?>
     <tr>
-   <td>Total a pagar</td> 
-   <td colspan="5">$<?php echo number_format($total, 2, ".", ""); ?></td> 
+   <td class="letrasmenu">Total a pagar</td> 
+   <td colspan="5" class="letrasmenu">$<?php echo number_format($total, 2, ".", ""); ?></td> 
     </tr>
 
 </table>

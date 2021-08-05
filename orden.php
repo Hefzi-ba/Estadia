@@ -53,9 +53,9 @@ $preference->save();
     <body>
         <table class="table table-light responsive" style="margin-right: 8px;" style="margin-left: 8px;" >
          <tr>
-           <th > Nombre del producto:</th> 
-           <th >Cantidad:</th> 
-           <th >Subtotal</th> 
+           <th class="letrasmenu" > Nombre del producto:</th> 
+           <th class="letrasmenu" >Cantidad:</th> 
+           <th class="letrasmenu" >Subtotal</th> 
          </tr>
          <?php
          $total = 0;
@@ -63,17 +63,17 @@ $preference->save();
              $total =
                  $total + $arreglo[$i]["precio"] * $arreglo[$i]["cantidad"]; ?>
          <tr>
-            <td ><?php echo $arreglo[$i]["nombre"]; ?></td>
-            <td><?php echo $arreglo[$i]["cantidad"]; ?></td>
-            <td><?php echo $arreglo[$i]["precio"] *
+            <td class="letrasmenu"><?php echo $arreglo[$i]["nombre"]; ?></td>
+            <td class="letrasmenu"><?php echo $arreglo[$i]["cantidad"]; ?></td>
+            <td class="letrasmenu"><?php echo $arreglo[$i]["precio"] *
                 $arreglo[$i]["cantidad"]; ?></td>
          </tr>
          <?php
          }
          ?>
          <tr>
-         <td>Total a pagar:</td>
-         <td colspan="2"><?php echo number_format($total, 2, ".", ""); ?></td>
+         <td class="letrasmenu">Total a pagar:</td>
+         <td colspan="2" class="letrasmenu"><?php echo number_format($total, 2, ".", ""); ?></td>
          </tr>
         </table>
         

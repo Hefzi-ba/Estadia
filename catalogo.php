@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link href="./css/bootstrap.css" rel="stylesheet">
-        
-        <link href="./css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="./css/estiloDC.css" rel="stylesheet">
-        
-   
-        <title>DarkCube</title>
-    </head>
-    <?php
+ <?php
         if (!isset($_SESSION)) {
         session_start();
         } ?>
     <?php include "Menu.php"; ?>
-    
+    <html lang="en">
     <body class="body">
       
     <div class="containercard">
@@ -80,7 +64,8 @@
   <div align="center" class="containercard" >
   <nav >
               <?php
-              $page_query = "SELECT * FROM ropa ORDER BY id DESC";
+              $page_query =
+                  "SELECT * FROM ropa WHERE categoria= 'Ropa' ORDER BY id DESC";
               $page_result = mysqli_query($conexion, $page_query);
               $total_record = mysqli_num_rows($page_result);
               $total_pages = ceil($total_record / $record_per_page);
@@ -91,8 +76,8 @@
               }
               $end_loop = $start_loop + 4;
               if ($pagina > 1) {
-                  echo "<a  class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=1'>Primera</a>";
-                  echo "<a class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=" .
+                  echo "<a  class ='pagina btn btn-outline-dark' href='Bolsos.php?pagina=1'>Primera</a>";
+                  echo "<a class ='pagina btn btn-outline-dark' href='Bolsos.php?pagina=" .
                       ($pagina - 1) .
                       "'><<</a>";
               }
@@ -111,7 +96,7 @@
                       "'>>></a>";
                   echo "<a class ='pagina  btn btn-outline-dark' href='catalogo.php?pagina=" .
                       $total_pages .
-                      "'>Última</a>";
+                      "'>Ultima</a>";
               }
               ?>
   </nav> 

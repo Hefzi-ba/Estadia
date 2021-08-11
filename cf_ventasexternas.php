@@ -8,13 +8,13 @@ if (isset($_GET["eliminar"])) {
         "";
     mysqli_query($conexion, $sql);
 }
-$sql = mysqli_query(
-    $conexion,
-    "select * from carrito  where  serviciodomicilio=1 "
-);
+
 ?>
 <html>
+ 
+  
   <body>
+
   <br>
     <br>
   <div class="content-wrapper">
@@ -46,12 +46,13 @@ $sql = mysqli_query(
               
                 <?php
                 include "conexion/Conexion.php";
-                
+                $f1ve=$_POST['f1ve']."00:00:00";
+                $f2ve=$_POST['f2ve']."11:59:59";
                 
                 $consulta =
                     
                      "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
-                     carrito.lugar FROM carrito  WHERE serviciodomicilio=1";
+                     carrito.lugar FROM carrito  WHERE serviciodomicilio=1 AND fecha BETWEEN '$f1ve' AND '$f2ve' ";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                     echo '
@@ -97,8 +98,10 @@ $sql = mysqli_query(
     function eliminar(id){
       
       if(confirm("Deseas eliminar esta venta?")){
-        window.location="ventasexternas.php?eliminar="+id;
+        window.location="Ventasexterna2.php?eliminar="+id;
       }
     }
   </script>
 </html>
+
+

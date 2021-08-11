@@ -24,7 +24,7 @@
                         <p class=" ptext nosotros">' .
                 $arreglo2["descripcion"] .
                 ' </p>
-                        <p class=" ptext nosotros">' .
+                        <p class="link-danger text-decoration-underline nosotros">' .
                 $arreglo2["correo"] .
                 ' </p>
                     

@@ -8,21 +8,7 @@ if (isset($_GET["eliminar"])) {
 $sql = mysqli_query($conexion, "select * from inicio");
 ?>
 <html>
-  <head>
-  <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="./css/bootstrap.css" rel="stylesheet">
-    
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
   <body>
-
-  <br>
-    <br>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -63,11 +49,11 @@ $sql = mysqli_query($conexion, "select * from inicio");
                         $arreglo["titular"] .
                         '</th>
                   
-                  <td class="letrasmenu" ><img class="tableimg"  src="imagenes/Productos/' .
+                  <td class="letrasmenu" ><img class="tableimg"  src="imagenes/Inicio/' .
                         $arreglo["imageninicio"] .
                         '"></td>
                   
-                  <td class="letrasmenu"><a type="button" class="btn btn-outline-secondary"  href="conexion/modificarinicio.php?id=' .
+                  <td class="letrasmenu"><a type="button" class="btn btn-outline-secondary"  href="Editarinicio.php?id=' .
                         $arreglo["id"] .
                         '"><i class="fas fa-edit"></i></a></td>
                   <td class="letrasmenu"><a href="#"  onclick="eliminar(' .

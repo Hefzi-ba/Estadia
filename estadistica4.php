@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./node_modules/chart.js/dist/chart.js"></script>
-    <title>Document</title>
-</head>
+<?php 
+include("indexad2.php");
+?>
+
+
 <body>
-    <?php
-    include("indexad2.php");
-    ?>
-    <br>
-    <br>
+    
+   
     
 
      <!--include "Menuadmin2.php"-->
@@ -26,6 +19,11 @@
                             <p class="text-center">
                                 <h2 class="letrasmenu" style="text-align: center;">Ventas por dia</h2>
                             </p>
+                            <form method="POST" action="cf_estadistica.php">
+                                <input type="date" name="f1e" class="letrasmenu ">
+                                <input type="date" name="f2e" class="letrasmenu ">
+                                <input type="submit" class=" letrasmenu btn btn-dark" value="Buscar">
+                            </form>
                             <!-- grafica dentro-->
                             <div class="chart">
                                 <!-- Sales Chart Canvas se inserta el canvas  -->
@@ -51,11 +49,13 @@
         data: {
             labels:[ <?php
             include "./conexion/Conexion.php";
+           
+            
             $sql = "SELECT * FROM carrito";
             $resultado = mysqli_query($conexion, $sql);
             while ($registros = mysqli_fetch_array($resultado)) { ?>
                         
-                    '<?php echo $registros["fecha"]; ?>',
+                        '<?php echo $registros["fecha"]; ?>',
                     <?php }
             ?>],
             datasets:[

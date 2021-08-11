@@ -1,6 +1,3 @@
-
- 
- 
 <?php
 include "indexad2.php";
 include "conexion/Conexion.php";
@@ -18,9 +15,9 @@ if (isset($_POST["nombre"])) {
     $imagen = $_FILES["imagen"]["name"];
     $nombre_temporal = $_FILES["imagen"]["tmp_name"];
     if (move_uploaded_file($nombre_temporal, "$ubicacion/$imagen")) {
-        echo "se movio";
+        
     } else {
-        echo "no se movio";
+        
     }
     $sql =
         "insert into ropa ( codigo, nombre, imagen, descripcion, precio, existencia, categoria) values
@@ -38,23 +35,26 @@ if (isset($_POST["nombre"])) {
             "')";
         mysqli_query($conexion, $sql3);
     }
-}
+    if(mysqli_query($conexion, $sql) && mysqli_query($conexion, $sql3)){
+       
+            echo '<script type="text/javascript">
+            alert("Prenda registrada!");
+            window.location="Verproducto.php"
+            </script>';
+        
+           
+        }else{
+            echo '<script type="text/javascript">
+            alert("Algo salio mal!");
+            window.location="Verproducto.php"
+            </script>';
+        }
+    }
+
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link href="./css/bootstrap.css" rel="stylesheet">
-        
-        <link href="./css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="./css/estiloDC.css" rel="stylesheet">
-   
-        <title>DarkCube</title>
-    </head>
+  
     <body >
        
     <br>
@@ -151,14 +151,6 @@ if (isset($_POST["nombre"])) {
         </div> 
     </div><!-- /.container-fluid -->
 
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
     </body>
 </html>

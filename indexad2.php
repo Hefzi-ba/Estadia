@@ -4,16 +4,15 @@ include("conexion/Conexion.php");
   $usuario=$_SESSION['usuario'];
   if(!isset($usuario)){
     header(("location:./loguin.php"));
-  }else{?>
+  }else{
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-
     <title>Administración DC</title>
-
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
     <!-- overlayScrollbars -->
@@ -45,18 +44,14 @@ include("conexion/Conexion.php");
       <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a  class="brand-link">
           
           <span class="brand-text font-weight-light letrasmenu">DarkCube </span>
           <span class="brand-text font-weight-light letrasmenu">Administración</span>
-
         </a>
-
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
-          
-
           <!-- Sidebar Menu -->
           <nav class="mt-2">
             <ul
@@ -67,23 +62,17 @@ include("conexion/Conexion.php");
             >
               <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-              
-              
-              
-              
               <li class="nav-item ">
                   <a href="./conexion/cerrar.php" class="nav-link">
                     <i class="nav-icon "></i>
                     <p class="letrasmenu">
                       Cerrar sesión 
-                     
-                      
                     </p>
                   </a>
                </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-hat-wizard"></i>
+                  <i class="nav-icon fas fa-hat-wizard text-danger"></i>
                   <p class="letrasmenu">
                   Novedad de inicio
                     <i class="right fas fa-angle-left"></i>
@@ -105,13 +94,12 @@ include("conexion/Conexion.php");
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-shoe-prints"></i>
+                  <i class="nav-icon fas fa-shoe-prints text-danger"></i>
                   <p class="letrasmenu">
                   Footer 
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
-                
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="Verfooter.php" class="nav-link">
@@ -123,13 +111,12 @@ include("conexion/Conexion.php");
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-user-friends"></i>
+                  <i class="nav-icon fas fa-user-friends text-danger"></i>
                   <p class="letrasmenu">
                   Nosotros 
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
-                
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="Vernosotros.php" class="nav-link">
@@ -141,11 +128,10 @@ include("conexion/Conexion.php");
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fas fa-user-circle"></i>
+                  <i class="nav-icon fas fas fa-user-circle text-danger"></i>
                   <p class="letrasmenu">
                     Usuarios
                     <i class="fas fa-angle-left right"></i>
-                    
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -165,14 +151,13 @@ include("conexion/Conexion.php");
             </li>
               <li class="nav-item has-treeview">
                 <a href="Verproducto.php" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
+                  <i class="nav-icon fas fa-copy text-danger"></i>
                   <p class="letrasmenu">
                     Categorías
                     <i class="fas fa-angle-left right"></i>
                     
                   </p>
                 </a>
-                
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="Agregarcategoria.php" class="nav-link">
@@ -184,19 +169,16 @@ include("conexion/Conexion.php");
                       <p class="letrasmenu">Ver categorías </p>
                     </a>
                   </li>
-                
                 </ul>
               </li>
               <li class="nav-item has-treeview">
                 <a href="Verproducto.php" class="nav-link">
-                  <i class="nav-icon fas fa-tshirt"></i>
+                  <i class="nav-icon fas fa-tshirt text-danger"></i>
                   <p class="letrasmenu">
                    Ropa
-                    <i class="fas fa-angle-left right"></i>
-                    
+                    <i class="fas fa-angle-left right"></i> 
                   </p>
                 </a>
-                
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="Agregarproducto.php" class="nav-link">
@@ -208,16 +190,14 @@ include("conexion/Conexion.php");
                       <p class="letrasmenu">ver productos </p>
                     </a>
                   </li>
-                
                 </ul>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-shopping-bag"></i>
+                  <i class="nav-icon fas fa-shopping-bag text-danger"></i>
                   <p class="letrasmenu">
                     Bolsos 
                     <i class="fas fa-angle-left right"></i>
-                    
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -235,14 +215,12 @@ include("conexion/Conexion.php");
               </li>
               <li class="nav-item has-treeview">
                 <a href="Verproducto.php" class="nav-link">
-                  <i class="nav-icon fas fa-ghost"></i>
+                  <i class="nav-icon fas fa-ghost text-danger"></i>
                   <p class="letrasmenu">
                     Figuras
                     <i class="fas fa-angle-left right"></i>
-                    
                   </p>
                 </a>
-                
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                   <a href="Agregarfigura.php" class="nav-link">
@@ -253,22 +231,20 @@ include("conexion/Conexion.php");
                       <i class="far  nav-icon"></i>
                       <p class="letrasmenu"> Ver figuras </p>
                     </a>
-                   
                   </li>
                 </ul>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-cart-arrow-down"></i>
+                  <i class="nav-icon fas fa-cart-arrow-down text-danger"></i>
                   <p class="letrasmenu">
                   Ventas
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
-             
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="ventaslocales2.php" class="nav-link">
+                    <a href="ventaslocales4.php" class="nav-link">
                       <i class="far  nav-icon"></i>
                       <p class="letrasmenu">Ventas locales</p>
                     </a>
@@ -281,13 +257,12 @@ include("conexion/Conexion.php");
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-hand-holding-usd"></i>
+                  <i class="nav-icon fas fa-hand-holding-usd text-danger"></i>
                   <p class="letrasmenu">
                   Banda de envíos
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
-             
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="Verenvio.php" class="nav-link">
@@ -300,26 +275,13 @@ include("conexion/Conexion.php");
                     </a>
                   </li> 
                 </ul>
-                
               </li>
-              
             </ul>
           </nav>
           <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
       </aside>
-
-      <!-- Content Wrapper. Contains page content -->
-      
-      <!-- /.content-wrapper -->
-
-      <!-- Control Sidebar -->
-      
-      <!-- /.control-sidebar -->
-
-      <!-- Main Footer -->
-      
     </div>
     <!-- ./wrapper -->
 
@@ -348,7 +310,7 @@ include("conexion/Conexion.php");
     <!-- PAGE SCRIPTS -->
     <script src="dist/js/pages/dashboard2.js"></script>
   </body>
-  <?php
+<?php
   }
 ?>
 </html>

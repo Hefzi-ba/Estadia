@@ -14,6 +14,8 @@ for ($i = 0; $i < count($arreglo); $i++) {
 }
 if (isset($arreglonuevo)) {
     $_SESSION["carrito"] = $arreglonuevo;
+    echo'<script>alert("Deseas eliminar del carrito ?");
+    </script>';
 } else {
     unset($_SESSION["carrito"]);
 }

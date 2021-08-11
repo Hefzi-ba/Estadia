@@ -3,13 +3,14 @@ include "indexad2.php";
 include "conexion/Conexion.php";
 if (isset($_GET["eliminar"])) {
     $sql =
-        "delete from envio where id=" .$_GET["eliminar"] . "";
+        "delete from categoria where id=" .$_GET["eliminar"] . "";
     mysqli_query($conexion, $sql);
 }
-$sql = mysqli_query($conexion, "select * from envio ");
+$sql = mysqli_query($conexion, "select * from categoria ");
 ?>
 <html>
-  <body>
+  
+<body>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -18,26 +19,21 @@ $sql = mysqli_query($conexion, "select * from envio ");
           <div class="col-sm-12">
           <table class="table ">
               <thead class="table-dark">
-              <th class="letrasmenu" scope="col">Texto de envío</th>
-              <th class="letrasmenu" scope="col">Monto</th>
-              
+              <th class="letrasmenu" scope="col">Categoría</th>
               <th class="letrasmenu" scope="col">Editar</th>
-              <th class="letrasmenu" scope="col">eliminar</th>
+              <th class="letrasmenu" scope="col">Eliminar</th>
               
               </thead>
               
                 <?php
                 include "conexion/Conexion.php";
-                $consulta = "select * from  envio ";
+                $consulta = "select * from  categoria ";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                     echo '
                 <tr>
-                  <th class="letrasmenu" scope="row">' .$arreglo["texto_envio"] .'</th>
-                  <th class="letrasmenu" scope="row">' .$arreglo["montoenvio"] .'</th>
-                  
-                  
-                  <td><a type="button" class="btn btn-outline-secondary"  href="Editarenvio.php?id=' .
+                  <th class="letrasmenu" scope="row">' .$arreglo["nombrecategoria"] .'</th>
+                  <td><a type="button" class="btn btn-outline-secondary"  href="Editarcategoria.php?id=' .
                         $arreglo["id"] .'"><i class="fas fa-edit"></i></a></td>
                   <td><a href="#"  onclick="eliminar(' .$arreglo["id"] .')" type="button" class="btn btn-outline-danger" > <i class="fas fa-trash"></i></a></td>
                 </tr>
@@ -56,8 +52,8 @@ $sql = mysqli_query($conexion, "select * from envio ");
   <script>
     function eliminar(id){
       
-      if(confirm("Deseas eliminar este monto?")){
-        window.location="Verenvio.php?eliminar="+id;
+      if(confirm("Deseas eliminar este categoría?")){
+        window.location="Vercategoria.php?eliminar="+id;
       }
     }
   </script>

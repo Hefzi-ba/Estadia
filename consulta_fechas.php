@@ -8,23 +8,10 @@ if (isset($_GET["eliminar"])) {
         "";
     mysqli_query($conexion, $sql);
 }
-$sql = mysqli_query(
-    $conexion,
-    "select * from carrito  where  serviciodomicilio=0 "
-);
+
 ?>
 <html>
-  <head>
-  <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="./css/bootstrap.css" rel="stylesheet">
-    
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+  
   <body>
 
   <br>
@@ -35,7 +22,12 @@ $sql = mysqli_query(
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-          
+          <form method="POST" action="consulta_fechas.php">
+              <input type="date" name="f1" class="letrasmenu ">
+              <input type="date" name="f2" class="letrasmenu ">
+              <input type="submit" class=" letrasmenu btn btn-dark" value="Buscar">
+          </form>
+          <br>
             
           <table class="table table-responsive">
               <thead class="table-dark">
@@ -53,12 +45,12 @@ $sql = mysqli_query(
               
                 <?php
                 include "conexion/Conexion.php";
-                $buscar = "";
-                
+                $f1=$_POST['f1']."00:00:00";
+                $f2=$_POST['f2']."11:59:59";
                 $consulta =
                     
                      "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
-                     carrito.lugar FROM carrito  WHERE serviciodomicilio=0 ";
+                     carrito.lugar FROM carrito  WHERE serviciodomicilio=0 AND fecha BETWEEN '$f1' AND '$f2'";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                     echo '
@@ -104,7 +96,7 @@ $sql = mysqli_query(
     function eliminar(id){
       
       if(confirm("Deseas eliminar esta venta?")){
-        window.location="ventaslocales2.php?eliminar="+id;
+        window.location="ventaslocales4.php?eliminar="+id;
       }
     }
   </script>

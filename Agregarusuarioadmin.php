@@ -1,13 +1,10 @@
-
- 
- 
 <?php
 include "indexad2.php";
 include "conexion/Conexion.php";
 if (isset($_POST["nombreusuario"])) {
     $nombreusuario = $_POST["nombreusuario"];
     $correousuario = $_POST["correousuario"];
-    $contrasena = $_POST["contrasena"];
+    $contrasena = md5($_POST["contrasena"]);
     $tipodeusuario = $_POST["tipodeusuario"];
 
     $sql =
@@ -22,23 +19,22 @@ if (isset($_POST["nombreusuario"])) {
         $tipodeusuario .
         "')";
     mysqli_query($conexion, $sql);
+    if(mysqli_query($conexion, $sql)){
+        echo '<script type="text/javascript">
+        alert("Usuario registrado!");
+        window.location="Verusuarios.php"
+        </script>';
+    }else{
+        echo '<script type="text/javascript">
+        alert("Algo salio mal!");
+        window.location="Verusuarios.php"
+        </script>';
+    }
 }
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link href="./css/bootstrap.css" rel="stylesheet">
-        
-        <link href="./css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="./css/estiloDC.css" rel="stylesheet">
    
-        <title>DarkCube</title>
-    </head>
     <body class="fondologin">
     <br>
     <br>
@@ -74,9 +70,17 @@ if (isset($_POST["nombreusuario"])) {
             </div>
             <div class="form-group">
             
-            <label for="uname" class="ptext">Tipo de Usuario:</label>
-            <input type="text" class="form-control" id="uname" placeholder="Escriba la palabra 'admin'" name="tipodeusuario" required>
             
+            <div class="form-group">
+                    <label  class="ptext">Tipo de usuario:</label>
+                    
+                    
+                    <select type="text" name="tipodeusuario" class="form-select" aria-label="Default select example" 
+                    value='<?php echo $fila["tipodeusuario"]; ?>'>
+                        <option namespace="tipodeusuario" selected>Usuario...</option>
+                        <option namespace="tipodeusuario" value="Administrador">Administrador</option>
+                    </select>
+            </div>
         </div>
            <br>
             

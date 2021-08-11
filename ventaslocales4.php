@@ -3,18 +3,21 @@ include "indexad2.php";
 include "conexion/Conexion.php";
 if (isset($_GET["eliminar"])) {
     $sql =
-        "delete from carrito  where serviciodomicilio=1 and id=" .
+        "delete from carrito  where serviciodomicilio=0 and id=" .
         $_GET["eliminar"] .
         "";
     mysqli_query($conexion, $sql);
 }
 $sql = mysqli_query(
     $conexion,
-    "select * from carrito  where  serviciodomicilio=1 "
+    "select * from carrito  where  serviciodomicilio=0 "
 );
 ?>
 <html>
+ 
+  
   <body>
+
   <br>
     <br>
   <div class="content-wrapper">
@@ -23,9 +26,9 @@ $sql = mysqli_query(
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-          <form method="POST" action="cf_ventasexternas.php">
-              <input type="date" name="f1ve" class="letrasmenu ">
-              <input type="date" name="f2ve" class="letrasmenu ">
+          <form method="POST" action="consulta_fechas.php">
+              <input type="date" name="f1" class="letrasmenu ">
+              <input type="date" name="f2" class="letrasmenu ">
               <input type="submit" class=" letrasmenu btn btn-dark" value="Buscar">
           </form>
           <br>
@@ -51,7 +54,7 @@ $sql = mysqli_query(
                 $consulta =
                     
                      "SELECT carrito.id, carrito.usuario, carrito.fecha, carrito.totalpagar, carrito.idusuario, 
-                     carrito.lugar FROM carrito  WHERE serviciodomicilio=1";
+                     carrito.lugar FROM carrito  WHERE serviciodomicilio=0 ";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                     echo '
@@ -75,7 +78,7 @@ $sql = mysqli_query(
                         $arreglo["totalpagar"] .
                         '</td>
                   
-                  <td class="letrasmenu"><a href="ventasexternas22.php?id='.$arreglo["id"].'"   type="button" class="btn btn-outline-danger" > Consultar</a></td>
+                  <td class="letrasmenu"><a href="ventaslocales22.php?id='.$arreglo["id"].'"   type="button" class="btn btn-outline-danger" > Consultar</a></td>
                   
                   <td class="letrasmenu"><a href="#"  onclick="eliminar(' .
                         $arreglo["id"] .
@@ -97,8 +100,10 @@ $sql = mysqli_query(
     function eliminar(id){
       
       if(confirm("Deseas eliminar esta venta?")){
-        window.location="ventasexternas.php?eliminar="+id;
+        window.location="ventaslocales2.php?eliminar="+id;
       }
     }
   </script>
 </html>
+
+

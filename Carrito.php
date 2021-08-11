@@ -1,7 +1,20 @@
 <?php
-
 session_start();
+if (isset($_SESSION['metodoentrega'])){
+    header("location:./metodoentrega.php");
+
+}
 $usuario = $_SESSION["usuario"];
+
+if ((!isset($_SESSION['carrito'])) && (!isset($_SESSION['id']))) {
+   ?>
+    <script>
+        alert("Su carrito esta vacio.");
+        document.location="./index.php";
+    </script>
+    <?php
+}
+
 if (!isset($usuario)) {
     header("location:./loguin.php");
 } else {
@@ -91,8 +104,6 @@ if (!isset($usuario)) {
     }
     ?>
 <html>
-<head>
-</head>
 <body>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -131,7 +142,7 @@ if (!isset($usuario)) {
     <td class="letrasmenu">
     <div class="input-group mb-3" style="width: 25%;">
         
-        <input type="text" class="form-control textCantidad" value="<?php echo $arreglocarrito[
+        <input type="numbre" class="form-control textCantidad" value="<?php echo $arreglocarrito[
             $i
         ]["cantidad"]; ?>"  
         data-id="<?php echo $arreglocarrito[$i]["id"]; ?>"  
@@ -175,13 +186,10 @@ if (!isset($usuario)) {
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    
+$(document).ready(function(){   
 $(".BotonEliminar").click(function(event){
     event.preventDefault();
-   
     var id=$(this).data('id');
-    
     var boton=$(this);
     $.ajax({
         method:'POST',
@@ -191,6 +199,7 @@ $(".BotonEliminar").click(function(event){
         }
     }).done(function(resultado){
         boton.parent('td').parent('tr').remove();
+        alert("Deseas eliminar el producto?");
         document.location="./carrito.php";
         
     });
@@ -215,7 +224,7 @@ function incrementar(cantidad,precio,id){
         }
     }).done(function(resultado){
        
-        alert(cantidad);
+        
     });
 
 }

@@ -15,6 +15,7 @@ mysqli_query($conexion, $sql);
 $ultimoid = mysqli_insert_id($conexion);
 
 unset($_SESSION["carrito"]);
+unset($_SESSION["metodoentrega"]);
 for ($i = 0; $i < count($arreglo); $i++) {
     $total = $total + $arreglo[$i]["precio"] * $arreglo[$i]["cantidad"];
     //insert into a la tabla donde almacenara los productos

@@ -19,20 +19,27 @@ session_destroy();
         <title>DarkCube</title>
     </head>
     <body class=""> 
+                    
         <form method="POST" action="conexion/validar.php" class="was-validated container" >
+        
             <div class="body"></div>
                 <div class="grad"></div>
                  <div class="header">
                     <div class="letraslogin"><span class="letraslogin">DarkCube</span></div>
+                    
                  </div>
                  <br>
             <div class="login"> 
                 <input type="text"   placeholder=" Usuario" name="usuario"><br>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a class="btn btn-close btn-close-white me-md-2" type="button" href="index.php"></a>
+                    </div>
+                
                 <input type="password" class="form-control"  placeholder="*******" name="contrasena" required><br>
+                
                 <button type="submit" class=" btnx btn btn btn-outline-light">Iniciar sesión!!</button><br><br>
 
-                <a type="button" href="Registro.php" class=" btnx btn btn btn-outline-light">   Registrarse!!  </a><br>
-                <br><a href="index.php"  type="button" class="btn-close btn-close-white" aria-label="Close"> </a><br>    
+                    
             </div>
            <br>     
         </form>   

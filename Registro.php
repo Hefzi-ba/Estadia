@@ -1,10 +1,9 @@
 <?php
-
 include "conexion/Conexion.php";
 if (isset($_POST["nombreusuario"])) {
     $nombreusuario = $_POST["nombreusuario"];
     $correousuario = $_POST["correousuario"];
-    $contrasena = $_POST["contrasena"];
+    $contrasena =md5( $_POST["contrasena"]);
     $ciudad = $_POST["ciudad"];
     $calles = $_POST["calles"];
     $domicilio = $_POST["domicilio"];
@@ -32,6 +31,11 @@ if (isset($_POST["nombreusuario"])) {
         $telefono .
         "')";
     mysqli_query($conexion, $sql);
+    if(mysqli_query($conexion, $sql)){
+        echo "<script>alert('Usuario registrado: $nombreusuario')window.location='index.php'</script>";
+    }else{
+        echo "<script>alert('Usuario no registrado')</script>";
+    }
 }
 ?>
 <!DOCTYPE html>

@@ -62,9 +62,6 @@ if (isset($_POST["titulofooter"])) {
 <html lang="en">
   
     <body >
-       
-    <br>
-    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

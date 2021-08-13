@@ -17,6 +17,14 @@ $sql = mysqli_query($conexion, "select * from categoria ");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
+          <nav class="navbar navbar-light bg-light">
+              <div class="container-fluid">
+                <form class="d-flex" action="Vercategoria.php" method="POST">
+                  <input class="form-control me-2 letrasmenu" type="text" name="buscar" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-dark letrasmenu" type="submit">Buscar</button>
+                </form>
+              </div>
+            </nav>
           <table class="table ">
               <thead class="table-dark">
               <th class="letrasmenu" scope="col">Categoría</th>
@@ -27,7 +35,11 @@ $sql = mysqli_query($conexion, "select * from categoria ");
               
                 <?php
                 include "conexion/Conexion.php";
-                $consulta = "select * from  categoria ";
+                $buscar = "";
+                if (isset($_POST["buscar"])) {
+                    $buscar = $_POST["buscar"];
+                }
+                $consulta = "select * from  categoria where nombrecategoria like '%" .$buscar ."%' ";
                 $respuesta = mysqli_query($conexion, $consulta);
                 while ($arreglo = mysqli_fetch_array($respuesta)) {
                     echo '

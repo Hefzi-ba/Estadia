@@ -39,9 +39,6 @@ if (isset($_POST["titular"])) {
 <html lang="en">
     
     <body >
-       
-    <br>
-    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

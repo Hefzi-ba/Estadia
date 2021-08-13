@@ -63,7 +63,7 @@
   <nav >
               <?php
               $page_query =
-                  "SELECT * FROM ropa WHERE categoria= 'Bolsos' ORDER BY id DESC";
+                  "SELECT * FROM ropa WHERE categoria='Figuras' ORDER BY id DESC";
               $page_result = mysqli_query($conexion, $page_query);
               $total_record = mysqli_num_rows($page_result);
               $total_pages = ceil($total_record / $record_per_page);
@@ -94,7 +94,7 @@
                       "'>>></a>";
                   echo "<a class ='pagina  btn btn-outline-dark' href='Bolsos.php?pagina=" .
                       $total_pages .
-                      "'>Ultima</a>";
+                      "'>Última</a>";
               }
               ?>
   </nav> 

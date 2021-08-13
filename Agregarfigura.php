@@ -51,9 +51,6 @@ if (isset($_POST["nombre"])) {
 <html lang="en">
     
     <body >
-       
-    <br>
-    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -61,7 +58,7 @@ if (isset($_POST["nombre"])) {
         <div class="row mb-2">
           <div class="col-sm-6">
             <form action="Agregarfigura.php"  method="POST" enctype="multipart/form-data" class=" container form">
-            <h1 class="ptext" >Registro de una nieva figura.</h1> 
+            <h1 class="ptext" >Registro de una nueva figura.</h1> 
                 <div class="form-group">
                 
                     <label  class="ptext">Codigo:</label>

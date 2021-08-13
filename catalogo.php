@@ -76,8 +76,8 @@
               }
               $end_loop = $start_loop + 4;
               if ($pagina > 1) {
-                  echo "<a  class ='pagina btn btn-outline-dark' href='Bolsos.php?pagina=1'>Primera</a>";
-                  echo "<a class ='pagina btn btn-outline-dark' href='Bolsos.php?pagina=" .
+                  echo "<a  class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=1'>Primera</a>";
+                  echo "<a class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=" .
                       ($pagina - 1) .
                       "'><<</a>";
               }
@@ -96,7 +96,7 @@
                       "'>>></a>";
                   echo "<a class ='pagina  btn btn-outline-dark' href='catalogo.php?pagina=" .
                       $total_pages .
-                      "'>Ultima</a>";
+                      "'>Última</a>";
               }
               ?>
   </nav> 

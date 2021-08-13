@@ -5,9 +5,6 @@ include("indexad2.php");
 
 <body>
     
-    <br>
-    <br>
-    
 
      <!--include "Menuadmin2.php"-->
 <div class="content-wrapper">

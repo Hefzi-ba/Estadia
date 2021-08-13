@@ -36,8 +36,6 @@ if (isset($_POST["nombreusuario"])) {
 <html lang="en">
    
     <body class="fondologin">
-    <br>
-    <br>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

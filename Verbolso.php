@@ -13,9 +13,6 @@ $sql = mysqli_query($conexion, "select * from ropa where categoria='Bolsos'");
 <html>
   
   <body>
-
-  <br>
-    <br>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

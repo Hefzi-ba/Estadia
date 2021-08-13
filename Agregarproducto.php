@@ -55,10 +55,7 @@ if (isset($_POST["nombre"])) {
 
 <html lang="en">
   
-    <body >
-       
-    <br>
-    <br>
+    <body>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

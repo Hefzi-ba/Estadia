@@ -17,9 +17,6 @@ $sql = mysqli_query(
  
   
   <body>
-
-  <br>
-    <br>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

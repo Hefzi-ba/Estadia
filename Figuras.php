@@ -74,14 +74,14 @@
               }
               $end_loop = $start_loop + 4;
               if ($pagina > 1) {
-                  echo "<a  class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=1'>Primera</a>";
-                  echo "<a class ='pagina btn btn-outline-dark' href='ctalogo.php?pagina=" .
+                  echo "<a  class ='pagina btn btn-outline-dark' href='Figuras.php?pagina=1'>Primera</a>";
+                  echo "<a class ='pagina btn btn-outline-dark' href='Figuras.php?pagina=" .
                       ($pagina - 1) .
                       "'><<</a>";
               }
               for ($i = $start_loop; $i <= $end_loop + 1; $i++) {
                   if ($i > 0) {
-                      echo "<a class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=" .
+                      echo "<a class ='pagina btn btn-outline-dark' href='Figuras.php?pagina=" .
                           $i .
                           "'>" .
                           $i .
@@ -89,12 +89,12 @@
                   }
               }
               if ($pagina <= $end_loop) {
-                  echo "<a class ='pagina btn btn-outline-dark' href='catalogo.php?pagina=" .
+                  echo "<a class ='pagina btn btn-outline-dark' href='Figuras.php?pagina=" .
                       ($pagina + 1) .
                       "'>>></a>";
-                  echo "<a class ='pagina  btn btn-outline-dark' href='catalogo.php?pagina=" .
+                  echo "<a class ='pagina  btn btn-outline-dark' href='Figuras.php?pagina=" .
                       $total_pages .
-                      "'>Ultima</a>";
+                      "'>Última</a>";
               }
               ?>
   </nav> 

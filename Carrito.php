@@ -4,16 +4,20 @@ if (isset($_SESSION['metodoentrega'])){
     header("location:./metodoentrega.php");
 
 }
-$usuario = $_SESSION["usuario"];
 
-if ((!isset($_SESSION['carrito'])) && (!isset($_SESSION['id']))) {
-   ?>
-    <script>
-        alert("Su carrito esta vacio.");
-        document.location="./index.php";
-    </script>
-    <?php
-}
+
+
+    if (((!isset($_SESSION['carrito'])) && (!isset($_GET['id'])))) {
+    ?>
+        <script>
+            alert("Su carrito esta vacio.");
+            document.location="./index.php";
+        </script>
+        <?php
+    }
+
+
+$usuario = $_SESSION["usuario"];
 
 if (!isset($usuario)) {
     header("location:./loguin.php");
@@ -142,12 +146,13 @@ if (!isset($usuario)) {
     <td class="letrasmenu">
     <div class="input-group mb-3" style="width: 25%;">
         
-        <input type="numbre" class="form-control textCantidad" value="<?php echo $arreglocarrito[
+        <input type="number" class="form-control textCantidad" value="<?php echo $arreglocarrito[
             $i
         ]["cantidad"]; ?>"  
         data-id="<?php echo $arreglocarrito[$i]["id"]; ?>"  
         data-precio="<?php echo $arreglocarrito[$i]["precio"]; ?>"
           aria-label="Example text with two button addons">
+        
         
        
     </div>
@@ -208,7 +213,9 @@ $(".textCantidad").keyup(function(){
 var cantidad=$(this).val();
 var precio=$(this).data('precio');
 var id=$(this).data('id');
-
+if(cantidad==""){
+    cantidad=0;
+}
 incrementar(cantidad,precio,id);
 });
 function incrementar(cantidad,precio,id){
@@ -223,7 +230,7 @@ function incrementar(cantidad,precio,id){
             cantidad:cantidad
         }
     }).done(function(resultado){
-       
+       window.location="./Carrito.php";
         
     });
 

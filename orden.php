@@ -25,9 +25,10 @@ $preference = new MercadoPago\Preference();
 
 //...
 $preference->back_urls = array(
-    "success" => "http://localhost:8888/DC/metodoentrega.php",
-    "failure" => "https://localhost:8888/DC/errorpago?error=fallure",
-    "pending" => "https://localhost:8888/DC/errorpago?error=pending"
+    "success" => "http://localhost:8888/DC2/Estadia/metodoentrega.php",
+    
+    "failure" => "https://localhost:8888/DC2/Estadia/errorpago?error=fallure",
+    "pending" => "https://localhost:8888/DC2/Estadia/errorpago?error=pending"
 );
 $preference->auto_return = "approved";
 // ...
@@ -79,7 +80,7 @@ $preference->save();
         
         
         
-        <form action="http://localhost:8888/DC/metodoentrega.php" method="POST">
+        <form action="http://localhost:8888/DC2/Estadia/metodoentrega.php" method="POST">
         <!-- el action del form debe mandar a donde inserta la base de datos la compra 
         y cuando se suba a algun servidor hay subirlo con el dominio-->
             <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
